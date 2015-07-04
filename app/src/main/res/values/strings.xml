@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">Dining Courts at Purdue</string>
+    <string name="app_name">Dining Courts</string>
     <string name="conn_error">Failed to connect to Purdue Housing and Food Services</string>
+    <string name="closed">Closed</string>
+
+    <string name="action_previous">Previous Day</string>
+    <string name="action_today">Today</string>
+    <string name="action_next">Next Day</string>
 </resources>

@@ -39,25 +39,28 @@ public class MenuFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_menu, container, false)
+        view.title.setText(location.toString() + " Dining Court")
         view.swipeRefresh.setColorSchemeResources(R.color.accent)
         view.swipeRefresh.setOnRefreshListener({ refreshData(view) })
         view.swipeRefresh.post({ refreshData(view) })
         return view
     }
 
-    private fun refreshData(parent: View) {
+    public fun refreshData(parent: View) {
         parent.swipeRefresh.setRefreshing(true);
 
-        val activity = getActivity()
-        ServiceHandler.getLocationInfo(location, if (activity is MenuActivity) activity.date else Date()) { info ->
+        val activity = getActivity() as MenuActivity
+        val date = activity.date
 
-            parent.title.setText(location.toString() + " Dining Court")
+        ServiceHandler.getLocationInfo(location, date) { info ->
             Log.v("LocationInfo", info.toString())
 
             if (info == null) {
                 Toast.makeText(getActivity(), R.string.conn_error, Toast.LENGTH_SHORT).show()
-            } else {
-                parent.timestamp.setText(SimpleDateFormat("MMM d yyyy").format(info.date));
+                parent.swipeRefresh.setRefreshing(false);
+            } else if (info.date.equals(activity.date)) {
+                parent.timestamp.setText(SimpleDateFormat("E MMM d, yyyy").format(info.date.getTime()));
+                var closed = true
 
                 hashMapOf(
                         "Breakfast" to parent.breakfast,
@@ -65,23 +68,22 @@ public class MenuFragment : Fragment() {
                         "Dinner" to parent.dinner
                 ).forEach { pair ->
                     val mealMenu: LocationInfo.MealMenu? = info.menu[pair.key]
-                    if (mealMenu != null) {
+                    if (mealMenu != null && mealMenu.stations.size() > 0) {
+                        closed = false
                         val card = MenuCard(getActivity(), mealMenu)
                         val header = CardHeader(getActivity())
                         header.setTitle(pair.key)
                         card.addCardHeader(header)
                         pair.value.setCard(card)
                         pair.value.setVisibility(View.VISIBLE)
+                    } else {
+                        pair.value.setVisibility(View.GONE)
                     }
                 }
+                parent.closed.setVisibility(if (closed) View.VISIBLE else View.GONE)
+                parent.swipeRefresh.setRefreshing(false);
             }
-
-            parent.swipeRefresh.setRefreshing(false);
         }
-    }
-
-    public interface MenuActivity {
-        val date: Date
     }
 
     companion object {

@@ -5,9 +5,9 @@ import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import java.util.*
 
-public data class LocationInfo(val location: DiningLocation, val date: Date, val menu: Map<String, LocationInfo.MealMenu>) {
+public data class LocationInfo(val location: DiningLocation, val date: Calendar, val menu: Map<String, LocationInfo.MealMenu>) {
 
-    constructor(location: DiningLocation, date: Date, json: JSONObject) : this(location, date, linkedMapOf(
+    constructor(location: DiningLocation, date: Calendar, json: JSONObject) : this(location, date, linkedMapOf(
             "Breakfast" to MealMenu(json["Breakfast"] as JSONArray),
             "Lunch" to MealMenu(json["Lunch"] as JSONArray),
             "Dinner" to MealMenu(json["Dinner"] as JSONArray)

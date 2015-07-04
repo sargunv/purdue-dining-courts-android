@@ -15,9 +15,9 @@ import java.util.*
 
 public object ServiceHandler {
 
-    public fun getLocationInfo(location: DiningLocation, date: Date, callback: (LocationInfo?) -> Unit) {
+    public fun getLocationInfo(location: DiningLocation, date: Calendar, callback: (LocationInfo?) -> Unit) {
         val locationArg = location.toString()
-        val dateArg = SimpleDateFormat("MM-dd-yyyy").format(date)
+        val dateArg = SimpleDateFormat("MM-dd-yyyy").format(date.getTime())
         val task = ServiceTask({ callback(if (it != null) LocationInfo(location, date, it) else null) })
         task.execute("http://api.hfs.purdue.edu/menus/v1/locations/${locationArg}/${dateArg}")
     }
