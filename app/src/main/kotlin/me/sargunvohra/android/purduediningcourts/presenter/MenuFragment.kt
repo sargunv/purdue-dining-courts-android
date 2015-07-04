@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts
+package me.sargunvohra.android.purduediningcourts.presenter
 
 import android.app.Activity
 import android.net.Uri
@@ -15,6 +15,11 @@ import it.gmariotti.cardslib.library.internal.Card
 import it.gmariotti.cardslib.library.internal.CardHeader
 
 import kotlinx.android.synthetic.fragment_menu.view.*
+import me.sargunvohra.android.purduediningcourts.view.MenuCard
+import me.sargunvohra.android.purduediningcourts.R
+import me.sargunvohra.android.purduediningcourts.model.DiningLocation
+import me.sargunvohra.android.purduediningcourts.model.LocationInfo
+import me.sargunvohra.android.purduediningcourts.model.ServiceHandler
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import java.text.SimpleDateFormat

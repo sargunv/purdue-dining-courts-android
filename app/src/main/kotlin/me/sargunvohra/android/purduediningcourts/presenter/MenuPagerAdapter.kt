@@ -1,8 +1,10 @@
-package me.sargunvohra.android.purduediningcourts
+package me.sargunvohra.android.purduediningcourts.presenter
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import me.sargunvohra.android.purduediningcourts.model.DiningLocation
+import me.sargunvohra.android.purduediningcourts.presenter.MenuFragment
 
 import java.util.ArrayList
 import java.util.Collections

@@ -1,5 +1,6 @@
-package me.sargunvohra.android.purduediningcourts
+package me.sargunvohra.android.purduediningcourts.model
 
+import me.sargunvohra.android.purduediningcourts.model.DiningLocation
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import java.util.*

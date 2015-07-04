@@ -1,8 +1,10 @@
-package me.sargunvohra.android.purduediningcourts
+package me.sargunvohra.android.purduediningcourts.model
 
 import android.os.AsyncTask
 import android.util.Log
 import com.github.kevinsawicki.http.HttpRequest
+import me.sargunvohra.android.purduediningcourts.model.DiningLocation
+import me.sargunvohra.android.purduediningcourts.model.LocationInfo
 import org.json.simple.JSONObject
 import org.json.simple.JSONValue
 import org.json.simple.parser.JSONParser

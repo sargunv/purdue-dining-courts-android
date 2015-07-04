@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts
+package me.sargunvohra.android.purduediningcourts.presenter
 
 import android.net.Uri
 import android.os.Bundle
@@ -12,6 +12,9 @@ import io.karim.MaterialTabs
 
 import kotlinx.android.synthetic.activity_main.*
 import kotlinx.android.synthetic.toolbar.*
+import me.sargunvohra.android.purduediningcourts.presenter.MenuFragment
+import me.sargunvohra.android.purduediningcourts.presenter.MenuPagerAdapter
+import me.sargunvohra.android.purduediningcourts.R
 import java.util.*
 
 

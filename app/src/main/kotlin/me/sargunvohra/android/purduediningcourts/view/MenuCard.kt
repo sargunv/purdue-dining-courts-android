@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts
+package me.sargunvohra.android.purduediningcourts.view
 
 import android.content.Context
 import android.text.Html
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import it.gmariotti.cardslib.library.internal.Card
 import kotlinx.android.synthetic.card_menu_content.view.card_content
+import me.sargunvohra.android.purduediningcourts.R
+import me.sargunvohra.android.purduediningcourts.model.LocationInfo
 
 public class MenuCard(context: Context, val menu: LocationInfo.MealMenu) : Card(context, R.layout.card_menu_content) {
 
