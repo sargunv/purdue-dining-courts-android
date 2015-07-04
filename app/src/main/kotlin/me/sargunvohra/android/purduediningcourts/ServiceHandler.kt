@@ -13,14 +13,14 @@ import java.util.*
 
 public object ServiceHandler {
 
-    public fun getLocationInfo(location: DiningLocation, date: Date, callback: (JSONObject) -> Unit) {
-        val task = ServiceTask(callback)
+    public fun getLocationInfo(location: DiningLocation, date: Date, callback: (LocationInfo?) -> Unit) {
         val locationArg = location.toString()
         val dateArg = SimpleDateFormat("MM-dd-yyyy").format(date)
+        val task = ServiceTask({ callback(if (it != null) LocationInfo(location, date, it) else null) })
         task.execute("http://api.hfs.purdue.edu/menus/v1/locations/${locationArg}/${dateArg}")
     }
 
-    private class ServiceTask(callback: (JSONObject) -> Unit) : AsyncTask<String, String, JSONObject>() {
+    private class ServiceTask(callback: (JSONObject?) -> Unit) : AsyncTask<String, String, JSONObject>() {
         val callback = callback
 
         override fun doInBackground(vararg params: String?): JSONObject? {
@@ -31,7 +31,6 @@ public object ServiceHandler {
                 if (request.ok()) {
                     Log.i("ServiceHandler", "Request succeeded from ${url}")
                     val data = JSONValue.parse(request.reader()) as JSONObject
-                    Log.v("ServiceHandler", "From ${url} parsed response ${data}")
                     return data
                 } else {
                     Log.e("ServiceHandler", "Request is not ok! Code ${request.code()}")
@@ -47,12 +46,7 @@ public object ServiceHandler {
         }
 
         override fun onPostExecute(result: JSONObject?) {
-            if (result != null)
-                callback(result)
-            else
-                throw ServiceException()
+            callback(result)
         }
     }
-
-    public class ServiceException : RuntimeException()
 }

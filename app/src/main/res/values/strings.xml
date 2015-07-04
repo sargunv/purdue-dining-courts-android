@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Dining Courts at Purdue</string>
+    <string name="conn_error">Failed to connect to Purdue Housing and Food Services</string>
 </resources>

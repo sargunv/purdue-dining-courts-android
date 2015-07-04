@@ -12,20 +12,23 @@ import io.karim.MaterialTabs
 
 import kotlinx.android.synthetic.activity_main.*
 import kotlinx.android.synthetic.toolbar.*
+import java.util.*
 
 
-public class MainActivity : AppCompatActivity() {
+public class MainActivity : AppCompatActivity(), MenuFragment.MenuActivity {
+    override val date: Date = Date()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super<AppCompatActivity>.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         pager.setAdapter(MenuPagerAdapter(getSupportFragmentManager()))
         tabs.setViewPager(pager)
+        pager.setOffscreenPageLimit(5)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        super.onCreateOptionsMenu(menu)
+        super<AppCompatActivity>.onCreateOptionsMenu(menu)
         getMenuInflater().inflate(R.menu.menu_main, menu)
         return true
     }
