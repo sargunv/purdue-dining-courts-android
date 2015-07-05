@@ -5,7 +5,7 @@
 
     <item android:id="@+id/action_previous"
         android:title="@string/action_previous"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:icon="@drawable/ic_navigate_before_white_24dp"/>
 
     <item android:id="@+id/action_today"
@@ -15,6 +15,6 @@
 
     <item android:id="@+id/action_next"
         android:title="@string/action_next"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:icon="@drawable/ic_navigate_next_white_24dp"/>
 </menu>
