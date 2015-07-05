@@ -17,24 +17,22 @@ import it.gmariotti.cardslib.library.internal.CardHeader
 import kotlinx.android.synthetic.fragment_menu.view.*
 import me.sargunvohra.android.purduediningcourts.view.MenuCard
 import me.sargunvohra.android.purduediningcourts.R
-import me.sargunvohra.android.purduediningcourts.model.DiningLocation
-import me.sargunvohra.android.purduediningcourts.model.LocationInfo
-import me.sargunvohra.android.purduediningcourts.model.ServiceHandler
-import org.json.simple.JSONArray
-import org.json.simple.JSONObject
+import me.sargunvohra.android.purduediningcourts.model.DiningCourt
+import me.sargunvohra.android.purduediningcourts.model.DiningCourtMenu
+import me.sargunvohra.android.purduediningcourts.model.DiningCourtService
 import java.text.SimpleDateFormat
 import java.util.*
 
 public class MenuFragment : Fragment() {
 
-    public var location: DiningLocation = DiningLocation.values()[0]
+    public var location: DiningCourt = DiningCourt.values()[0]
         private set
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val args = getArguments()
         if (args != null) {
-            location = DiningLocation.values()[args.getInt(ARG_LOCATION)]
+            location = DiningCourt.values()[args.getInt(ARG_LOCATION)]
         }
     }
 
@@ -44,28 +42,28 @@ public class MenuFragment : Fragment() {
         return view
     }
 
-    public fun loadData(info: LocationInfo) {
+    public fun loadData(date: Calendar, info: DiningCourtMenu) {
         val view = getView()
 
-        view.timestamp.setText(SimpleDateFormat("E MMM d, yyyy").format(info.date.getTime()));
+        view.timestamp.setText(SimpleDateFormat("E MMM d, yyyy").format(date.getTime()));
         var closed = true
 
-        hashMapOf(
-                "Breakfast" to view.breakfast,
-                "Lunch" to view.lunch,
-                "Dinner" to view.dinner
-        ).forEach { pair ->
-            val mealMenu: LocationInfo.MealMenu? = info.menu[pair.key]
-            if (mealMenu != null && mealMenu.stations.size() > 0) {
+        listOf(
+                Triple("Breakfast", info.breakfast, view.breakfast),
+                Triple("Lunch", info.lunch, view.lunch),
+                Triple("Dinner", info.dinner, view.dinner)
+        ).forEach { triple ->
+            val mealMenu = triple.second
+            if (mealMenu.size() > 0) {
                 closed = false
                 val card = MenuCard(getActivity(), mealMenu)
                 val header = CardHeader(getActivity())
-                header.setTitle(pair.key)
+                header.setTitle(triple.first)
                 card.addCardHeader(header)
-                pair.value.setCard(card)
-                pair.value.setVisibility(View.VISIBLE)
+                triple.third.setCard(card)
+                triple.third.setVisibility(View.VISIBLE)
             } else {
-                pair.value.setVisibility(View.GONE)
+                triple.third.setVisibility(View.GONE)
             }
         }
         view.closed.setVisibility(if (closed) View.VISIBLE else View.GONE)
@@ -74,7 +72,7 @@ public class MenuFragment : Fragment() {
     companion object {
         private val ARG_LOCATION = "location"
 
-        public fun newInstance(location: DiningLocation): MenuFragment {
+        public fun newInstance(location: DiningCourt): MenuFragment {
             val fragment = MenuFragment()
             val args = Bundle()
             args.putInt(ARG_LOCATION, location.ordinal())

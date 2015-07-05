@@ -1,5 +1,5 @@
 package me.sargunvohra.android.purduediningcourts.model
 
-public enum class DiningLocation {
+public enum class DiningCourt {
     Earhart, Ford, Hillenbrand, Wiley, Windsor
 }
