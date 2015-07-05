@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.view
+package me.sargunvohra.android.purduediningcourts
 
 import android.content.Context
 import android.support.v4.widget.SwipeRefreshLayout

@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.view
+package me.sargunvohra.android.purduediningcourts
 
 import android.app.Activity
 import android.net.Uri
@@ -19,7 +19,7 @@ import me.sargunvohra.android.purduediningcourts.view.MenuCard
 import me.sargunvohra.android.purduediningcourts.R
 import me.sargunvohra.android.purduediningcourts.model.DiningCourt
 import me.sargunvohra.android.purduediningcourts.model.DiningCourtMenu
-import me.sargunvohra.android.purduediningcourts.model.DiningCourtService
+import me.sargunvohra.android.purduediningcourts.network.DiningCourtService
 import java.text.SimpleDateFormat
 import java.util.*
 

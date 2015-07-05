@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.view
+package me.sargunvohra.android.purduediningcourts
 
 import android.app.DatePickerDialog
 import android.app.Dialog

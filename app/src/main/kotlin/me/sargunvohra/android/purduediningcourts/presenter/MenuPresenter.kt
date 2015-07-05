@@ -2,7 +2,7 @@ package me.sargunvohra.android.purduediningcourts.presenter
 
 import me.sargunvohra.android.purduediningcourts.model.DiningCourt
 import me.sargunvohra.android.purduediningcourts.model.DiningCourtMenu
-import me.sargunvohra.android.purduediningcourts.model.DiningCourtService
+import me.sargunvohra.android.purduediningcourts.network.DiningCourtService
 import retrofit.Callback
 import retrofit.RetrofitError
 import retrofit.client.Response

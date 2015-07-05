@@ -1,8 +1,9 @@
-package me.sargunvohra.android.purduediningcourts.model
+package me.sargunvohra.android.purduediningcourts.network
 
 import android.os.AsyncTask
 import android.util.Log
 import me.sargunvohra.android.purduediningcourts.model.DiningCourt
+import me.sargunvohra.android.purduediningcourts.model.DiningCourtMenu
 import retrofit.Callback
 import retrofit.RestAdapter
 import retrofit.http.GET

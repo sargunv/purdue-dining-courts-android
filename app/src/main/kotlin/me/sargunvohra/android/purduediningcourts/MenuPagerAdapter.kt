@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.view
+package me.sargunvohra.android.purduediningcourts
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager

@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.view
+package me.sargunvohra.android.purduediningcourts.activity
 
 import android.app.DatePickerDialog
 import android.app.FragmentManager
@@ -23,13 +23,13 @@ import kotlinx.android.synthetic.toolbar.*
 import kotlinx.android.synthetic.fragment_menu.view.*
 
 import me.sargunvohra.android.purduediningcourts.view.MenuFragment
-import me.sargunvohra.android.purduediningcourts.view.MenuPagerAdapter
+import me.sargunvohra.android.purduediningcourts.MenuPagerAdapter
 import me.sargunvohra.android.purduediningcourts.R
 import me.sargunvohra.android.purduediningcourts.model.DiningCourt
 import me.sargunvohra.android.purduediningcourts.model.DiningCourtMenu
-import me.sargunvohra.android.purduediningcourts.model.DiningCourtService
+import me.sargunvohra.android.purduediningcourts.network.DiningCourtService
 import me.sargunvohra.android.purduediningcourts.presenter.MenuPresenter
-import me.sargunvohra.android.purduediningcourts.view.AboutActivity
+import me.sargunvohra.android.purduediningcourts.activity.AboutActivity
 import me.sargunvohra.android.purduediningcourts.view.DatePickerFragment
 import retrofit.Callback
 import retrofit.RetrofitError

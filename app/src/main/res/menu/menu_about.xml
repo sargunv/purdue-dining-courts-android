@@ -1,6 +1,6 @@
 <menu
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="me.sargunvohra.android.purduediningcourts.view.AboutActivity">
+    tools:context="me.sargunvohra.android.purduediningcourts.activity.AboutActivity">
 
 
 
