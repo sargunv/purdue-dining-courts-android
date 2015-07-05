@@ -14,8 +14,17 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".presenter.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".presenter.MenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.sargunvohra.android.purduediningcourts.presenter.MenuActivity" />
         </activity>
     </application>
 

@@ -3,6 +3,7 @@ package me.sargunvohra.android.purduediningcourts.presenter
 import android.app.DatePickerDialog
 import android.app.FragmentManager
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Debug
@@ -32,10 +33,10 @@ import retrofit.RetrofitError
 import retrofit.client.Response
 import java.util.*
 
-
 public class MenuActivity : AppCompatActivity() {
     private val date: Calendar = Calendar.getInstance()
     private val menuFragments: MutableList<MenuFragment> = ArrayList()
+
     private var refreshing = 0
         set(value) {
             if (value < 0)
@@ -100,7 +101,7 @@ public class MenuActivity : AppCompatActivity() {
                 picker.show(getSupportFragmentManager(), "datePicker")
             }
             R.id.action_about -> {
-                Toast.makeText(this, R.string.unimplemented, Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, javaClass<AboutActivity>()))
             }
             else -> {
                 return super<AppCompatActivity>.onOptionsItemSelected(item)

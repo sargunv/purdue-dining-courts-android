@@ -1,8 +1,24 @@
 <resources>
+    <string name="app_about">
+        <![CDATA[
+        <h2>About</h2>
+
+        <p>A simple app to view the daily menus for the dining courts at Purdue University. This app
+        is open source. Pull requests are welcome.</p>
+
+        <p><a href="https://github.com/sargunster/purdue-dining-courts-android">View on Github</a></p>
+
+        <p><a href="https://play.google.com/store/apps/details?id=me.sargunvohra.android.purduediningcourts">View on Play Store</a></p>
+        ]]>
+    </string>
+
     <string name="app_name">Dining Courts</string>
+    <string name="app_name_long">Dining Courts at Purdue</string>
     <string name="conn_error">Failed to connect to Purdue Housing and Food Services</string>
     <string name="closed">Closed</string>
     <string name="unimplemented">This feature is coming soon</string>
+
+    <string name="title_activity_about">About</string>
 
     <string name="action_previous">Previous Day</string>
     <string name="action_today">Today</string>
