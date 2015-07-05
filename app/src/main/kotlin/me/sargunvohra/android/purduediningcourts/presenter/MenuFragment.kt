@@ -25,6 +25,9 @@ import java.util.*
 
 public class MenuFragment : Fragment() {
 
+    public var topView: View? = null
+        private set
+
     public var location: DiningCourt = DiningCourt.values()[0]
         private set
 
@@ -37,13 +40,13 @@ public class MenuFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.fragment_menu, container, false)
-        view.title.setText(location.toString() + " Dining Court")
-        return view
+        topView = inflater!!.inflate(R.layout.fragment_menu, container, false)
+        topView!!.title.setText(location.toString() + " Dining Court")
+        return topView
     }
 
     public fun loadData(date: Calendar, info: DiningCourtMenu) {
-        val view = getView()
+        val view = topView ?: getView()
 
         view.timestamp.setText(SimpleDateFormat("E MMM d, yyyy").format(date.getTime()));
         var closed = true

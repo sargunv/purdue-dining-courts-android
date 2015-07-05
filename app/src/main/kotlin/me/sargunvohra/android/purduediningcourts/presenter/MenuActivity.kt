@@ -4,6 +4,7 @@ import android.app.FragmentManager
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.os.Debug
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
@@ -52,8 +53,16 @@ public class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        pager.setAdapter(MenuPagerAdapter(getSupportFragmentManager()))
+        val adapter = MenuPagerAdapter(getSupportFragmentManager())
+
+        pager.setAdapter(adapter)
         pager.setOffscreenPageLimit(5)
+        pager.addOnPageChangeListener(object: ViewPager.SimpleOnPageChangeListener() {
+            override fun onPageSelected(pos: Int) {
+                swipeRefresh.target = pager.getChildAt(pos)
+            }
+        })
+        swipeRefresh.post { swipeRefresh.target = pager.getChildAt(0) }
 
         tabs.setViewPager(pager)
 
@@ -110,7 +119,7 @@ public class MenuActivity : AppCompatActivity() {
 
                 override fun failure(error: RetrofitError?) {
                     Log.e("Service", error?.getMessage())
-                    Toast.makeText(context, R.string.conn_error, Toast.LENGTH_SHORT)
+                    Toast.makeText(context, R.string.conn_error, Toast.LENGTH_SHORT).show()
                     --refreshing
                 }
             })
