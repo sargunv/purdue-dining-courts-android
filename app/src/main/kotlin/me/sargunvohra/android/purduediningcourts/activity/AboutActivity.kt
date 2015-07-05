@@ -31,7 +31,9 @@ public class AboutActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.getItemId()) {
+            android.R.id.home -> finish()
             else -> return super.onOptionsItemSelected(item)
         }
+        return true
     }
 }
