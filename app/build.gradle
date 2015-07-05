@@ -32,10 +32,10 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:support-v4:22.2.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'io.karim:materialtabs:2.0.2'
     compile 'com.github.gabrielemariotti.cards:cardslib-core:2.1.0'
     compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.1.0'
-    compile 'com.squareup.retrofit:retrofit:1.9.0'
 }
 buildscript {
     ext.kotlin_version = '0.12.613'

@@ -22,7 +22,7 @@
         android:elevation="4dp"
         tools:ignore="UnusedAttribute" />
 
-    <me.sargunvohra.android.purduediningcourts.view.MenuSwipeRefreshLayout
+    <me.sargunvohra.android.purduediningcourts.MenuSwipeRefreshLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/swipeRefresh"
         android:layout_height="wrap_content"
@@ -33,6 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp" />
 
-    </me.sargunvohra.android.purduediningcourts.view.MenuSwipeRefreshLayout>
+    </me.sargunvohra.android.purduediningcourts.MenuSwipeRefreshLayout>
 
 </LinearLayout>

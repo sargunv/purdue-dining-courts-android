@@ -15,7 +15,7 @@ import it.gmariotti.cardslib.library.internal.Card
 import it.gmariotti.cardslib.library.internal.CardHeader
 
 import kotlinx.android.synthetic.fragment_menu.view.*
-import me.sargunvohra.android.purduediningcourts.view.MenuCard
+import me.sargunvohra.android.purduediningcourts.MenuCard
 import me.sargunvohra.android.purduediningcourts.R
 import me.sargunvohra.android.purduediningcourts.model.DiningCourt
 import me.sargunvohra.android.purduediningcourts.model.DiningCourtMenu

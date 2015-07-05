@@ -1,16 +1,41 @@
 <resources>
     <string name="app_about">
         <![CDATA[
-        <h2>About</h2>
+        <h1>About</h1>
 
         <p>A simple app to view the daily menus for the dining courts at Purdue University. This app
         is open source. Pull requests are welcome.</p>
 
         <p><a href="https://github.com/sargunster/purdue-dining-courts-android">View on Github</a></p>
-
         <p><a href="https://play.google.com/store/apps/details?id=me.sargunvohra.android.purduediningcourts">View on Play Store</a></p>
+
+        <h1>API</h1>
+        <p>This app uses the Purdue dining menus API. Information on this API can be found on <a href="http://tyhoffman.com/blog/2013/04/purdue-dining-court-api/">this page</a>.</p>
+
+        <h1>Licenses</h1>
+
+        <h2>Kotlin</h2>
+        <p>Copyright 2010-2015 JetBrains s.r.o and respective authors and developers</p>
+        <p><a href="http://kotlinlang.org/">Official website</a></p>
+        <p><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache license</a></p>
+
+        <h2>Retrofit</h2>
+        <p>Copyright 2013 Square, Inc.</p>
+        <p><a href="http://square.github.io/retrofit/">Official website</a></p>
+        <p><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache license</a></p>
+
+        <h2>MaterialTabs</h2>
+        <p>Copyright 2015 Karim Frenn</p>
+        <p><a href="https://github.com/pizza/MaterialTabs">GitHub repository</a></p>
+        <p><a href="https://raw.githubusercontent.com/pizza/MaterialTabs/master/LICENSE.md">MIT license</a></p>
+
+        <h2>Card Library</h2>
+        <p>Copyright 2013-2014 Gabriele Mariotti</p>
+        <p><a href="https://github.com/gabrielemariotti/cardslib">GitHub repository</a></p>
+        <p><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache license</a></p>
         ]]>
     </string>
+    <string name="app_copyright">Copyright 2015 Sargun Vohra</string>
 
     <string name="app_name">Dining Courts</string>
     <string name="app_name_long">Dining Courts at Purdue</string>
