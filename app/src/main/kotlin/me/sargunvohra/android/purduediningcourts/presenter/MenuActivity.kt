@@ -1,5 +1,6 @@
 package me.sargunvohra.android.purduediningcourts.presenter
 
+import android.app.DatePickerDialog
 import android.app.FragmentManager
 import android.content.Context
 import android.net.Uri
@@ -25,6 +26,7 @@ import me.sargunvohra.android.purduediningcourts.presenter.MenuPagerAdapter
 import me.sargunvohra.android.purduediningcourts.R
 import me.sargunvohra.android.purduediningcourts.model.DiningCourtMenu
 import me.sargunvohra.android.purduediningcourts.model.DiningCourtService
+import me.sargunvohra.android.purduediningcourts.view.DatePickerFragment
 import retrofit.Callback
 import retrofit.RetrofitError
 import retrofit.client.Response
@@ -77,26 +79,34 @@ public class MenuActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item != null) {
-            when (item.getItemId()) {
-                R.id.action_previous -> {
-                    date.add(Calendar.DATE, -1)
+        when (item?.getItemId()) {
+            R.id.action_previous -> {
+                date.add(Calendar.DATE, -1)
+                refreshMenus()
+            }
+            R.id.action_next -> {
+                date.add(Calendar.DATE, 1)
+                refreshMenus()
+            }
+            R.id.action_today -> {
+                date.setTime(Date())
+                refreshMenus()
+            }
+            R.id.action_pick_date -> {
+                val picker = DatePickerFragment {
+                    date.setTime(it.getTime())
                     refreshMenus()
-                    return true
                 }
-                R.id.action_next -> {
-                    date.add(Calendar.DATE, 1)
-                    refreshMenus()
-                    return true
-                }
-                R.id.action_today-> {
-                    date.setTime(Date())
-                    refreshMenus()
-                    return true
-                }
+                picker.show(getSupportFragmentManager(), "datePicker")
+            }
+            R.id.action_about -> {
+                Toast.makeText(this, R.string.unimplemented, Toast.LENGTH_SHORT).show()
+            }
+            else -> {
+                return super<AppCompatActivity>.onOptionsItemSelected(item)
             }
         }
-        return super<AppCompatActivity>.onOptionsItemSelected(item)
+        return true
     }
 
     override fun onAttachFragment(fragment: Fragment?) {

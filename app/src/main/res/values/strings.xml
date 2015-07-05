@@ -2,8 +2,11 @@
     <string name="app_name">Dining Courts</string>
     <string name="conn_error">Failed to connect to Purdue Housing and Food Services</string>
     <string name="closed">Closed</string>
+    <string name="unimplemented">This feature is coming soon</string>
 
     <string name="action_previous">Previous Day</string>
     <string name="action_today">Today</string>
     <string name="action_next">Next Day</string>
+    <string name="action_pick_date">Jump to date</string>
+    <string name="action_about">About</string>
 </resources>
