@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".presenter.MenuActivity"
+            android:name=".view.MenuActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,12 +19,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presenter.AboutActivity"
+            android:name=".view.AboutActivity"
             android:label="@string/title_activity_about"
-            android:parentActivityName=".presenter.MenuActivity" >
+            android:parentActivityName=".view.MenuActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="me.sargunvohra.android.purduediningcourts.presenter.MenuActivity" />
+                android:value=".view.MenuActivity" />
         </activity>
     </application>
 

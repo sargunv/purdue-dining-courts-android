@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.presenter
+package me.sargunvohra.android.purduediningcourts.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

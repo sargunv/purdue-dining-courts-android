@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.presenter
+package me.sargunvohra.android.purduediningcourts.view
 
 import android.app.Activity
 import android.net.Uri
@@ -45,7 +45,7 @@ public class MenuFragment : Fragment() {
         return topView
     }
 
-    public fun loadData(date: Calendar, info: DiningCourtMenu) {
+    public fun showData(date: Calendar, info: DiningCourtMenu) {
         val view = topView ?: getView()
 
         view.timestamp.setText(SimpleDateFormat("E MMM d, yyyy").format(date.getTime()));
