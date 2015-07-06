@@ -77,7 +77,17 @@ public class MenuActivity : AppCompatActivity(), MenuPresenter.TargetView {
 
         swipeRefresh.setColorSchemeResources(R.color.accent)
         swipeRefresh.setOnRefreshListener { presenter.refreshMenu() }
-        swipeRefresh.post { presenter.date = Date() }
+        swipeRefresh.post { if (!loading) presenter.date = Date() }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super<AppCompatActivity>.onSaveInstanceState(outState)
+        presenter.onSaveInstanceState(outState!!)
+    }
+
+    override fun onRestoreInstanceState(inState: Bundle?) {
+        super<AppCompatActivity>.onRestoreInstanceState(inState)
+        presenter.onRestoreInstanceState(inState!!)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

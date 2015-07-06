@@ -1,11 +1,13 @@
 package me.sargunvohra.android.purduediningcourts.presenter
 
+import android.os.Bundle
 import me.sargunvohra.android.purduediningcourts.model.DiningCourt
 import me.sargunvohra.android.purduediningcourts.model.DiningCourtMenu
 import me.sargunvohra.android.purduediningcourts.network.DiningCourtService
 import retrofit.Callback
 import retrofit.RetrofitError
 import retrofit.client.Response
+import java.io.Serializable
 import java.util.*
 
 public class MenuPresenter(val activity: MenuPresenter.TargetView) {
@@ -39,6 +41,17 @@ public class MenuPresenter(val activity: MenuPresenter.TargetView) {
             DiningCourtService.getMenu(it, cal, LoadMenuCallback(menus, it))
         }
     }
+
+    public fun onSaveInstanceState(outState: Bundle) {
+        outState.putSerializable("currentDate", date)
+    }
+
+    public fun onRestoreInstanceState(inState: Bundle) {
+        val savedDate = inState.getSerializable("currentDate")
+        if (savedDate is Date)
+            date = savedDate
+    }
+
 
     inner class LoadMenuCallback(val menus:HashMap<DiningCourt, DiningCourtMenu>, val location: DiningCourt) : Callback<DiningCourtMenu> {
 
