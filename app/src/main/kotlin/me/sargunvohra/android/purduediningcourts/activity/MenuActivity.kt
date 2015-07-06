@@ -70,6 +70,13 @@ public class MenuActivity : AppCompatActivity(), MenuPresenter.TargetView {
             override fun onPageSelected(pos: Int) {
                 swipeRefresh.target = pager.getChildAt(pos)
             }
+
+            override fun onPageScrollStateChanged(state: Int) {
+                when (state) {
+                    ViewPager.SCROLL_STATE_DRAGGING -> swipeRefresh.setEnabled(false)
+                    else -> swipeRefresh.setEnabled(true)
+                }
+            }
         })
         swipeRefresh.post { swipeRefresh.target = pager.getChildAt(pager.getCurrentItem()) }
 
