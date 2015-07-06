@@ -10,21 +10,25 @@ import java.util.*
 
 public class MenuPresenter(val activity: MenuPresenter.TargetView) {
 
-    private val date = Calendar.getInstance()
-
     public interface TargetView {
         var loading: Boolean
         fun showMenu(date: Calendar, menus: Map<DiningCourt, DiningCourtMenu>)
         fun showConnectionError()
     }
 
-    public fun setDate(newDate: Calendar) {
-        date.setTime(newDate.getTime())
-        refreshMenu()
-    }
+    private val cal = Calendar.getInstance()
 
-    public fun addDate(offsetDays: Int) {
-        date.add(Calendar.DAY_OF_MONTH, offsetDays)
+    public var date: Date
+        get() {
+            return cal.getTime()
+        }
+        set(value) {
+            cal.setTime(value)
+            refreshMenu()
+        }
+
+    public fun addDays(offset: Int) {
+        cal.add(Calendar.DAY_OF_MONTH, offset)
         refreshMenu()
     }
 
@@ -32,7 +36,7 @@ public class MenuPresenter(val activity: MenuPresenter.TargetView) {
         val menus = HashMap<DiningCourt, DiningCourtMenu>()
         activity.loading = true
         DiningCourt.values().forEach {
-            DiningCourtService.getMenu(it, date, LoadMenuCallback(menus, it))
+            DiningCourtService.getMenu(it, cal, LoadMenuCallback(menus, it))
         }
     }
 
@@ -41,7 +45,7 @@ public class MenuPresenter(val activity: MenuPresenter.TargetView) {
         override fun success(menu: DiningCourtMenu, response: Response) {
             menus[location] = menu
             if (menus.size() == DiningCourt.values().size()) {
-                activity.showMenu(date, menus)
+                activity.showMenu(cal, menus)
                 activity.loading = false
             }
         }

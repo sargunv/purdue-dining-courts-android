@@ -77,7 +77,7 @@ public class MenuActivity : AppCompatActivity(), MenuPresenter.TargetView {
 
         swipeRefresh.setColorSchemeResources(R.color.accent)
         swipeRefresh.setOnRefreshListener { presenter.refreshMenu() }
-        swipeRefresh.post { presenter.setDate(Calendar.getInstance()) }
+        swipeRefresh.post { presenter.date = Date() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -87,10 +87,10 @@ public class MenuActivity : AppCompatActivity(), MenuPresenter.TargetView {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.getItemId()) {
-            R.id.action_previous -> presenter.addDate(-1)
-            R.id.action_next -> presenter.addDate(+1)
-            R.id.action_today -> presenter.setDate(Calendar.getInstance())
-            R.id.action_pick_date -> DatePickerFragment { presenter.setDate(it) }.show(getSupportFragmentManager(), "datePicker")
+            R.id.action_previous -> presenter.addDays(-1)
+            R.id.action_next -> presenter.addDays(+1)
+            R.id.action_today -> presenter.date = Date()
+            R.id.action_pick_date -> DatePickerFragment { presenter.date = it.getTime() }.show(getSupportFragmentManager(), "datePicker")
             R.id.action_about -> startActivity(Intent(this, javaClass<AboutActivity>()))
             else -> return super<AppCompatActivity>.onOptionsItemSelected(item)
         }
