@@ -71,7 +71,7 @@ public class MenuActivity : AppCompatActivity(), MenuPresenter.TargetView {
                 swipeRefresh.target = pager.getChildAt(pos)
             }
         })
-        swipeRefresh.post { swipeRefresh.target = pager.getChildAt(0) }
+        swipeRefresh.post { swipeRefresh.target = pager.getChildAt(pager.getCurrentItem()) }
 
         tabs.setViewPager(pager)
 
