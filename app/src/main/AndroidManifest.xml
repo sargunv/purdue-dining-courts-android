@@ -9,36 +9,14 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
-        <uses-library android:required="false" android:name="com.sec.android.app.multiwindow" />
-        <meta-data
-            android:name="com.samsung.android.sdk.multiwindow.enable"
-            android:value="true" />
-        <meta-data
-            android:name="android.intent.category.MULTIWINDOW_LAUNCHER"
-            android:value="true" />
-        <meta-data
-            android:name="com.sec.android.intent.category.MULTIWINDOW_LAUNCHER"
-            android:value="true" />"
-
         <activity
-            android:name=".activity.MenuActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".activity.AboutActivity"
-            android:label="@string/title_activity_about"
-            android:parentActivityName=".activity.MenuActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MenuActivity" />
         </activity>
     </application>
 

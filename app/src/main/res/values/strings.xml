@@ -14,11 +14,6 @@
 
         <h1>Licenses</h1>
 
-        <h2>Kotlin</h2>
-        <p>Copyright 2010-2015 JetBrains s.r.o and respective authors and developers</p>
-        <p><a href="http://kotlinlang.org/">Official website</a></p>
-        <p><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache license</a></p>
-
         <h2>Retrofit</h2>
         <p>Copyright 2013 Square, Inc.</p>
         <p><a href="http://square.github.io/retrofit/">Official website</a></p>

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 22
@@ -9,44 +9,56 @@ android {
         applicationId "me.sargunvohra.android.purduediningcourts"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 4
-        versionName "v1.2.0"
+        versionCode 5
+        versionName "2.0.0"
     }
     buildTypes {
-        debug {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+    lintOptions {
+        disable 'InvalidPackage'
     }
 }
 
+ext.mosbyVersion = '1.1.0'
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android
     compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.android.support:support-v4:22.2.0'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Square
     compile 'com.squareup.retrofit:retrofit:1.9.0'
-    compile 'io.karim:materialtabs:2.0.2'
-    compile 'com.github.gabrielemariotti.cards:cardslib-core:2.1.0'
-    compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.1.0'
-}
-buildscript {
-    ext.kotlin_version = '0.12.613'
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
-    }
-}
-repositories {
-    mavenCentral()
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup:otto:1.3.8'
+    compile 'com.squareup.dagger:dagger:1.2.2'
+
+    // Mosby
+    compile "com.hannesdorfmann.mosby:core:$mosbyVersion"
+    compile "com.hannesdorfmann.mosby:core-dagger1:$mosbyVersion"
+    compile "com.hannesdorfmann.mosby:mvp:$mosbyVersion"
+    compile "com.hannesdorfmann.mosby:mvp-dagger1:$mosbyVersion"
+    compile "com.hannesdorfmann.mosby:retrofit:$mosbyVersion"
+    //compile "com.hannesdorfmann.mosby:rx:$mosbyVersion"
+    compile "com.hannesdorfmann.mosby:viewstate:$mosbyVersion"
+    compile "com.hannesdorfmann.mosby:viewstate-dagger1:$mosbyVersion"
+
+    // Misc
+    provided "org.projectlombok:lombok:1.12.6"
+    compile 'com.hannesdorfmann.fragmentargs:annotation:2.1.2'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'frankiesardo:icepick:3.0.2'
+    compile 'com.jakewharton.timber:timber:3.1.0'
+
+    // Annotation processors
+    apt "org.projectlombok:lombok:1.12.6"
+    apt 'frankiesardo:icepick-processor:3.0.2'
+    apt 'com.hannesdorfmann.fragmentargs:processor:2.1.0'
+    apt 'com.squareup.dagger:dagger-compiler:1.2.2'
 }

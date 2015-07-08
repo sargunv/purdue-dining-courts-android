@@ -9,22 +9,6 @@
 
 # Add any project specific keep options here:
 
-# Global
--dontobfuscate
-
-# Kotlin
--dontwarn kotlin.**
--keep class kotlin.jvm.**
--keep class kotlin.reflect.**
-
-# Retrofit
--dontwarn retrofit.**
--keepattributes *Annotation*
--keep class retrofit.** { *; }
--keepclasseswithmembers class * {
-@retrofit.http.* <methods>; }
--keepattributes Signature
-
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
 # class:
