@@ -6,6 +6,7 @@ import android.view.MenuItem;
 
 import javax.inject.Inject;
 
+import lombok.val;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocations;
@@ -17,40 +18,45 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import timber.log.Timber;
 
-
-public class MainActivity extends BaseActivity {
+public class MainActivity extends DrawerActivity {
 
     @Inject
-    protected DiningService service;
+    DiningService service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        service.getRetailLocations(new Callback<RetailLocations>() {
-            @Override
-            public void success(RetailLocations result, Response response) {
-                Timber.d("success: %s, %s", result, response);
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Timber.d("failure: %s", error);
-            }
-        });
 
         service.getDiningLocations(new Callback<DiningLocations>() {
             @Override
-            public void success(DiningLocations result, Response response) {
-                Timber.d("success: %s, %s", result, response);
+            public void success(DiningLocations diningLocations, Response response) {
+                for (DiningLocation d : diningLocations.getLocations())
+                    addLocationToMenu(d);
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Timber.d("failure: %s", error);
+                Timber.e(error.getMessage());
             }
         });
+
+        service.getRetailLocations(new Callback<RetailLocations>() {
+            @Override
+            public void success(RetailLocations retailLocations, Response response) {
+                for (RetailLocation d : retailLocations.getLocations())
+                    addLocationToMenu(d);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Timber.e(error.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public int getLayout() {
+        return R.layout.activity_main;
     }
 
     @Override

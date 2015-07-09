@@ -2,11 +2,8 @@
 <resources>
     <color name="primary">#B1810B</color>
     <color name="primary_dark">#9d720A</color>
-    <color name="primary_light">#DEC892</color>
-    <color name="icons">#FFFFFF</color>
     <color name="accent">#AD1F65</color>
-    <color name="text_primary">#212121</color>
-    <color name="text_secondary">#727272</color>
-    <color name="divider">#B6B6B6</color>
-    <color name="maroon">#800000</color>
+
+    <color name="not_serving">#800000</color>
+    <color name="serving">#008000</color>
 </resources>

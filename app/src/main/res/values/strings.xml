@@ -32,8 +32,9 @@
     </string>
     <string name="app_copyright">Copyright 2015 Sargun Vohra</string>
 
-    <string name="app_name">Dining Courts</string>
-    <string name="app_name_long">Dining Courts at Purdue</string>
+    <string name="app_name">Purdue Menu</string>
+    <string name="app_name_long">Dining Court Menus at Purdue</string>
+    <string name="app_tagline">Dining court menus and more</string>
     <string name="conn_error">Failed to connect to Purdue Housing and Food Services</string>
     <string name="closed">Closed</string>
     <string name="unimplemented">This feature is coming soon</string>

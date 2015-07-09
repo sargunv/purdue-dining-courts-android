@@ -46,7 +46,7 @@ public class DaggerModule {
     RestAdapter provideRestAdapter(Converter converter) {
         return new RestAdapter.Builder()
                 .setEndpoint("http://api.hfs.purdue.edu/menus/v2/")
-                .setLogLevel(RestAdapter.LogLevel.FULL)
+                .setLogLevel(RestAdapter.LogLevel.NONE)
                 .setConverter(converter)
                 .build();
     }
