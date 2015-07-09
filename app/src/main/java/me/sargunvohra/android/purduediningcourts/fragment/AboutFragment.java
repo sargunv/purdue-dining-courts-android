@@ -16,7 +16,7 @@ public class AboutFragment {
     public static Fragment getInstance() {
         return new LibsBuilder()
                 .withFields(R.string.class.getFields())
-                .withAutoDetect(false)
+                .withAutoDetect(true)
                 .withListener(new Listener())
                 .withAnimations(false)
                 .withLicenseDialog(true)
