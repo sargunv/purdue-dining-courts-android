@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="aboutLibraries_description_showIcon">true</string>
+    <string name="aboutLibraries_description_showVersion">true</string>
+    <string name="aboutLibraries_description_text">
+        <![CDATA[
+        <p>An unofficial dining court menu app for Purdue. Built by a fellow student.<p>
+        ]]>
+    </string>
+
+    <string name="aboutLibraries_description_special1_name">Support</string>
+    <string name="aboutLibraries_description_special1_text">http://www.reddit.com/r/svappsupport</string>
+
+    <string name="aboutLibraries_description_special2_name">Website</string>
+    <string name="aboutLibraries_description_special2_text">http://www.sargunvohra.me/apps/purduemenu</string>
+
+    <string name="aboutLibraries_description_special3_name">GitHub</string>
+    <string name="aboutLibraries_description_special3_text">https://github.com/sargunster/purdue-dining-courts-android</string>
+</resources>

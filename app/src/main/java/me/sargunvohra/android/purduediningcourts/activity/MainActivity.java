@@ -2,18 +2,22 @@ package me.sargunvohra.android.purduediningcourts.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.mikepenz.aboutlibraries.LibsBuilder;
+import com.mikepenz.aboutlibraries.ui.LibsFragment;
 
 import javax.inject.Inject;
 
 import butterknife.Bind;
 import me.sargunvohra.android.purduediningcourts.DrawerItems;
 import me.sargunvohra.android.purduediningcourts.R;
+import me.sargunvohra.android.purduediningcourts.fragment.AboutFragment;
 import me.sargunvohra.android.purduediningcourts.model.Location;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocations;
@@ -73,7 +77,15 @@ public class MainActivity extends DrawerActivity {
 
     @Override
     void onDrawerItemSelected(DrawerItems item) {
+        FragmentManager fm = getSupportFragmentManager();
         switch (item) {
+            case INFO:
+                Fragment fragment = AboutFragment.getInstance();
+                fm.beginTransaction()
+                        .replace(R.id.content_frame, fragment)
+                        .commit();
+
+                break;
             default:
                 // TODO select page
                 Snackbar.make(contentFrame, "Operation not yet supported", Snackbar.LENGTH_SHORT).show();

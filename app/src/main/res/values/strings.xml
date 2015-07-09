@@ -1,49 +1,4 @@
 <resources>
-    <string name="app_about">
-        <![CDATA[
-        <h1>About</h1>
-
-        <p>A simple app to view the daily menus for the dining courts at Purdue University. This app
-        is open source. Pull requests are welcome.</p>
-
-        <p><a href="https://github.com/sargunster/purdue-dining-courts-android">View on Github</a></p>
-        <p><a href="https://play.google.com/store/apps/details?id=me.sargunvohra.android.purduediningcourts">View on Play Store</a></p>
-
-        <h1>API</h1>
-        <p>This app uses the Purdue dining menus API. Information on this API can be found on <a href="http://tyhoffman.com/blog/2013/04/purdue-dining-court-api/">this page</a>.</p>
-
-        <h1>Licenses</h1>
-
-        <h2>Retrofit</h2>
-        <p>Copyright 2013 Square, Inc.</p>
-        <p><a href="http://square.github.io/retrofit/">Official website</a></p>
-        <p><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache license</a></p>
-
-        <h2>MaterialTabs</h2>
-        <p>Copyright 2015 Karim Frenn</p>
-        <p><a href="https://github.com/pizza/MaterialTabs">GitHub repository</a></p>
-        <p><a href="https://raw.githubusercontent.com/pizza/MaterialTabs/master/LICENSE.md">MIT license</a></p>
-
-        <h2>Card Library</h2>
-        <p>Copyright 2013-2014 Gabriele Mariotti</p>
-        <p><a href="https://github.com/gabrielemariotti/cardslib">GitHub repository</a></p>
-        <p><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache license</a></p>
-        ]]>
-    </string>
-    <string name="app_copyright">Copyright 2015 Sargun Vohra</string>
-
     <string name="app_name">Purdue Menu</string>
-    <string name="app_name_long">Dining Court Menus at Purdue</string>
     <string name="app_tagline">Dining court menus and more</string>
-    <string name="conn_error">Failed to connect to Purdue Housing and Food Services</string>
-    <string name="closed">Closed</string>
-    <string name="unimplemented">This feature is coming soon</string>
-
-    <string name="title_activity_about">About</string>
-
-    <string name="action_previous">Previous Day</string>
-    <string name="action_today">Today</string>
-    <string name="action_next">Next Day</string>
-    <string name="action_pick_date">Jump to date</string>
-    <string name="action_about">About</string>
 </resources>
