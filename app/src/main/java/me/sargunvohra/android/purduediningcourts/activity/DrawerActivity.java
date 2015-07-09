@@ -2,7 +2,10 @@ package me.sargunvohra.android.purduediningcourts.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -10,6 +13,7 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SectionDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +21,7 @@ import java.util.Map;
 import butterknife.Bind;
 import me.sargunvohra.android.purduediningcourts.DrawerItems;
 import me.sargunvohra.android.purduediningcourts.R;
+import me.sargunvohra.android.purduediningcourts.model.Location;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocation;
 import timber.log.Timber;
@@ -27,6 +32,10 @@ public abstract class DrawerActivity extends BaseActivity {
     Toolbar toolbar;
 
     private Drawer drawer;
+
+    private Map<DrawerItems, Integer> sectionEndId = new HashMap<>();
+
+    private Map<Integer, Location> loadedLocations = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,16 +57,44 @@ public abstract class DrawerActivity extends BaseActivity {
                         primaryDrawerItem("Settings", R.drawable.ic_settings_black_24dp, DrawerItems.SETTINGS),
                         primaryDrawerItem("Help & About", R.drawable.ic_info_black_24dp, DrawerItems.INFO)
                 )
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                        return onItemSelected(drawerItem);
+                    }
+                })
                 .build();
     }
 
-    private Map<DrawerItems, Integer> sectionEndId = new HashMap<>();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onItemSelected(drawer.getDrawerItems().get(drawer.getCurrentSelection()));
+    }
+
+    private boolean onItemSelected(IDrawerItem item) {
+        Timber.d("selected %s", item);
+        int itemId = item.getIdentifier();
+        Location selected = loadedLocations.get(itemId);
+        if (selected != null) {
+            onDrawerItemSelected(selected);
+        } else {
+            onDrawerItemSelected(DrawerItems.values()[itemId]);
+        }
+        return false;
+    }
+
+    abstract void onDrawerItemSelected(Location loc);
+
+    abstract void onDrawerItemSelected(DrawerItems item);
 
     void addLocationToMenu(DiningLocation location) {
 
         int diningIcon = R.drawable.ic_local_dining_black_24dp;
         String name = location.getName();
         int id = Math.abs(name.hashCode());
+        loadedLocations.put(id, location);
+
         SecondaryDrawerItem newItem = secondaryDrawerItem(name, diningIcon, id);
 
         addSectionItem(DrawerItems.DINING_SECTION, newItem);
@@ -66,6 +103,7 @@ public abstract class DrawerActivity extends BaseActivity {
     void addLocationToMenu(RetailLocation location) {
         String name = location.getName();
         int id = Math.abs(name.hashCode());
+        loadedLocations.put(id, location);
 
         DrawerItems section;
         int retailIcon;

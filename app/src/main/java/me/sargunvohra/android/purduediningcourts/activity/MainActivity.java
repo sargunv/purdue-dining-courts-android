@@ -1,13 +1,20 @@
 package me.sargunvohra.android.purduediningcourts.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.inject.Inject;
 
-import lombok.val;
+import butterknife.Bind;
+import me.sargunvohra.android.purduediningcourts.DrawerItems;
 import me.sargunvohra.android.purduediningcourts.R;
+import me.sargunvohra.android.purduediningcourts.model.Location;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocations;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocation;
@@ -23,10 +30,14 @@ public class MainActivity extends DrawerActivity {
     @Inject
     DiningService service;
 
+    @Bind(R.id.content_frame)
+    FrameLayout contentFrame;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // TODO get date from a central source
         service.getDiningLocations(new Callback<DiningLocations>() {
             @Override
             public void success(DiningLocations diningLocations, Response response) {
@@ -39,7 +50,6 @@ public class MainActivity extends DrawerActivity {
                 Timber.e(error.getMessage());
             }
         });
-
         service.getRetailLocations(new Callback<RetailLocations>() {
             @Override
             public void success(RetailLocations retailLocations, Response response) {
@@ -52,6 +62,23 @@ public class MainActivity extends DrawerActivity {
                 Timber.e(error.getMessage());
             }
         });
+    }
+
+    @Override
+    void onDrawerItemSelected(Location loc) {
+        // TODO select location
+        Snackbar.make(contentFrame, "Operation not yet supported", Snackbar.LENGTH_SHORT).show();
+        Timber.i("Selected: %s \"%s\"", loc.getClass().getSimpleName(), loc.getName());
+    }
+
+    @Override
+    void onDrawerItemSelected(DrawerItems item) {
+        switch (item) {
+            default:
+                // TODO select page
+                Snackbar.make(contentFrame, "Operation not yet supported", Snackbar.LENGTH_SHORT).show();
+                Timber.i("Selected: %s", item);
+        }
     }
 
     @Override

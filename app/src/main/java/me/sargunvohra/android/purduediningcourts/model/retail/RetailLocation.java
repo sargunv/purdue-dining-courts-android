@@ -5,10 +5,11 @@ import android.support.annotation.Nullable;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 import me.sargunvohra.android.purduediningcourts.model.Address;
+import me.sargunvohra.android.purduediningcourts.model.Location;
 
 @Value
 @RequiredArgsConstructor(suppressConstructorProperties = true)
-public class RetailLocation {
+public class RetailLocation implements Location {
 
     String Name;
     Address Address;
