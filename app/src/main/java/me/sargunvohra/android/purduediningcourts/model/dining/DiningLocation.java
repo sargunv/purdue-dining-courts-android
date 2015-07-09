@@ -1,7 +1,5 @@
 package me.sargunvohra.android.purduediningcourts.model.dining;
 
-import android.support.annotation.Nullable;
-
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;

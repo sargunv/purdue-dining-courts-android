@@ -2,10 +2,10 @@ package me.sargunvohra.android.purduediningcourts.service;
 
 
 import me.sargunvohra.android.purduediningcourts.model.dining.DayMenu;
-import me.sargunvohra.android.purduediningcourts.model.dining.item.Item;
-import me.sargunvohra.android.purduediningcourts.model.dining.item.ItemSchedule;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocations;
 import me.sargunvohra.android.purduediningcourts.model.dining.SearchResults;
+import me.sargunvohra.android.purduediningcourts.model.dining.item.Item;
+import me.sargunvohra.android.purduediningcourts.model.dining.item.ItemSchedule;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocations;
 import retrofit.Callback;
 import retrofit.http.GET;

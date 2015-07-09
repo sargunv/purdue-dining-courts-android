@@ -6,7 +6,6 @@ import java.util.List;
 
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
-import me.sargunvohra.android.purduediningcourts.model.Location;
 
 @Value
 @RequiredArgsConstructor(suppressConstructorProperties = true)

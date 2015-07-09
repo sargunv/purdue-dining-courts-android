@@ -1,6 +1,5 @@
 package me.sargunvohra.android.purduediningcourts;
 
-import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.otto.Bus;
