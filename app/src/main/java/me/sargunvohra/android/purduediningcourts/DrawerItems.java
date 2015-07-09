@@ -3,10 +3,10 @@ package me.sargunvohra.android.purduediningcourts;
 public enum DrawerItems {
     TODAY,
     FAVORITES,
+    DINING,
+    MARKETS,
+    RESTAURANTS,
+    CAFES,
     SETTINGS,
-    INFO,
-    DINING_SECTION,
-    MARKETS_SECTION,
-    RESTAURANTS_SECTION,
-    CAFES_SECTION
+    ABOUT
 }

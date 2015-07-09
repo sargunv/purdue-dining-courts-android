@@ -14,15 +14,7 @@ import butterknife.Bind;
 import me.sargunvohra.android.purduediningcourts.DrawerItems;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.fragment.AboutFragment;
-import me.sargunvohra.android.purduediningcourts.model.Location;
-import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
-import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocations;
-import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocation;
-import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocations;
 import me.sargunvohra.android.purduediningcourts.service.DiningService;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 import timber.log.Timber;
 
 public class MainActivity extends DrawerActivity {
@@ -36,54 +28,20 @@ public class MainActivity extends DrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // TODO get date from a central source
-        service.getDiningLocations(new Callback<DiningLocations>() {
-            @Override
-            public void success(DiningLocations diningLocations, Response response) {
-                for (DiningLocation d : diningLocations.getLocations())
-                    addLocationToMenu(d);
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Timber.e(error.getMessage());
-            }
-        });
-        service.getRetailLocations(new Callback<RetailLocations>() {
-            @Override
-            public void success(RetailLocations retailLocations, Response response) {
-                for (RetailLocation d : retailLocations.getLocations())
-                    addLocationToMenu(d);
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Timber.e(error.getMessage());
-            }
-        });
-    }
-
-    @Override
-    void onDrawerItemSelected(Location loc) {
-        // TODO select location
-        Snackbar.make(contentFrame, "Operation not yet supported", Snackbar.LENGTH_SHORT).show();
-        Timber.i("Selected: %s \"%s\"", loc.getClass().getSimpleName(), loc.getName());
     }
 
     @Override
     void onDrawerItemSelected(DrawerItems item) {
         FragmentManager fm = getSupportFragmentManager();
         switch (item) {
-            case INFO:
+            case ABOUT:
                 Fragment fragment = AboutFragment.getInstance();
                 fm.beginTransaction()
                         .replace(R.id.content_frame, fragment)
                         .commit();
-
                 break;
             default:
-                // TODO select page
+                // TODO select other pages
                 Snackbar.make(contentFrame, "Operation not yet supported", Snackbar.LENGTH_SHORT).show();
                 Timber.i("Selected: %s", item);
         }
