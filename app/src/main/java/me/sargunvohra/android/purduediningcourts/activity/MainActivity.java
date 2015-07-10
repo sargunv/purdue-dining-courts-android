@@ -16,7 +16,7 @@ import android.widget.FrameLayout;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.InjectView;
 import icepick.Icicle;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.fragment.AboutFragment;
@@ -31,13 +31,13 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Inject
     Handler drawerActionHandler;
 
-    @Bind(R.id.drawer_layout)
+    @InjectView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
 
-    @Bind(R.id.content_frame)
+    @InjectView(R.id.content_frame)
     FrameLayout contentFrame;
 
-    @Bind(R.id.navigation_view)
+    @InjectView(R.id.navigation_view)
     NavigationView navigationView;
 
     @Icicle

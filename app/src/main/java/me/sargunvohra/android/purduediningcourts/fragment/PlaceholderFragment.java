@@ -4,8 +4,10 @@ package me.sargunvohra.android.purduediningcourts.fragment;
 import android.os.Bundle;
 
 import me.sargunvohra.android.purduediningcourts.R;
+import me.sargunvohra.android.purduediningcourts.presenter.PlaceholderPresenter;
+import me.sargunvohra.android.purduediningcourts.view.PlaceholderView;
 
-public class PlaceholderFragment extends BaseFragment {
+public class PlaceholderFragment extends BaseFragment<PlaceholderView, PlaceholderPresenter> implements PlaceholderView {
 
     public static PlaceholderFragment newInstance(String title) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -18,7 +20,13 @@ public class PlaceholderFragment extends BaseFragment {
     public PlaceholderFragment() {}
 
     @Override
-    public int getLayout() {
+    public PlaceholderPresenter createPresenter() {
+        return new PlaceholderPresenter();
+    }
+
+    @Override
+    public int getLayoutRes() {
         return R.layout.fragment_placeholder;
     }
 }
+

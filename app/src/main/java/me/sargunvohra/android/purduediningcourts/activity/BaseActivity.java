@@ -27,7 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         DaggerModule.getObjectGraph().inject(this);
 
         // inject views
-        ButterKnife.bind(this);
+        ButterKnife.inject(this);
 
         // setup logging
         Timber.plant(new Timber.DebugTree());
