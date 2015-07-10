@@ -1,12 +1,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/material_drawer_account_header_height">
+    android:layout_height="148dp">
 
     <ImageView
         android:id="@+id/header_drawer_background"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/material_drawer_account_header_height"
+        android:layout_height="148dp"
         android:scaleType="centerCrop"
         android:src="@drawable/header_bg"
         android:contentDescription="background"
@@ -17,7 +17,7 @@
     <RelativeLayout
         android:id="@+id/header_drawer"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/material_drawer_account_header_height">
+        android:layout_height="148dp">
 
         <LinearLayout
             android:id="@+id/header_drawer_text_section"
@@ -28,7 +28,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="@dimen/material_drawer_padding"
+            android:layout_marginBottom="8dp"
             android:gravity="center_vertical"
             android:orientation="vertical"
             android:paddingEnd="56dp"
@@ -39,13 +39,12 @@
                 android:text="@string/app_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/material_drawer_vertical_padding"
-                android:layout_marginStart="@dimen/material_drawer_vertical_padding"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:lines="1"
                 android:singleLine="true"
-                android:autoText="false"
                 android:textColor="#ffffffff" />
 
             <TextView
@@ -53,12 +52,11 @@
                 android:text="@string/app_tagline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/material_drawer_vertical_padding"
-                android:layout_marginStart="@dimen/material_drawer_vertical_padding"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif"
                 android:lines="1"
                 android:singleLine="true"
-                android:autoText="false"
                 android:textColor="#ffffffff" />
 
         </LinearLayout>

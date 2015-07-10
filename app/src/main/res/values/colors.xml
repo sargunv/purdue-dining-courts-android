@@ -6,4 +6,7 @@
 
     <color name="not_serving">#800000</color>
     <color name="serving">#008000</color>
+
+    <color name="drawer_item_text_default">#212121</color>
+    <color name="drawer_item_text_checked">@color/primary</color>
 </resources>

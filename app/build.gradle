@@ -53,7 +53,6 @@ dependencies {
 
     // Mike Penz
     compile('com.mikepenz:aboutlibraries:5.0.6@aar') { transitive = true }
-    compile('com.mikepenz:materialdrawer:3.1.1@aar') { transitive = true }
 
     // Project Lombok
     provided "org.projectlombok:lombok:1.12.6"

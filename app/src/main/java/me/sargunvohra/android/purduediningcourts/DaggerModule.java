@@ -1,5 +1,7 @@
 package me.sargunvohra.android.purduediningcourts;
 
+import android.os.Handler;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.otto.Bus;
@@ -53,6 +55,11 @@ public class DaggerModule {
     @Provides @Singleton
     DiningService provideDiningService(RestAdapter adapter) {
         return adapter.create(DiningService.class);
+    }
+
+    @Provides
+    Handler provideHandler() {
+        return new Handler();
     }
 
     public static ObjectGraph getObjectGraph() {
