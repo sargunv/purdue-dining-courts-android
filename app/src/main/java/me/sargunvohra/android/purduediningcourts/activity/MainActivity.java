@@ -1,6 +1,5 @@
 package me.sargunvohra.android.purduediningcourts.activity;
 
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -21,8 +20,8 @@ import butterknife.Bind;
 import icepick.Icicle;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.fragment.AboutFragment;
+import me.sargunvohra.android.purduediningcourts.fragment.PlaceholderFragment;
 import me.sargunvohra.android.purduediningcourts.service.DiningService;
-import timber.log.Timber;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -48,9 +47,20 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         navigationView.setNavigationItemSelectedListener(this);
-        MenuItem selected = navigationView.getMenu().findItem(selectedItem);
-        if (selected != null)
-            selected.setChecked(true);
+
+        if (savedInstanceState == null) {
+            selectedItem = R.id.nav_item_today;
+            MenuItem menuItem = navigationView.getMenu().findItem(selectedItem);
+            launchPage(choosePage(menuItem), 1);
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        MenuItem menuItem = navigationView.getMenu().findItem(selectedItem);
+        if (menuItem != null)
+            selectMenuItem(menuItem);
     }
 
     @Override
@@ -60,43 +70,51 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
-        // make sure it's a new selection
         if (menuItem.getItemId() == selectedItem)
             return false;
-        selectedItem = menuItem.getItemId();
 
-        // choose the proper fragment
-        final Fragment newPage;
-        switch (selectedItem) {
-            case R.id.nav_item_about:
-                newPage = AboutFragment.newInstance("About");
-                break;
-            default:
-                // TODO select other pages
-                newPage = null;
-                Snackbar.make(contentFrame, "Operation not yet supported", Snackbar.LENGTH_SHORT).show();
-                Timber.i("Selected: %s", menuItem);
-        }
-
-        // select the item and close the drawer
-        menuItem.setChecked(true);
-        drawerLayout.closeDrawer(GravityCompat.START);
-
-        // launch fragment after a delay
-        if (newPage != null) {
-            drawerActionHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    FragmentManager fm = getSupportFragmentManager();
-                    fm.beginTransaction()
-                            .replace(R.id.content_frame, newPage)
-                            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                            .commit();
-                }
-            }, 250);
-        }
-
+        final Fragment newPage = choosePage(menuItem);
+        selectMenuItem(menuItem);
+        closeDrawer();
+        launchPage(newPage, 250);
         return true;
+    }
+
+    private void closeDrawer() {
+        drawerLayout.closeDrawer(GravityCompat.START);
+    }
+
+    private void selectMenuItem(MenuItem menuItem) {
+        if (menuItem == null)
+            return;
+        menuItem.setChecked(true);
+        selectedItem = menuItem.getItemId();
+    }
+
+    private void launchPage(final Fragment newPage, int delay) {
+        drawerActionHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                FragmentManager fm = getSupportFragmentManager();
+                fm.beginTransaction()
+                        .replace(R.id.content_frame, newPage)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit();
+            }
+        }, delay);
+    }
+
+    private Fragment choosePage(MenuItem menuItem) {
+        final Fragment newPage;
+        switch (menuItem.getItemId()) {
+            case R.id.nav_item_about:
+                newPage = AboutFragment.newInstance(this);
+                break;
+            default: // TODO
+                newPage = PlaceholderFragment.newInstance(menuItem.getTitle().toString());
+                Snackbar.make(contentFrame, "Operation not yet supported", Snackbar.LENGTH_SHORT).show();
+        }
+        return newPage;
     }
 
     public void setToolbar(Toolbar bar) {
