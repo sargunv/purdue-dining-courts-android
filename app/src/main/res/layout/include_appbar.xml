@@ -13,6 +13,15 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_scrollFlags="scroll|enterAlways" />
 
+    <!--
+    Fix for Toolbar bug
+    See: http://stackoverflow.com/questions/30836957/android-toolbar-disappear-during-scrolling-with-coordinatorlayout
+    -->
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/primary"
+        android:layout_height="1dp" />
+
 </android.support.design.widget.AppBarLayout>
 
 

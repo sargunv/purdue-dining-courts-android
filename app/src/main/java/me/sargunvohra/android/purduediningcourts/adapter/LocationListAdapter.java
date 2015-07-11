@@ -34,13 +34,17 @@ public class LocationListAdapter<T extends Location> extends RecyclerView.Adapte
         }
     }
 
+    public interface OnClickListener<T extends Location> {
+        void onClick(T location);
+    }
+
     @Getter
     @Setter
     private List<T> dataSet;
 
     @Getter
     @Setter
-    private View.OnClickListener onClickListener;
+    private OnClickListener<T> onClickListener;
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -49,10 +53,15 @@ public class LocationListAdapter<T extends Location> extends RecyclerView.Adapte
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         Location loc = dataSet.get(position);
-        holder.title.setText(loc.getName());
 
+        holder.parentView.setId(loc.hashCode());
+
+        // set card title
+        holder.title.setText(loc.getFullName());
+
+        // set card image
         Picasso.with(holder.image.getContext())
                 .load(DiningServiceHelper.getFileUrl(loc.getImageId()))
                 .placeholder(R.drawable.placeholder)
@@ -60,7 +69,13 @@ public class LocationListAdapter<T extends Location> extends RecyclerView.Adapte
                 .centerCrop()
                 .into(holder.image);
 
-        holder.parentView.setOnClickListener(onClickListener);
+        // activate click
+        holder.parentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickListener.onClick(dataSet.get(position));
+            }
+        });
     }
 
     @Override

@@ -18,7 +18,7 @@ import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
 import me.sargunvohra.android.purduediningcourts.presenter.LocationListPresenter;
 import me.sargunvohra.android.purduediningcourts.view.LocationListView;
 
-public abstract class LocationListFragment<T extends Location> extends BaseFragment<LocationListView<T>, LocationListPresenter<T>> implements LocationListView<T>, View.OnClickListener {
+public abstract class LocationListFragment<T extends Location> extends BaseFragment<LocationListView<T>, LocationListPresenter<T>> implements LocationListView<T>, LocationListAdapter.OnClickListener<T> {
 
     @Getter
     @InjectView(R.id.contentView)
@@ -77,9 +77,8 @@ public abstract class LocationListFragment<T extends Location> extends BaseFragm
     }
 
     @Override
-    public void onClick(View view) {
-        int pos = contentView.indexOfChild(view);
-        String name = adapter.getDataSet().get(pos).getFullName();
+    public void onClick(T location) {
+        String name = location.getFullName();
         Snackbar.make(getView(), "Clicked " + name, Snackbar.LENGTH_SHORT).show();
     }
 }
