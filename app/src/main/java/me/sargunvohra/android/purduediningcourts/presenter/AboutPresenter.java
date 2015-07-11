@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
 
-import com.hannesdorfmann.mosby.mvp.MvpPresenter;
+import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
 import com.mikepenz.aboutlibraries.Libs;
 import com.mikepenz.aboutlibraries.LibsConfiguration;
 import com.mikepenz.aboutlibraries.entity.Library;
@@ -12,13 +12,7 @@ import com.mikepenz.aboutlibraries.entity.Library;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.view.AboutView;
 
-public class AboutPresenter implements MvpPresenter<AboutView>, LibsConfiguration.LibsListener {
-    @Override
-    public void attachView(AboutView view) {}
-
-    @Override
-    public void detachView(boolean retainInstance) {}
-
+public class AboutPresenter extends MvpBasePresenter<AboutView> implements LibsConfiguration.LibsListener {
     @Override
     public boolean onExtraClicked(View view, Libs.SpecialButton specialButton) {
         String url = null;

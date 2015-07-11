@@ -12,6 +12,7 @@ import com.hannesdorfmann.mosby.mvp.MvpView;
 import butterknife.InjectView;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.activity.MainActivity;
+import timber.log.Timber;
 
 public abstract class BaseFragment<V extends MvpView, P extends MvpPresenter<V>> extends MvpFragment<V, P> {
     protected static final String ARG_TITLE = "base_title";
@@ -34,6 +35,7 @@ public abstract class BaseFragment<V extends MvpView, P extends MvpPresenter<V>>
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Timber.i("onViewCreated: %s", getClass().getSimpleName());
         toolbar.setTitle(title);
         ((MainActivity) getActivity()).setToolbar(toolbar);
     }

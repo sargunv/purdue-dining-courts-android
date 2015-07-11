@@ -20,13 +20,11 @@ import butterknife.InjectView;
 import icepick.Icicle;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.fragment.AboutFragment;
+import me.sargunvohra.android.purduediningcourts.fragment.DiningCourtListFragment;
 import me.sargunvohra.android.purduediningcourts.fragment.PlaceholderFragment;
 import me.sargunvohra.android.purduediningcourts.service.DiningService;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    @Inject
-    DiningService service;
 
     @Inject
     Handler drawerActionHandler;
@@ -109,6 +107,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         switch (menuItem.getItemId()) {
             case R.id.nav_item_about:
                 newPage = AboutFragment.newInstance(this);
+                break;
+            case R.id.nav_item_dining_courts:
+                newPage = DiningCourtListFragment.newInstance(this);
                 break;
             default: // TODO
                 newPage = PlaceholderFragment.newInstance(menuItem.getTitle().toString());

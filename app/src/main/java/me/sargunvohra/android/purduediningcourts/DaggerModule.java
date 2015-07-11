@@ -12,6 +12,7 @@ import dagger.Module;
 import dagger.ObjectGraph;
 import dagger.Provides;
 import me.sargunvohra.android.purduediningcourts.activity.MainActivity;
+import me.sargunvohra.android.purduediningcourts.presenter.DiningCourtListPresenter;
 import me.sargunvohra.android.purduediningcourts.service.DiningService;
 import retrofit.RestAdapter;
 import retrofit.converter.Converter;
@@ -19,7 +20,8 @@ import retrofit.converter.GsonConverter;
 
 @Module(
         injects = {
-                MainActivity.class
+                MainActivity.class,
+                DiningCourtListPresenter.class
         }
 )
 public class DaggerModule {

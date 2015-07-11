@@ -30,6 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
         // setup logging
+        Timber.uprootAll();
         Timber.plant(new Timber.DebugTree());
 
         // register event bus
