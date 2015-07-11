@@ -22,7 +22,7 @@ import me.sargunvohra.android.purduediningcourts.view.LocationListView;
 import retrofit.RetrofitError;
 import timber.log.Timber;
 
-public abstract class LocationListFragment<T extends Location> extends BaseFragment<LocationListView<T>, LocationListPresenter<T>> implements LocationListView<T>, LocationListAdapter.OnClickListener<T> {
+public abstract class LocationListFragment<T extends Location, D> extends BaseFragment<LocationListView<T>, LocationListPresenter<T, D>> implements LocationListView<T>, LocationListAdapter.OnClickListener<T> {
 
     @Getter
     @InjectView(R.id.contentView)

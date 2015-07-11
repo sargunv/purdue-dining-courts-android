@@ -6,9 +6,10 @@ import android.os.Bundle;
 
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
+import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocations;
 import me.sargunvohra.android.purduediningcourts.presenter.DiningLocationListPresenter;
 
-public class DiningCourtListFragment extends LocationListFragment<DiningLocation> {
+public class DiningCourtListFragment extends LocationListFragment<DiningLocation, DiningLocations> {
 
     public static DiningCourtListFragment newInstance(Context ctx) {
         DiningCourtListFragment fragment = new DiningCourtListFragment();

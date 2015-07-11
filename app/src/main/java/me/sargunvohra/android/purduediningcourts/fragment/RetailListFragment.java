@@ -8,10 +8,11 @@ import butterknife.InjectView;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocation;
+import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocations;
 import me.sargunvohra.android.purduediningcourts.presenter.DiningLocationListPresenter;
 import me.sargunvohra.android.purduediningcourts.presenter.RetailLocationListPresenter;
 
-public class RetailListFragment extends LocationListFragment<RetailLocation> {
+public class RetailListFragment extends LocationListFragment<RetailLocation, RetailLocations> {
 
     protected static final String ARG_LOC_TYPE = "retail_location_type";
 

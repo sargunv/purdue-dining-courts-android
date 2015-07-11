@@ -23,39 +23,29 @@ import retrofit.client.Response;
 import timber.log.Timber;
 
 @RequiredArgsConstructor(suppressConstructorProperties = true)
-public class RetailLocationListPresenter extends LocationListPresenter<RetailLocation> {
+public class RetailLocationListPresenter extends LocationListPresenter<RetailLocation, RetailLocations> {
 
-    @Getter
     private final String locationType;
 
     @Override
     public void loadData() {
-        Timber.i("Loading %s ...", locationType);
-        getView().showLoading();
+        super.loadData();
+        getService().getRetailLocations(this);
+    }
 
-        getService().getRetailLocations(new Callback<RetailLocations>() {
-            @Override
-            public void success(RetailLocations retailLocations, Response response) {
-                Timber.i("Loaded %s", locationType);
+    @Override
+    public String getLocationType() {
+        return locationType;
+    }
 
-                if (isViewAttached()) {
-                    List<RetailLocation> list = retailLocations.getLocations();
-                    for ( Iterator<RetailLocation> iterator = list.iterator(); iterator.hasNext(); )
-                        if (!locationType.equals(iterator.next().getType()))
-                            iterator.remove();
-                    getView().setData(list);
-                    getView().showContent();
-                }
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Timber.e("Failed to load %s because: %s", locationType, error.getMessage());
-                if (isViewAttached()) {
-                    getView().showError(error.getKind());
-                }
-            }
-        });
+    @Override
+    public void success(RetailLocations retailLocations, Response response) {
+        super.success(retailLocations, response);
+        List<RetailLocation> list = retailLocations.getLocations();
+        for ( Iterator<RetailLocation> iterator = list.iterator(); iterator.hasNext(); )
+            if (!locationType.equals(iterator.next().getType()))
+                iterator.remove();
+        presentData(list);
     }
 
 }

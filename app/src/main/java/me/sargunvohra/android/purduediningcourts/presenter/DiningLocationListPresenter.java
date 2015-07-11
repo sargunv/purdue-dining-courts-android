@@ -14,31 +14,23 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import timber.log.Timber;
 
-public class DiningLocationListPresenter extends LocationListPresenter<DiningLocation> {
+public class DiningLocationListPresenter extends LocationListPresenter<DiningLocation, DiningLocations> {
 
     @Override
     public void loadData() {
-        Timber.i("Loading dining courts...");
-        getView().showLoading();
+        super.loadData();
+        getService().getDiningLocations(this);
+    }
 
-        getService().getDiningLocations(new Callback<DiningLocations>() {
-            @Override
-            public void success(DiningLocations diningLocations, Response response) {
-                if (isViewAttached()) {
-                    Timber.i("Loaded dining courts");
-                    getView().setData(diningLocations.getLocations());
-                    getView().showContent();
-                }
-            }
+    @Override
+    public void success(DiningLocations diningLocations, Response response) {
+        super.success(diningLocations, response);
+        presentData(diningLocations.getLocations());
+    }
 
-            @Override
-            public void failure(RetrofitError error) {
-                Timber.e(error, "Failed to load dining courts because: %s", error.getMessage());
-                if (isViewAttached()) {
-                    getView().showError(error.getKind());
-                }
-            }
-        });
+    @Override
+    public String getLocationType() {
+        return "dining courts";
     }
 
 }
