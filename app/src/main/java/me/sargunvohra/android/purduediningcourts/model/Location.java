@@ -8,5 +8,5 @@ public interface Location {
     String getPhoneNumber();
     double getLatitude();
     double getLongitude();
-    String getImageId();
+    String getTileImage();
 }

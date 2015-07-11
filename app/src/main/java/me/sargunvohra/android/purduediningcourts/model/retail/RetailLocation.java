@@ -32,7 +32,7 @@ public class RetailLocation implements Location {
     }
 
     @Override
-    public String getImageId() {
-        return getLogo();
+    public String getTileImage() {
+        return getBanner();
     }
 }

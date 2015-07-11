@@ -26,7 +26,7 @@ public class DiningLocation implements Location {
     }
 
     @Override
-    public String getImageId() {
+    public String getTileImage() {
         if (getImages().size() == 0)
             return null;
         else

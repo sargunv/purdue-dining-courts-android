@@ -63,7 +63,7 @@ public class LocationListAdapter<T extends Location> extends RecyclerView.Adapte
 
         // set card image
         Picasso.with(holder.image.getContext())
-                .load(DiningServiceHelper.getFileUrl(loc.getImageId()))
+                .load(DiningServiceHelper.getFileUrl(loc.getTileImage()))
                 .placeholder(R.drawable.placeholder)
                 .resize(500, 400)
                 .centerCrop()
