@@ -35,7 +35,6 @@ public abstract class BaseFragment<V extends MvpView, P extends MvpPresenter<V>>
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Timber.i("onViewCreated: %s", getClass().getSimpleName());
         toolbar.setTitle(title);
         ((MainActivity) getActivity()).setToolbar(toolbar);
     }

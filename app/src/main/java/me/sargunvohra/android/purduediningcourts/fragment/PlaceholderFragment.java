@@ -11,11 +11,6 @@ import timber.log.Timber;
 public class PlaceholderFragment extends BaseFragment<PlaceholderView, PlaceholderPresenter> implements PlaceholderView {
 
     public static PlaceholderFragment newInstance(String title) {
-        try {
-            throw new Exception(title);
-        } catch (Exception e) {
-            Timber.i(e, "newInstance");
-        }
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle args = new Bundle();
         args.putString(BaseFragment.ARG_TITLE, title);
