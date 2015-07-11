@@ -19,4 +19,17 @@ public class DiningLocation implements Location {
     List<DiningPeriod> NormalHours;
     List<String> Images;
     String FormalName;
+
+    @Override
+    public String getFullName() {
+        return getFormalName();
+    }
+
+    @Override
+    public String getImageId() {
+        if (getImages().size() == 0)
+            return null;
+        else
+            return getImages().get(0);
+    }
 }

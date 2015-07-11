@@ -17,9 +17,9 @@ import timber.log.Timber;
 public abstract class BaseFragment<V extends MvpView, P extends MvpPresenter<V>> extends MvpFragment<V, P> {
     protected static final String ARG_TITLE = "base_title";
 
-    private String title = "No name";
+    String title = "No name";
 
-    @InjectView(R.id.toolbar_layout)
+    @InjectView(R.id.toolbar)
     Toolbar toolbar;
 
     public BaseFragment() {}

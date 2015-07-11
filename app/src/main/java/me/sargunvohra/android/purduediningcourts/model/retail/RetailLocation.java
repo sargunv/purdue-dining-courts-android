@@ -25,4 +25,14 @@ public class RetailLocation implements Location {
 
     @Nullable
     String MenuUrl;
+
+    @Override
+    public String getFullName() {
+        return getName();
+    }
+
+    @Override
+    public String getImageId() {
+        return getLogo();
+    }
 }

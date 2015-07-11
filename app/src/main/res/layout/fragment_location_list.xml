@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     tools:context="me.sargunvohra.android.purduediningcourts.fragment.PlaceholderFragment">
 
+    <include layout="@layout/include_appbar" />
+
     <ProgressBar
         android:id="@+id/loadingView"
         android:layout_width="wrap_content"
@@ -21,20 +23,11 @@
         android:visibility="gone"
         tools:ignore="HardcodedText" />
 
-    <android.support.v4.widget.NestedScrollView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/contentView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:visibility="gone"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
-
-        <TextView
-            android:id="@+id/dataView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </android.support.v4.widget.NestedScrollView>
-
-    <include layout="@layout/include_appbar" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -12,8 +12,10 @@ import dagger.Module;
 import dagger.ObjectGraph;
 import dagger.Provides;
 import me.sargunvohra.android.purduediningcourts.activity.MainActivity;
-import me.sargunvohra.android.purduediningcourts.presenter.DiningCourtListPresenter;
+import me.sargunvohra.android.purduediningcourts.presenter.DiningLocationListPresenter;
+import me.sargunvohra.android.purduediningcourts.presenter.RetailLocationListPresenter;
 import me.sargunvohra.android.purduediningcourts.service.DiningService;
+import me.sargunvohra.android.purduediningcourts.service.DiningServiceHelper;
 import retrofit.RestAdapter;
 import retrofit.converter.Converter;
 import retrofit.converter.GsonConverter;
@@ -21,7 +23,8 @@ import retrofit.converter.GsonConverter;
 @Module(
         injects = {
                 MainActivity.class,
-                DiningCourtListPresenter.class
+                DiningLocationListPresenter.class,
+                RetailLocationListPresenter.class
         }
 )
 public class DaggerModule {
@@ -48,7 +51,7 @@ public class DaggerModule {
     @Provides @Singleton
     RestAdapter provideRestAdapter(Converter converter) {
         return new RestAdapter.Builder()
-                .setEndpoint("http://api.hfs.purdue.edu/menus/v2/")
+                .setEndpoint(DiningServiceHelper.getEndpoint())
                 .setLogLevel(RestAdapter.LogLevel.NONE)
                 .setConverter(converter)
                 .build();

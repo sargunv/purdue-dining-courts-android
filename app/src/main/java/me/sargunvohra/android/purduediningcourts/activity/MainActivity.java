@@ -22,6 +22,7 @@ import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.fragment.AboutFragment;
 import me.sargunvohra.android.purduediningcourts.fragment.DiningCourtListFragment;
 import me.sargunvohra.android.purduediningcourts.fragment.PlaceholderFragment;
+import me.sargunvohra.android.purduediningcourts.fragment.RetailListFragment;
 import me.sargunvohra.android.purduediningcourts.service.DiningService;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -110,6 +111,15 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 break;
             case R.id.nav_item_dining_courts:
                 newPage = DiningCourtListFragment.newInstance(this);
+                break;
+            case R.id.nav_item_cafes:
+                newPage = RetailListFragment.newInstance(getString(R.string.nav_cafes), "Cafés");
+                break;
+            case R.id.nav_item_restaurants:
+                newPage = RetailListFragment.newInstance(getString(R.string.nav_restaurants), "Restaurants");
+                break;
+            case R.id.nav_item_markets:
+                newPage = RetailListFragment.newInstance(getString(R.string.nav_markets), "Markets");
                 break;
             default: // TODO
                 newPage = PlaceholderFragment.newInstance(menuItem.getTitle().toString());
