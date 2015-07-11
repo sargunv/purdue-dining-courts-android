@@ -16,4 +16,11 @@
     <string name="nav_markets">Markets</string>
     <string name="nav_settings">Settings</string>
     <string name="nav_about">About</string>
+
+    <!-- Connection -->
+    <string name="network_error">Could not reach the network; please try again.</string>
+    <string name="http_error">Could not reach Purdue HFS; please try again.</string>
+    <string name="conversion_error">Encountered unexpected data; please try again.</string>
+    <string name="unexpected_error">An unknown error occurred; please try again.</string>
+    <string name="retry">Retry</string>
 </resources>

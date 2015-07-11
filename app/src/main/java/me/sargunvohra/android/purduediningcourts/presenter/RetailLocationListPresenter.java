@@ -50,9 +50,9 @@ public class RetailLocationListPresenter extends LocationListPresenter<RetailLoc
 
             @Override
             public void failure(RetrofitError error) {
-                Timber.i("Failed to load %s", locationType);
+                Timber.e("Failed to load %s because: %s", locationType, error.getMessage());
                 if (isViewAttached()) {
-                    getView().showError();
+                    getView().showError(error.getKind());
                 }
             }
         });

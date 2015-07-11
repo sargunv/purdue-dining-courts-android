@@ -33,9 +33,9 @@ public class DiningLocationListPresenter extends LocationListPresenter<DiningLoc
 
             @Override
             public void failure(RetrofitError error) {
-                Timber.e(error, "Failed to load dining courts");
+                Timber.e(error, "Failed to load dining courts because: %s", error.getMessage());
                 if (isViewAttached()) {
-                    getView().showError();
+                    getView().showError(error.getKind());
                 }
             }
         });
