@@ -3,8 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <include layout="@layout/include_appbar" />
-
     <ProgressBar
         android:id="@+id/loadingView"
         android:layout_width="wrap_content"
@@ -45,5 +43,7 @@
         android:visibility="gone"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <include layout="@layout/include_appbar" />
 
 </android.support.design.widget.CoordinatorLayout>
