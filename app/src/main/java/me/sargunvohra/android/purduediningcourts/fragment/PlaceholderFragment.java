@@ -6,7 +6,6 @@ import android.os.Bundle;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.presenter.PlaceholderPresenter;
 import me.sargunvohra.android.purduediningcourts.view.PlaceholderView;
-import timber.log.Timber;
 
 public class PlaceholderFragment extends BaseFragment<PlaceholderView, PlaceholderPresenter> implements PlaceholderView {
 

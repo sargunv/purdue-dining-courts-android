@@ -1,16 +1,12 @@
 package me.sargunvohra.android.purduediningcourts.fragment;
 
 
-import android.content.Context;
 import android.os.Bundle;
 
-import butterknife.InjectView;
-import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocation;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocations;
-import me.sargunvohra.android.purduediningcourts.presenter.DiningLocationListPresenter;
 import me.sargunvohra.android.purduediningcourts.presenter.RetailLocationListPresenter;
+import timber.log.Timber;
 
 public class RetailListFragment extends LocationListFragment<RetailLocation, RetailLocations> {
 
@@ -40,6 +36,11 @@ public class RetailListFragment extends LocationListFragment<RetailLocation, Ret
     @Override
     public RetailLocationListPresenter createPresenter() {
         return new RetailLocationListPresenter(locationType);
+    }
+
+    @Override
+    public void onClick(RetailLocation location) {
+        Timber.d("Clicked: %s", location);
     }
 }
 

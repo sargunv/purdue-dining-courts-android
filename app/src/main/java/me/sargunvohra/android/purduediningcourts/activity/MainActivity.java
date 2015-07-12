@@ -24,7 +24,6 @@ import me.sargunvohra.android.purduediningcourts.fragment.AboutFragment;
 import me.sargunvohra.android.purduediningcourts.fragment.DiningCourtListFragment;
 import me.sargunvohra.android.purduediningcourts.fragment.PlaceholderFragment;
 import me.sargunvohra.android.purduediningcourts.fragment.RetailListFragment;
-import me.sargunvohra.android.purduediningcourts.service.DiningService;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -98,7 +97,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 FragmentManager fm = getSupportFragmentManager();
                 fm.beginTransaction()
                         .replace(R.id.content_frame, newPage)
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit();
             }
         }, delay);

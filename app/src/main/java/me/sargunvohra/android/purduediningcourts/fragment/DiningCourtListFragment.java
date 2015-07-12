@@ -8,6 +8,7 @@ import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocations;
 import me.sargunvohra.android.purduediningcourts.presenter.DiningLocationListPresenter;
+import timber.log.Timber;
 
 public class DiningCourtListFragment extends LocationListFragment<DiningLocation, DiningLocations> {
 
@@ -24,6 +25,11 @@ public class DiningCourtListFragment extends LocationListFragment<DiningLocation
     @Override
     public DiningLocationListPresenter createPresenter() {
         return new DiningLocationListPresenter();
+    }
+
+    @Override
+    public void onClick(DiningLocation location) {
+        Timber.d("Clicked: %s", location);
     }
 }
 

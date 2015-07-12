@@ -12,9 +12,8 @@ import com.hannesdorfmann.mosby.mvp.MvpView;
 import butterknife.InjectView;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.activity.MainActivity;
-import timber.log.Timber;
 
-public abstract class BaseFragment<V extends MvpView, P extends MvpPresenter<V>> extends MvpFragment<V, P> {
+public abstract class BaseFragment<IView extends MvpView, Presenter extends MvpPresenter<IView>> extends MvpFragment<IView, Presenter> {
     protected static final String ARG_TITLE = "base_title";
 
     String title = "No name";
