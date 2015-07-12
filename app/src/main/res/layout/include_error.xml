@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textColor="@color/primary_text_default_material_light"
+        android:textColor="@color/primary_text"
         android:textSize="24sp"/>
 
     <Button
