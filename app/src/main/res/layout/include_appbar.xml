@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.design.widget.AppBarLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.design.widget.AppBarLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -11,27 +11,10 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/primary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
-        <!--app:layout_scrollFlags="scroll|enterAlways"-->
 
-    <!--
-    Fix for Toolbar bug
-    See: http://stackoverflow.com/questions/30836957/android-toolbar-disappear-during-scrolling-with-coordinatorlayout
-    -->
     <View
         android:layout_width="match_parent"
         android:background="@color/primary"
         android:layout_height="1dp" />
 
 </android.support.design.widget.AppBarLayout>
-
-
-<!--<android.support.v7.widget.Toolbar-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--android:id="@+id/toolbar"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:background="@color/primary"-->
-    <!--android:elevation="4dp"-->
-    <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
-    <!--app:layout_scrollFlags="scroll|enterAlways" />-->
