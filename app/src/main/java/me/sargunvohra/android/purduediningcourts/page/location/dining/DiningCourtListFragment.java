@@ -1,13 +1,14 @@
-package me.sargunvohra.android.purduediningcourts.fragment;
+package me.sargunvohra.android.purduediningcourts.page.location.dining;
 
 
 import android.content.Context;
 import android.os.Bundle;
 
 import me.sargunvohra.android.purduediningcourts.R;
+import me.sargunvohra.android.purduediningcourts.base.BaseFragment;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocations;
-import me.sargunvohra.android.purduediningcourts.presenter.DiningLocationListPresenter;
+import me.sargunvohra.android.purduediningcourts.page.location.LocationListFragment;
 import timber.log.Timber;
 
 public class DiningCourtListFragment extends LocationListFragment<DiningLocation, DiningLocations> {

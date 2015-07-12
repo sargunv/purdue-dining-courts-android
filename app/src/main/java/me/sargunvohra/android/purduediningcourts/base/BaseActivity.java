@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.activity;
+package me.sargunvohra.android.purduediningcourts.base;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

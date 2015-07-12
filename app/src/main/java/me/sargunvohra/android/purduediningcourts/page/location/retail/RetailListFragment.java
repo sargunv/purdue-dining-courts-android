@@ -1,11 +1,12 @@
-package me.sargunvohra.android.purduediningcourts.fragment;
+package me.sargunvohra.android.purduediningcourts.page.location.retail;
 
 
 import android.os.Bundle;
 
+import me.sargunvohra.android.purduediningcourts.base.BaseFragment;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocation;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocations;
-import me.sargunvohra.android.purduediningcourts.presenter.RetailLocationListPresenter;
+import me.sargunvohra.android.purduediningcourts.page.location.LocationListFragment;
 import timber.log.Timber;
 
 public class RetailListFragment extends LocationListFragment<RetailLocation, RetailLocations> {

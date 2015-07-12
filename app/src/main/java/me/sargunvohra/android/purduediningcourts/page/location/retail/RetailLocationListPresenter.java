@@ -1,9 +1,10 @@
-package me.sargunvohra.android.purduediningcourts.presenter;
+package me.sargunvohra.android.purduediningcourts.page.location.retail;
 
 import java.util.Iterator;
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
+import me.sargunvohra.android.purduediningcourts.base.lce.LcePresenter;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocation;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocations;
 import retrofit.client.Response;

@@ -1,7 +1,6 @@
-package me.sargunvohra.android.purduediningcourts.fragment;
+package me.sargunvohra.android.purduediningcourts.base.lce;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -12,9 +11,8 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import lombok.Getter;
 import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.adapter.BaseListAdapter;
-import me.sargunvohra.android.purduediningcourts.presenter.LcePresenter;
-import me.sargunvohra.android.purduediningcourts.view.LceView;
+import me.sargunvohra.android.purduediningcourts.base.BaseFragment;
+import me.sargunvohra.android.purduediningcourts.base.BaseListAdapter;
 import retrofit.RetrofitError;
 import timber.log.Timber;
 

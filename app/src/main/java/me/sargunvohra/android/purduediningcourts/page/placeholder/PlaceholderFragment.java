@@ -1,11 +1,10 @@
-package me.sargunvohra.android.purduediningcourts.fragment;
+package me.sargunvohra.android.purduediningcourts.page.placeholder;
 
 
 import android.os.Bundle;
 
 import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.presenter.PlaceholderPresenter;
-import me.sargunvohra.android.purduediningcourts.view.PlaceholderView;
+import me.sargunvohra.android.purduediningcourts.base.BaseFragment;
 
 public class PlaceholderFragment extends BaseFragment<PlaceholderView, PlaceholderPresenter> implements PlaceholderView {
 

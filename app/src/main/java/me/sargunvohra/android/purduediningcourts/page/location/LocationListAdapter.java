@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.adapter;
+package me.sargunvohra.android.purduediningcourts.page.location;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +12,7 @@ import java.util.List;
 
 import butterknife.InjectView;
 import me.sargunvohra.android.purduediningcourts.R;
+import me.sargunvohra.android.purduediningcourts.base.BaseListAdapter;
 import me.sargunvohra.android.purduediningcourts.model.Location;
 import me.sargunvohra.android.purduediningcourts.service.DiningServiceHelper;
 

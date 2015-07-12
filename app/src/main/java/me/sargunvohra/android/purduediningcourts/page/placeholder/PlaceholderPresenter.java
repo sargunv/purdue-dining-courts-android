@@ -1,7 +1,5 @@
-package me.sargunvohra.android.purduediningcourts.presenter;
+package me.sargunvohra.android.purduediningcourts.page.placeholder;
 
 import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
-
-import me.sargunvohra.android.purduediningcourts.view.PlaceholderView;
 
 public class PlaceholderPresenter extends MvpBasePresenter<PlaceholderView> {}

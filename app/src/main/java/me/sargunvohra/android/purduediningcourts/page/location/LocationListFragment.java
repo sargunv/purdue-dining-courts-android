@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.fragment;
+package me.sargunvohra.android.purduediningcourts.page.location;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -8,7 +8,7 @@ import android.view.View;
 import java.util.ArrayList;
 
 import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.adapter.LocationListAdapter;
+import me.sargunvohra.android.purduediningcourts.base.lce.LceFragment;
 import me.sargunvohra.android.purduediningcourts.model.Location;
 
 public abstract class LocationListFragment<ListItem extends Location, Wrapper> extends LceFragment<ListItem, Wrapper, LocationListAdapter<ListItem>> {

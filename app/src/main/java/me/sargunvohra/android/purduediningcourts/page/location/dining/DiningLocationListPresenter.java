@@ -1,5 +1,6 @@
-package me.sargunvohra.android.purduediningcourts.presenter;
+package me.sargunvohra.android.purduediningcourts.page.location.dining;
 
+import me.sargunvohra.android.purduediningcourts.base.lce.LcePresenter;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocations;
 import retrofit.client.Response;

@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.view;
+package me.sargunvohra.android.purduediningcourts.page.placeholder;
 
 import com.hannesdorfmann.mosby.mvp.MvpView;
 

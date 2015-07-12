@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.adapter;
+package me.sargunvohra.android.purduediningcourts.base;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

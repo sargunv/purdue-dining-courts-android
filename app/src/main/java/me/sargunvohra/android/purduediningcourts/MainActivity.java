@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.activity;
+package me.sargunvohra.android.purduediningcourts;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -6,7 +6,6 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,11 +18,11 @@ import javax.inject.Inject;
 
 import butterknife.InjectView;
 import icepick.Icicle;
-import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.fragment.AboutFragment;
-import me.sargunvohra.android.purduediningcourts.fragment.DiningCourtListFragment;
-import me.sargunvohra.android.purduediningcourts.fragment.PlaceholderFragment;
-import me.sargunvohra.android.purduediningcourts.fragment.RetailListFragment;
+import me.sargunvohra.android.purduediningcourts.base.BaseActivity;
+import me.sargunvohra.android.purduediningcourts.page.about.AboutFragment;
+import me.sargunvohra.android.purduediningcourts.page.location.dining.DiningCourtListFragment;
+import me.sargunvohra.android.purduediningcourts.page.placeholder.PlaceholderFragment;
+import me.sargunvohra.android.purduediningcourts.page.location.retail.RetailListFragment;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 

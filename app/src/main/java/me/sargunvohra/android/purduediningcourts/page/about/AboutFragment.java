@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.fragment;
+package me.sargunvohra.android.purduediningcourts.page.about;
 
 
 import android.content.Context;
@@ -9,8 +9,7 @@ import android.view.View;
 import com.mikepenz.aboutlibraries.LibsBuilder;
 
 import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.presenter.AboutPresenter;
-import me.sargunvohra.android.purduediningcourts.view.AboutView;
+import me.sargunvohra.android.purduediningcourts.base.BaseFragment;
 
 public class AboutFragment extends BaseFragment<AboutView, AboutPresenter> implements AboutView {
 

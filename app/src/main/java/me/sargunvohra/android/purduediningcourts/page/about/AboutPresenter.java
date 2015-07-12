@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.presenter;
+package me.sargunvohra.android.purduediningcourts.page.about;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -10,7 +10,7 @@ import com.mikepenz.aboutlibraries.LibsConfiguration;
 import com.mikepenz.aboutlibraries.entity.Library;
 
 import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.view.AboutView;
+import me.sargunvohra.android.purduediningcourts.page.about.AboutView;
 
 public class AboutPresenter extends MvpBasePresenter<AboutView> implements LibsConfiguration.LibsListener {
     @Override

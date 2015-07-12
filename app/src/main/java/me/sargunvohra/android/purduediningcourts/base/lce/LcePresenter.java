@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.presenter;
+package me.sargunvohra.android.purduediningcourts.base.lce;
 
 import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
 
@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import lombok.Getter;
 import me.sargunvohra.android.purduediningcourts.DaggerModule;
 import me.sargunvohra.android.purduediningcourts.service.DiningService;
-import me.sargunvohra.android.purduediningcourts.view.LceView;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;

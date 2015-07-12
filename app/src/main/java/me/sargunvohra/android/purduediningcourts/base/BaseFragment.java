@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.fragment;
+package me.sargunvohra.android.purduediningcourts.base;
 
 
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import com.hannesdorfmann.mosby.mvp.MvpView;
 
 import butterknife.InjectView;
 import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.activity.MainActivity;
+import me.sargunvohra.android.purduediningcourts.MainActivity;
 
 public abstract class BaseFragment<IView extends MvpView, Presenter extends MvpPresenter<IView>> extends MvpFragment<IView, Presenter> {
     protected static final String ARG_TITLE = "base_title";
