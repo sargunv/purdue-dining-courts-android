@@ -8,6 +8,9 @@ import me.sargunvohra.android.purduediningcourts.base.BaseFragment;
 
 public class PlaceholderFragment extends BaseFragment<PlaceholderView, PlaceholderPresenter> implements PlaceholderView {
 
+    public PlaceholderFragment() {
+    }
+
     public static PlaceholderFragment newInstance(String title) {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle args = new Bundle();
@@ -15,8 +18,6 @@ public class PlaceholderFragment extends BaseFragment<PlaceholderView, Placehold
         fragment.setArguments(args);
         return fragment;
     }
-
-    public PlaceholderFragment() {}
 
     @Override
     public PlaceholderPresenter createPresenter() {

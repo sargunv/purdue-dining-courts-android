@@ -22,18 +22,6 @@ public class LocationListAdapter<ListItem extends Location> extends BaseListAdap
         super(dataSet, onClickListener);
     }
 
-    public static class ViewHolder extends BaseListAdapter.ViewHolder {
-        @InjectView(R.id.title)
-        public TextView title;
-
-        @InjectView(R.id.image)
-        public ImageView image;
-
-        public ViewHolder(View parentView) {
-            super(parentView);
-        }
-    }
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_location, parent, false);
@@ -58,6 +46,18 @@ public class LocationListAdapter<ListItem extends Location> extends BaseListAdap
                 .resize(500, 400)
                 .centerCrop()
                 .into(holder.image);
+    }
+
+    public static class ViewHolder extends BaseListAdapter.ViewHolder {
+        @InjectView(R.id.title)
+        public TextView title;
+
+        @InjectView(R.id.image)
+        public ImageView image;
+
+        public ViewHolder(View parentView) {
+            super(parentView);
+        }
     }
 
 }

@@ -36,7 +36,8 @@ public abstract class LceFragment<ListItem, Wrapper, Adapter extends BaseListAda
 
     Adapter adapter;
 
-    public LceFragment() {}
+    public LceFragment() {
+    }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {

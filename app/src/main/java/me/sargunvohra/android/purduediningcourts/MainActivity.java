@@ -21,8 +21,8 @@ import icepick.Icicle;
 import me.sargunvohra.android.purduediningcourts.base.BaseActivity;
 import me.sargunvohra.android.purduediningcourts.page.about.AboutFragment;
 import me.sargunvohra.android.purduediningcourts.page.location.dining.DiningCourtListFragment;
-import me.sargunvohra.android.purduediningcourts.page.placeholder.PlaceholderFragment;
 import me.sargunvohra.android.purduediningcourts.page.location.retail.RetailListFragment;
+import me.sargunvohra.android.purduediningcourts.page.placeholder.PlaceholderFragment;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 

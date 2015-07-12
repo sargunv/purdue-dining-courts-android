@@ -13,7 +13,8 @@ import me.sargunvohra.android.purduediningcourts.model.Location;
 
 public abstract class LocationListFragment<ListItem extends Location, Wrapper> extends LceFragment<ListItem, Wrapper, LocationListAdapter<ListItem>> {
 
-    public LocationListFragment() {}
+    public LocationListFragment() {
+    }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {

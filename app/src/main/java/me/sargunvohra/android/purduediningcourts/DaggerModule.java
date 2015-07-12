@@ -30,24 +30,35 @@ public class DaggerModule {
 
     private static ObjectGraph graph;
 
-    @Provides @Singleton
+    public static ObjectGraph getObjectGraph() {
+        if (graph == null) {
+            graph = ObjectGraph.create(new DaggerModule());
+        }
+        return graph;
+    }
+
+    @Provides
+    @Singleton
     Bus provideBus() {
         return new Bus();
     }
 
-    @Provides @Singleton
+    @Provides
+    @Singleton
     Gson provideGson() {
         return new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
                 .create();
     }
 
-    @Provides @Singleton
+    @Provides
+    @Singleton
     Converter provideConverter(Gson gson) {
         return new GsonConverter(gson);
     }
 
-    @Provides @Singleton
+    @Provides
+    @Singleton
     RestAdapter provideRestAdapter(Converter converter) {
         return new RestAdapter.Builder()
                 .setEndpoint(DiningServiceHelper.getEndpoint())
@@ -56,7 +67,8 @@ public class DaggerModule {
                 .build();
     }
 
-    @Provides @Singleton
+    @Provides
+    @Singleton
     DiningService provideDiningService(RestAdapter adapter) {
         return adapter.create(DiningService.class);
     }
@@ -64,12 +76,5 @@ public class DaggerModule {
     @Provides
     Handler provideHandler() {
         return new Handler();
-    }
-
-    public static ObjectGraph getObjectGraph() {
-        if (graph == null) {
-            graph = ObjectGraph.create(new DaggerModule());
-        }
-        return graph;
     }
 }

@@ -13,6 +13,9 @@ import me.sargunvohra.android.purduediningcourts.base.BaseFragment;
 
 public class AboutFragment extends BaseFragment<AboutView, AboutPresenter> implements AboutView {
 
+    public AboutFragment() {
+    }
+
     public static AboutFragment newInstance(Context ctx) {
         AboutFragment fragment = new AboutFragment();
         Bundle args = new Bundle();
@@ -20,8 +23,6 @@ public class AboutFragment extends BaseFragment<AboutView, AboutPresenter> imple
         fragment.setArguments(args);
         return fragment;
     }
-
-    public AboutFragment() {}
 
     @Override
     public AboutPresenter createPresenter() {

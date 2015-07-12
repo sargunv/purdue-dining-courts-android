@@ -15,6 +15,9 @@ public class RetailListFragment extends LocationListFragment<RetailLocation, Ret
 
     String locationType = "";
 
+    public RetailListFragment() {
+    }
+
     public static RetailListFragment newInstance(String title, String locationType) {
         RetailListFragment fragment = new RetailListFragment();
         Bundle args = new Bundle();
@@ -31,8 +34,6 @@ public class RetailListFragment extends LocationListFragment<RetailLocation, Ret
             locationType = getArguments().getString(ARG_LOC_TYPE);
         }
     }
-
-    public RetailListFragment() {}
 
     @Override
     public RetailLocationListPresenter createPresenter() {

@@ -13,24 +13,9 @@ import lombok.Setter;
 @AllArgsConstructor(suppressConstructorProperties = true)
 public abstract class BaseListAdapter<ListItem, VH extends BaseListAdapter.ViewHolder> extends RecyclerView.Adapter<VH> {
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public View parentView;
-
-        public ViewHolder(View parentView) {
-            super(parentView);
-            this.parentView = parentView;
-            ButterKnife.inject(this, parentView);
-        }
-    }
-
-    public interface OnClickListener<T> {
-        void onClick(T location);
-    }
-
     @Getter
     @Setter
     protected List<ListItem> dataSet;
-
     @Getter
     @Setter
     protected OnClickListener<ListItem> onClickListener;
@@ -49,5 +34,19 @@ public abstract class BaseListAdapter<ListItem, VH extends BaseListAdapter.ViewH
                 onClickListener.onClick(dataSet.get(position));
             }
         });
+    }
+
+    public interface OnClickListener<T> {
+        void onClick(T location);
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public View parentView;
+
+        public ViewHolder(View parentView) {
+            super(parentView);
+            this.parentView = parentView;
+            ButterKnife.inject(this, parentView);
+        }
     }
 }

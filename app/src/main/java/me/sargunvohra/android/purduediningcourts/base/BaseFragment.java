@@ -10,8 +10,8 @@ import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 import com.hannesdorfmann.mosby.mvp.MvpView;
 
 import butterknife.InjectView;
-import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.MainActivity;
+import me.sargunvohra.android.purduediningcourts.R;
 
 public abstract class BaseFragment<IView extends MvpView, Presenter extends MvpPresenter<IView>> extends MvpFragment<IView, Presenter> {
     protected static final String ARG_TITLE = "base_title";
@@ -21,7 +21,8 @@ public abstract class BaseFragment<IView extends MvpView, Presenter extends MvpP
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
 
-    public BaseFragment() {}
+    public BaseFragment() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

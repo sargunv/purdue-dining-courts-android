@@ -10,7 +10,6 @@ import com.mikepenz.aboutlibraries.LibsConfiguration;
 import com.mikepenz.aboutlibraries.entity.Library;
 
 import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.page.about.AboutView;
 
 public class AboutPresenter extends MvpBasePresenter<AboutView> implements LibsConfiguration.LibsListener {
     @Override
@@ -33,7 +32,8 @@ public class AboutPresenter extends MvpBasePresenter<AboutView> implements LibsC
     }
 
     @Override
-    public void onIconClicked(View view) {}
+    public void onIconClicked(View view) {
+    }
 
     @Override
     public boolean onLibraryAuthorClicked(View view, Library library) {

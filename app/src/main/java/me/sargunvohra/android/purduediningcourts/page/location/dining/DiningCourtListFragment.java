@@ -13,6 +13,9 @@ import timber.log.Timber;
 
 public class DiningCourtListFragment extends LocationListFragment<DiningLocation, DiningLocations> {
 
+    public DiningCourtListFragment() {
+    }
+
     public static DiningCourtListFragment newInstance(Context ctx) {
         DiningCourtListFragment fragment = new DiningCourtListFragment();
         Bundle args = new Bundle();
@@ -20,8 +23,6 @@ public class DiningCourtListFragment extends LocationListFragment<DiningLocation
         fragment.setArguments(args);
         return fragment;
     }
-
-    public DiningCourtListFragment() {}
 
     @Override
     public DiningLocationListPresenter createPresenter() {

@@ -29,7 +29,7 @@ public class RetailLocationListPresenter extends LcePresenter<RetailLocation, Re
     public void success(RetailLocations retailLocations, Response response) {
         super.success(retailLocations, response);
         List<RetailLocation> list = retailLocations.getLocations();
-        for ( Iterator<RetailLocation> iterator = list.iterator(); iterator.hasNext(); )
+        for (Iterator<RetailLocation> iterator = list.iterator(); iterator.hasNext(); )
             if (!locationType.equals(iterator.next().getType()))
                 iterator.remove();
         presentData(list);
