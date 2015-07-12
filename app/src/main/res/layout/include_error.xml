@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:id="@+id/errorView"
     android:visibility="gone"
-    android:layout_gravity="center" >
-
-    <TextView
-        android:id="@+id/errorMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textColor="@color/primary_text"
-        android:textSize="24sp"/>
-
-    <Button
-        android:id="@+id/retryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/retry"
-        android:layout_gravity="center_horizontal" />
-
-</LinearLayout>
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
+    android:textColor="@color/primary_text"
+    android:textSize="24sp" />

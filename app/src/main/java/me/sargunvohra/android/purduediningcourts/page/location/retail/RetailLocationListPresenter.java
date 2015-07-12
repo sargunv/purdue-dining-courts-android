@@ -1,38 +1,57 @@
 package me.sargunvohra.android.purduediningcourts.page.location.retail;
 
+import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
+import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
+
 import java.util.Iterator;
 import java.util.List;
 
-import lombok.RequiredArgsConstructor;
-import me.sargunvohra.android.purduediningcourts.base.lce.LcePresenter;
+import javax.inject.Inject;
+
+import me.sargunvohra.android.purduediningcourts.DaggerModule;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocation;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocations;
+import me.sargunvohra.android.purduediningcourts.service.DiningService;
+import retrofit.Callback;
+import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-@RequiredArgsConstructor(suppressConstructorProperties = true)
-public class RetailLocationListPresenter extends LcePresenter<RetailLocation, RetailLocations> {
+public class RetailLocationListPresenter extends MvpBasePresenter<MvpLceView<List<RetailLocation>>> {
 
     private final String locationType;
 
-    @Override
-    public void loadData() {
-        super.loadData();
-        getService().getRetailLocations(this);
+    @Inject
+    DiningService service;
+
+    public RetailLocationListPresenter(String locationType) {
+        this.locationType = locationType;
+        DaggerModule.getObjectGraph().inject(this);
     }
 
-    @Override
-    public String getLocationType() {
-        return locationType;
-    }
+    public void loadData(final boolean pullToRefresh) {
+        if (isViewAttached())
+            getView().showLoading(false);
 
-    @Override
-    public void success(RetailLocations retailLocations, Response response) {
-        super.success(retailLocations, response);
-        List<RetailLocation> list = retailLocations.getLocations();
-        for (Iterator<RetailLocation> iterator = list.iterator(); iterator.hasNext(); )
-            if (!locationType.equals(iterator.next().getType()))
-                iterator.remove();
-        presentData(list);
+        service.getRetailLocations(new Callback<RetailLocations>() {
+            @Override
+            public void success(RetailLocations retailLocations, Response response) {
+                if (isViewAttached()) {
+                    List<RetailLocation> list = retailLocations.getLocations();
+                    for (Iterator<RetailLocation> iterator = list.iterator(); iterator.hasNext(); )
+                        if (!locationType.equals(iterator.next().getType()))
+                            iterator.remove();
+                    getView().setData(list);
+                    getView().showContent();
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                if (isViewAttached()) {
+                    getView().showError(error, pullToRefresh);
+                }
+            }
+        });
     }
 
 }

@@ -11,6 +11,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.ObjectGraph;
 import dagger.Provides;
+import me.sargunvohra.android.purduediningcourts.page.location.ErrorMessageProvider;
 import me.sargunvohra.android.purduediningcourts.page.location.dining.DiningLocationListPresenter;
 import me.sargunvohra.android.purduediningcourts.page.location.retail.RetailLocationListPresenter;
 import me.sargunvohra.android.purduediningcourts.service.DiningService;
