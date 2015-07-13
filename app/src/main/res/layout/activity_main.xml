@@ -1,10 +1,10 @@
 <android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:id="@+id/content_frame"
@@ -16,7 +16,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:theme="@style/AppTheme"
         app:itemTextColor="@color/drawer_item"
         app:itemIconTint="@color/drawer_item"
         app:headerLayout="@layout/drawer_header"

@@ -8,7 +8,14 @@
 
     <include layout="@layout/include_error" />
 
-    <include layout="@layout/include_content" />
+    <android.support.v7.widget.RecyclerView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_retail" />
 
     <include layout="@layout/include_appbar" />
 

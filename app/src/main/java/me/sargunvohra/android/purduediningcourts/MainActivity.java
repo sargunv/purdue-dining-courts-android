@@ -19,10 +19,10 @@ import javax.inject.Inject;
 import butterknife.InjectView;
 import icepick.Icicle;
 import me.sargunvohra.android.purduediningcourts.base.BaseActivity;
-import me.sargunvohra.android.purduediningcourts.page.about.AboutFragment;
-import me.sargunvohra.android.purduediningcourts.page.location.dining.DiningLocationListFragment;
-import me.sargunvohra.android.purduediningcourts.page.location.retail.RetailLocationListFragment;
-import me.sargunvohra.android.purduediningcourts.page.placeholder.PlaceholderFragment;
+import me.sargunvohra.android.purduediningcourts.page.about.AboutFragmentBuilder;
+import me.sargunvohra.android.purduediningcourts.page.location.dining.DiningLocationListFragmentBuilder;
+import me.sargunvohra.android.purduediningcourts.page.location.retail.RetailLocationListFragmentBuilder;
+import me.sargunvohra.android.purduediningcourts.page.placeholder.PlaceholderFragmentBuilder;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     @Override
-    public int getLayout() {
+    public int getLayoutRes() {
         return R.layout.activity_main;
     }
 
@@ -103,24 +103,25 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     private Fragment choosePage(MenuItem menuItem) {
         final Fragment newPage;
+        String title = menuItem.getTitle().toString();
         switch (menuItem.getItemId()) {
             case R.id.nav_item_about:
-                newPage = AboutFragment.newInstance(this);
+                newPage = new AboutFragmentBuilder(title).build();
                 break;
             case R.id.nav_item_dining_courts:
-                newPage = DiningLocationListFragment.newInstance(this);
+                newPage = new DiningLocationListFragmentBuilder(title).build();
                 break;
             case R.id.nav_item_cafes:
-                newPage = RetailLocationListFragment.newInstance(getString(R.string.nav_cafes), "Cafés");
+                newPage = new RetailLocationListFragmentBuilder("Cafés", title).build();
                 break;
             case R.id.nav_item_restaurants:
-                newPage = RetailLocationListFragment.newInstance(getString(R.string.nav_restaurants), "Restaurants");
+                newPage = new RetailLocationListFragmentBuilder("Restaurants", title).build();
                 break;
             case R.id.nav_item_markets:
-                newPage = RetailLocationListFragment.newInstance(getString(R.string.nav_markets), "Markets");
+                newPage = new RetailLocationListFragmentBuilder("Markets", title).build();
                 break;
             default: // TODO
-                newPage = PlaceholderFragment.newInstance(menuItem.getTitle().toString());
+                newPage = new PlaceholderFragmentBuilder(title).build();
                 Snackbar.make(contentFrame, "Operation not yet supported", Snackbar.LENGTH_SHORT).show();
         }
         return newPage;

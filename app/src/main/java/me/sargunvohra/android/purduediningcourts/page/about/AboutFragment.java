@@ -1,28 +1,18 @@
 package me.sargunvohra.android.purduediningcourts.page.about;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
+import com.hannesdorfmann.fragmentargs.annotation.FragmentArgsInherited;
 import com.mikepenz.aboutlibraries.LibsBuilder;
 
 import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.base.BaseFragment;
+import me.sargunvohra.android.purduediningcourts.base.MainFragment;
 
-public class AboutFragment extends BaseFragment<AboutView, AboutPresenter> implements AboutView {
-
-    public AboutFragment() {
-    }
-
-    public static AboutFragment newInstance(Context ctx) {
-        AboutFragment fragment = new AboutFragment();
-        Bundle args = new Bundle();
-        args.putString(BaseFragment.ARG_TITLE, ctx.getString(R.string.nav_about));
-        fragment.setArguments(args);
-        return fragment;
-    }
+@FragmentArgsInherited
+public class AboutFragment extends MainFragment<AboutView, AboutPresenter> implements AboutView {
 
     @Override
     public AboutPresenter createPresenter() {

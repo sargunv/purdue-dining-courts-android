@@ -1,6 +1,8 @@
 package me.sargunvohra.android.purduediningcourts.model;
 
-public interface Location {
+import android.os.Parcelable;
+
+public interface Location extends Parcelable {
     String getName();
 
     String getFullName();

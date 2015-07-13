@@ -11,8 +11,8 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.ObjectGraph;
 import dagger.Provides;
-import me.sargunvohra.android.purduediningcourts.page.location.ErrorMessageProvider;
 import me.sargunvohra.android.purduediningcourts.page.location.dining.DiningLocationListPresenter;
+import me.sargunvohra.android.purduediningcourts.page.location.dining.DiningMenuActivity;
 import me.sargunvohra.android.purduediningcourts.page.location.retail.RetailLocationListPresenter;
 import me.sargunvohra.android.purduediningcourts.service.DiningService;
 import me.sargunvohra.android.purduediningcourts.service.DiningServiceHelper;
@@ -23,8 +23,9 @@ import retrofit.converter.GsonConverter;
 @Module(
         injects = {
                 MainActivity.class,
+                DiningMenuActivity.class,
                 DiningLocationListPresenter.class,
-                RetailLocationListPresenter.class
+                RetailLocationListPresenter.class,
         }
 )
 public class DaggerModule {

@@ -23,4 +23,8 @@
     <string name="conversion_error">Encountered unexpected data; please try again.</string>
     <string name="unexpected_error">An unknown error occurred; please try again.</string>
     <string name="retry">Retry</string>
+    <string name="title_activity_dining_court_menu">Menu</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>

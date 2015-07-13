@@ -21,7 +21,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // inflate layout
-        setContentView(getLayout());
+        setContentView(getLayoutRes());
 
         // inject dependencies
         DaggerModule.getObjectGraph().inject(this);
@@ -49,5 +49,5 @@ public abstract class BaseActivity extends AppCompatActivity {
         Icepick.restoreInstanceState(this, savedInstanceState);
     }
 
-    public abstract int getLayout();
+    public abstract int getLayoutRes();
 }

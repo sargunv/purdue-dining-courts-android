@@ -1,13 +1,16 @@
 package me.sargunvohra.android.purduediningcourts.model.dining.item;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 
-import lombok.RequiredArgsConstructor;
-import lombok.Value;
+import com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease;
 
-@Value
-@RequiredArgsConstructor(suppressConstructorProperties = true)
-public class NutritionFact {
+import lombok.Data;
+
+@ParcelablePlease
+@Data
+public class NutritionFact implements Parcelable {
 
     String Name;
     Integer Ordinal;
@@ -20,4 +23,25 @@ public class NutritionFact {
 
     @Nullable
     String DailyValue;
+    public static final Creator<NutritionFact> CREATOR = new Creator<NutritionFact>() {
+        public NutritionFact createFromParcel(Parcel source) {
+            NutritionFact target = new NutritionFact();
+            NutritionFactParcelablePlease.readFromParcel(target, source);
+            return target;
+        }
+
+        public NutritionFact[] newArray(int size) {
+            return new NutritionFact[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        NutritionFactParcelablePlease.writeToParcel(this, dest, flags);
+    }
 }

@@ -1,23 +1,13 @@
 package me.sargunvohra.android.purduediningcourts.page.placeholder;
 
 
-import android.os.Bundle;
+import com.hannesdorfmann.fragmentargs.annotation.FragmentArgsInherited;
 
 import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.base.BaseFragment;
+import me.sargunvohra.android.purduediningcourts.base.MainFragment;
 
-public class PlaceholderFragment extends BaseFragment<PlaceholderView, PlaceholderPresenter> implements PlaceholderView {
-
-    public PlaceholderFragment() {
-    }
-
-    public static PlaceholderFragment newInstance(String title) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
-        Bundle args = new Bundle();
-        args.putString(BaseFragment.ARG_TITLE, title);
-        fragment.setArguments(args);
-        return fragment;
-    }
+@FragmentArgsInherited
+public class PlaceholderFragment extends MainFragment<PlaceholderView, PlaceholderPresenter> implements PlaceholderView {
 
     @Override
     public PlaceholderPresenter createPresenter() {

@@ -1,41 +1,29 @@
 package me.sargunvohra.android.purduediningcourts.base;
 
-
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
-import com.hannesdorfmann.mosby.mvp.MvpFragment;
-import com.hannesdorfmann.mosby.mvp.MvpPresenter;
-import com.hannesdorfmann.mosby.mvp.MvpView;
+import com.hannesdorfmann.fragmentargs.FragmentArgs;
 
-import butterknife.InjectView;
-import me.sargunvohra.android.purduediningcourts.MainActivity;
-import me.sargunvohra.android.purduediningcourts.R;
+import butterknife.ButterKnife;
 
-public abstract class BaseFragment<IView extends MvpView, Presenter extends MvpPresenter<IView>> extends MvpFragment<IView, Presenter> {
-    protected static final String ARG_TITLE = "base_title";
-
-    String title = "No name";
-
-    @InjectView(R.id.toolbar)
-    Toolbar toolbar;
-
-    public BaseFragment() {
-    }
-
+public abstract class BaseFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            title = getArguments().getString(ARG_TITLE);
-        }
+        FragmentArgs.inject(this);
     }
 
+    public abstract int getLayoutRes();
+
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        toolbar.setTitle(title);
-        ((MainActivity) getActivity()).setToolbar(toolbar);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(getLayoutRes(), container);
+        ButterKnife.inject(this, view);
+        return view;
     }
 }

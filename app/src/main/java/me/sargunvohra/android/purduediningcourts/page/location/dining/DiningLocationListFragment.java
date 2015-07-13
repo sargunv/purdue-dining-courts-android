@@ -7,30 +7,20 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.hannesdorfmann.fragmentargs.annotation.FragmentArgsInherited;
 import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.base.BaseLceFragment;
 import me.sargunvohra.android.purduediningcourts.base.BaseListAdapter;
+import me.sargunvohra.android.purduediningcourts.base.MainLceFragment;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
 import me.sargunvohra.android.purduediningcourts.page.location.LocationListAdapter;
-import timber.log.Timber;
 
-public class DiningLocationListFragment extends BaseLceFragment<RecyclerView, List<DiningLocation>, MvpLceView<List<DiningLocation>>, DiningLocationListPresenter> implements BaseListAdapter.OnClickListener<DiningLocation> {
-
-    public DiningLocationListFragment() {
-    }
-
-    public static DiningLocationListFragment newInstance(Context ctx) {
-        DiningLocationListFragment fragment = new DiningLocationListFragment();
-        Bundle args = new Bundle();
-        args.putString(BaseLceFragment.ARG_TITLE, ctx.getString(R.string.nav_dining_courts));
-        fragment.setArguments(args);
-        return fragment;
-    }
+@FragmentArgsInherited
+public class DiningLocationListFragment extends MainLceFragment<RecyclerView, List<DiningLocation>, MvpLceView<List<DiningLocation>>, DiningLocationListPresenter> implements BaseListAdapter.OnClickListener<DiningLocation> {
 
     LocationListAdapter<DiningLocation> adapter;
 
@@ -66,7 +56,8 @@ public class DiningLocationListFragment extends BaseLceFragment<RecyclerView, Li
 
     @Override
     public void onClick(DiningLocation location) {
-        Timber.d("Clicked %s", location);
+        Context ctx = getActivity();
+        startActivity(new DiningMenuActivityIntentBuilder(location).build(ctx));
     }
 }
 
