@@ -7,10 +7,13 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import java.util.List;
+
 import butterknife.InjectView;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.base.BaseActivity;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
+import me.sargunvohra.android.purduediningcourts.model.dining.Meal;
 import se.emilsjolander.intentbuilder.Extra;
 import se.emilsjolander.intentbuilder.IntentBuilder;
 
@@ -49,7 +52,11 @@ public class DiningMenuActivity extends BaseActivity {
     private void setupViewPager() {
         DiningMenuPagerAdapter adapter = new DiningMenuPagerAdapter(getSupportFragmentManager(), location.getToday());
         viewPager.setAdapter(adapter);
-        viewPager.setOffscreenPageLimit(0);
+        tabLayout.setupWithViewPager(viewPager);
+        List<Meal> meals = adapter.getDay().getMeals();
+        for (int i = 0; i < meals.size(); i++) {
+            tabLayout.getTabAt(i).setText(meals.get(i).getName());
+        }
     }
 
     @Override
