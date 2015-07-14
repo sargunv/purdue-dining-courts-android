@@ -22,6 +22,6 @@
     <string name="http_error">Could not reach Purdue HFS; please try again.</string>
     <string name="conversion_error">Encountered unexpected data; please try again.</string>
     <string name="unexpected_error">An unknown error occurred; please try again.</string>
-    <string name="closed_error">This location is closed today.</string>
+    <string name="closed_error">Closed</string>
     <string name="retry">Retry</string>
 </resources>
