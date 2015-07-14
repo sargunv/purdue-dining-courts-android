@@ -1,6 +1,7 @@
 package me.sargunvohra.android.purduediningcourts.page.location;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,10 +45,10 @@ public class LocationListAdapter<ListItem extends Location> extends BaseListAdap
             vh.title.setText(loc.getFullName());
 
             // set card status
-            String status = loc.getCurrentStatus();
-            if (status != null && !loc.getCurrentStatus().equals("Closed")) {
-                vh.status.setText(R.string.open);
-                vh.status.setTextColor(vh.status.getResources().getColor(R.color.open));
+            String status = loc.getTimings();
+            if (status != null && !loc.getTimings().equals("Closed")) {
+                vh.status.setText(Html.fromHtml(status));
+                vh.status.setTextColor(vh.status.getResources().getColor(R.color.secondary_text));
             } else {
                 vh.status.setText(R.string.closed);
                 vh.status.setTextColor(vh.status.getResources().getColor(R.color.closed));

@@ -50,4 +50,14 @@ public class DiningDay implements Day, Parcelable {
         }
         return hours;
     }
+
+    public List<Meal> getOpenMeals() {
+        List<Meal> result = new ArrayList<>();
+        for (Meal m : getMeals()) {
+            if (m.getStations() != null && m.getStations().size() > 0) {
+                result.add(m);
+            }
+        }
+        return result;
+    }
 }

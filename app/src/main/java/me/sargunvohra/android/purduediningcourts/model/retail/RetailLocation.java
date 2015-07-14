@@ -8,7 +8,6 @@ import com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease;
 
 import lombok.Data;
 import me.sargunvohra.android.purduediningcourts.model.Address;
-import me.sargunvohra.android.purduediningcourts.model.Day;
 import me.sargunvohra.android.purduediningcourts.model.Location;
 import me.sargunvohra.android.purduediningcourts.service.DiningServiceHelper;
 
@@ -63,12 +62,8 @@ public class RetailLocation implements Location, Parcelable {
     }
 
     @Override
-    public String getCurrentStatus() {
-        Day day = getToday();
-        if (day == null)
-            return null;
-
-        return "Closed"; // TODO temporary test value
+    public String getTimings() {
+        return "TODO"; // TODO
     }
 
     @Nullable

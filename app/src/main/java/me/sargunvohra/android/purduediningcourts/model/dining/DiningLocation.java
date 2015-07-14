@@ -6,12 +6,13 @@ import android.support.annotation.Nullable;
 
 import com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
 import me.sargunvohra.android.purduediningcourts.model.Address;
-import me.sargunvohra.android.purduediningcourts.model.Day;
+import me.sargunvohra.android.purduediningcourts.model.Hours;
 import me.sargunvohra.android.purduediningcourts.model.Location;
 import me.sargunvohra.android.purduediningcourts.service.DiningServiceHelper;
 
@@ -53,12 +54,28 @@ public class DiningLocation implements Location, Parcelable {
     }
 
     @Override
-    public String getCurrentStatus() {
-        Day day = getToday();
+    public String getTimings() {
+        DiningDay day = getToday();
+
         if (day == null)
             return null;
 
-        return "Open"; // TODO temporary test value
+        StringBuilder str = new StringBuilder();
+        Meal[] meals = day.getMeals().toArray(new Meal[day.getMeals().size()]);
+        Arrays.sort(meals);
+
+        boolean first = true;
+        for (Meal m : meals) {
+            if (m != null && m.getHours() != null) {
+                Hours h = m.getHours();
+                if (!first)
+                    str.append("<br/>");
+                first = false;
+                str.append(String.format("%s<br/><i>%s</i>", m.getName(), h.toSimpleString()));
+            }
+        }
+        String result = str.toString();
+        return (result.length() > 0 ? result : null);
     }
 
     @Nullable

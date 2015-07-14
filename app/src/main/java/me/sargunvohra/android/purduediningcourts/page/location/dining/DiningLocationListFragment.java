@@ -3,8 +3,8 @@ package me.sargunvohra.android.purduediningcourts.page.location.dining;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 import com.hannesdorfmann.fragmentargs.annotation.FragmentArgsInherited;
@@ -29,7 +29,7 @@ public class DiningLocationListFragment extends MainLceFragment<RecyclerView, Li
         super.onViewCreated(view, savedInstanceState);
         adapter = new LocationListAdapter<>(new ArrayList<DiningLocation>(), this);
         contentView.setAdapter(adapter);
-        contentView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        contentView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         loadData(false);
     }
 
