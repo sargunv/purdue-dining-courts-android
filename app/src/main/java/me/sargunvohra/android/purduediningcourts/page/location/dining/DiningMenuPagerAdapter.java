@@ -4,28 +4,37 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import lombok.Getter;
-import lombok.Setter;
-import me.sargunvohra.android.purduediningcourts.model.dining.DiningDay;
+import java.util.Arrays;
+import java.util.List;
+
+import me.sargunvohra.android.purduediningcourts.model.dining.Meal;
 
 public class DiningMenuPagerAdapter extends FragmentStatePagerAdapter {
 
-    @Getter
-    @Setter
-    private DiningDay day;
+    private Meal[] meals;
 
-    public DiningMenuPagerAdapter(FragmentManager fm, DiningDay data) {
+    public DiningMenuPagerAdapter(FragmentManager fm, List<Meal> data) {
         super(fm);
-        this.day = data;
+        setMeals(data);
+    }
+
+    public void setMeals(List<Meal> data) {
+        this.meals = data.toArray(new Meal[data.size()]);
+        Arrays.sort(meals);
     }
 
     @Override
     public Fragment getItem(int position) {
-        return new DiningMenuPageFragmentBuilder().build();
+        return new DiningMenuPageFragmentBuilder(meals[position]).build();
     }
 
     @Override
     public int getCount() {
-        return day.getMeals().size();
+        return meals.length;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return meals[position].getName();
     }
 }

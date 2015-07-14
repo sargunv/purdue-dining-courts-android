@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
@@ -17,6 +18,17 @@ public class DayMenu implements Parcelable {
     String Date;
     String Notes;
     List<Meal> Meals;
+
+    public List<Meal> getOpenMeals() {
+        List<Meal> result = new ArrayList<>();
+        for (Meal m : getMeals()) {
+            if (m.getStations() != null && m.getStations().size() > 0) {
+                result.add(m);
+            }
+        }
+        return result;
+    }
+
     public static final Creator<DayMenu> CREATOR = new Creator<DayMenu>() {
         public DayMenu createFromParcel(Parcel source) {
             DayMenu target = new DayMenu();

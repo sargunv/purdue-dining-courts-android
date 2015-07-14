@@ -3,6 +3,7 @@ package me.sargunvohra.android.purduediningcourts.service;
 import android.content.Context;
 
 import me.sargunvohra.android.purduediningcourts.R;
+import me.sargunvohra.android.purduediningcourts.page.location.LocationClosedError;
 import retrofit.RetrofitError;
 import timber.log.Timber;
 
@@ -31,6 +32,8 @@ public class DiningServiceHelper {
                 default:
                     Timber.wtf("Encountered unknown error type: %s", kind);
             }
+        } else if (e instanceof LocationClosedError) {
+            return ctx.getString(R.string.closed_error);
         }
         return ctx.getString(R.string.unexpected_error);
     }

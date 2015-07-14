@@ -1,5 +1,6 @@
 package me.sargunvohra.android.purduediningcourts.page.location;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import me.sargunvohra.android.purduediningcourts.base.BaseListAdapter;
 import me.sargunvohra.android.purduediningcourts.model.Location;
 import me.sargunvohra.android.purduediningcourts.service.DiningServiceHelper;
 
-public class LocationListAdapter<ListItem extends Location> extends BaseListAdapter<ListItem, LocationListAdapter.ViewHolder> {
+public class LocationListAdapter<ListItem extends Location> extends BaseListAdapter<ListItem> {
 
     public LocationListAdapter(List<ListItem> dataSet, OnClickListener<ListItem> onClickListener) {
         super(dataSet, onClickListener);
@@ -29,23 +30,27 @@ public class LocationListAdapter<ListItem extends Location> extends BaseListAdap
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         super.onBindViewHolder(holder, position);
 
-        Location loc = dataSet.get(position);
+        if (holder instanceof ViewHolder) {
+            ViewHolder vh = (ViewHolder) holder;
 
-        holder.parentView.setId(loc.hashCode());
+            Location loc = dataSet.get(position);
 
-        // set card title
-        holder.title.setText(loc.getFullName());
+            vh.parentView.setId(loc.hashCode());
 
-        // set card image
-        Picasso.with(holder.image.getContext())
-                .load(DiningServiceHelper.getFileUrl(loc.getTileImage()))
-                .placeholder(R.drawable.placeholder)
-                .resize(500, 400)
-                .centerCrop()
-                .into(holder.image);
+            // set card title
+            vh.title.setText(loc.getFullName());
+
+            // set card image
+            Picasso.with(vh.image.getContext())
+                    .load(DiningServiceHelper.getFileUrl(loc.getTileImage()))
+                    .placeholder(R.drawable.placeholder)
+                    .resize(500, 400)
+                    .centerCrop()
+                    .into(vh.image);
+        }
     }
 
     public static class ViewHolder extends BaseListAdapter.ViewHolder {

@@ -9,8 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
+        <include layout="@layout/include_error" />
+
+        <include layout="@layout/include_progress" />
+
         <android.support.v4.view.ViewPager
-            android:id="@+id/viewPager"
+            android:id="@+id/contentView"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />

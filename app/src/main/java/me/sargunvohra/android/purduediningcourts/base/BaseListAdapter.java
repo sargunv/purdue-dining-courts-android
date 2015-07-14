@@ -11,11 +11,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 @AllArgsConstructor(suppressConstructorProperties = true)
-public abstract class BaseListAdapter<ListItem, VH extends BaseListAdapter.ViewHolder> extends RecyclerView.Adapter<VH> {
+public abstract class BaseListAdapter<ListItem> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Getter
     @Setter
     protected List<ListItem> dataSet;
+
     @Getter
     @Setter
     protected OnClickListener<ListItem> onClickListener;
@@ -26,14 +27,16 @@ public abstract class BaseListAdapter<ListItem, VH extends BaseListAdapter.ViewH
     }
 
     @Override
-    public void onBindViewHolder(VH holder, final int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         // activate click
-        holder.parentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onClickListener.onClick(dataSet.get(position));
-            }
-        });
+        if (holder instanceof ViewHolder) {
+            ((ViewHolder)holder).parentView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onClickListener.onClick(dataSet.get(position));
+                }
+            });
+        }
     }
 
     public interface OnClickListener<T> {

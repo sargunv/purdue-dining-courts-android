@@ -26,7 +26,7 @@ public class DiningLocationListPresenter extends MvpBasePresenter<MvpLceView<Lis
 
     public void loadData(final boolean pullToRefresh) {
         if (isViewAttached())
-            getView().showLoading(false);
+            getView().showLoading(pullToRefresh);
 
         service.getDiningLocations(new Callback<DiningLocations>() {
             @Override

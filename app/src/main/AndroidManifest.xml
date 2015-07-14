@@ -20,7 +20,6 @@
         </activity>
         <activity
             android:name=".page.location.dining.DiningMenuActivity"
-            android:label="@string/title_activity_dining_court_menu"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
