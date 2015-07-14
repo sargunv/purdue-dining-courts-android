@@ -2,7 +2,11 @@ package me.sargunvohra.android.purduediningcourts.service;
 
 import android.content.Context;
 
+import java.util.Calendar;
+import java.util.List;
+
 import me.sargunvohra.android.purduediningcourts.R;
+import me.sargunvohra.android.purduediningcourts.model.Day;
 import me.sargunvohra.android.purduediningcourts.page.location.LocationClosedError;
 import retrofit.RetrofitError;
 import timber.log.Timber;
@@ -36,5 +40,15 @@ public class DiningServiceHelper {
             return ctx.getString(R.string.closed_error);
         }
         return ctx.getString(R.string.unexpected_error);
+    }
+
+    public static <D extends Day> D getToday(List<D> days) {
+        Calendar c = Calendar.getInstance();
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+        for (D day : days) {
+            if (dayOfWeek == day.getDayOfWeek())
+                return day;
+        }
+        return null;
     }
 }

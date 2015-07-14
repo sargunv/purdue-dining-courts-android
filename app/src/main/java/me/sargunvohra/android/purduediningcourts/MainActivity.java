@@ -128,7 +128,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     public void setToolbar(Toolbar bar) {
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, bar, R.string.open, R.string.close) {
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, bar, R.string.open_drawer, R.string.close_drawer) {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, 0);

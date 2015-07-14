@@ -6,13 +6,14 @@ import android.support.annotation.Nullable;
 
 import com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
 import me.sargunvohra.android.purduediningcourts.model.Address;
+import me.sargunvohra.android.purduediningcourts.model.Day;
 import me.sargunvohra.android.purduediningcourts.model.Location;
+import me.sargunvohra.android.purduediningcourts.service.DiningServiceHelper;
 
 @ParcelablePlease
 @Data
@@ -51,7 +52,17 @@ public class DiningLocation implements Location, Parcelable {
             return getImages()[0];
     }
 
+    @Override
+    public String getCurrentStatus() {
+        Day day = getToday();
+        if (day == null)
+            return null;
+
+        return "Open"; // TODO temporary test value
+    }
+
     @Nullable
+    @Override
     public DiningDay getToday() {
         if (NormalHours.size() <= 0)
             return null;
@@ -70,14 +81,7 @@ public class DiningLocation implements Location, Parcelable {
         if (selectedPeriod == null || selectedPeriod.getDays() == null)
             return null;
 
-        Calendar c = Calendar.getInstance();
-        c.setTime(today);
-        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
-        for (DiningDay day : selectedPeriod.getDays()) {
-            if (dayOfWeek == day.getDayOfWeek())
-                return day;
-        }
-        return null;
+        return DiningServiceHelper.getToday(selectedPeriod.getDays());
     }
 
     @Override

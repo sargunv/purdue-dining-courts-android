@@ -5,9 +5,11 @@
 
     <!-- Misc -->
     <string name="open">Open</string>
-    <string name="close">Close</string>
+    <string name="closed">Closed</string>
 
     <!-- Navigation -->
+    <string name="open_drawer">Open</string>
+    <string name="close_drawer">Close</string>
     <string name="nav_today">Today</string>
     <string name="nav_favorites">Favorites</string>
     <string name="nav_dining_courts">Dining Courts</string>

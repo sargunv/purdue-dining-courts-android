@@ -37,6 +37,14 @@
                 android:textColor="@color/primary_text"
                 tools:text="Unnamed Dining Court" />
 
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:singleLine="true"
+                android:textColor="@color/secondary_text"
+                tools:text="Closed" />
+
         </LinearLayout>
 
     </LinearLayout>

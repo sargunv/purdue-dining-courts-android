@@ -8,15 +8,17 @@ import com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease;
 import java.util.List;
 
 import lombok.Data;
+import me.sargunvohra.android.purduediningcourts.model.Day;
 import me.sargunvohra.android.purduediningcourts.model.Hours;
 
 @Data
 @ParcelablePlease
-public class RetailDay implements Parcelable {
+public class RetailDay implements Parcelable, Day {
 
     String Name;
     Integer DayOfWeek;
     List<Hours> Hours;
+
     public static final Creator<RetailDay> CREATOR = new Creator<RetailDay>() {
         public RetailDay createFromParcel(Parcel source) {
             RetailDay target = new RetailDay();

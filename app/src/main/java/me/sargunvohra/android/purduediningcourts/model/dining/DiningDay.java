@@ -5,19 +5,21 @@ import android.os.Parcelable;
 
 import com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
+import me.sargunvohra.android.purduediningcourts.model.Day;
 import me.sargunvohra.android.purduediningcourts.model.Hours;
 
 @ParcelablePlease
 @Data
-public class DiningDay implements Parcelable {
+public class DiningDay implements Day, Parcelable {
 
     String Name;
     Integer DayOfWeek;
     List<Meal> Meals;
-    Hours Hours;
+
     public static final Creator<DiningDay> CREATOR = new Creator<DiningDay>() {
         public DiningDay createFromParcel(Parcel source) {
             DiningDay target = new DiningDay();
@@ -38,5 +40,14 @@ public class DiningDay implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         DiningDayParcelablePlease.writeToParcel(this, dest, flags);
+    }
+
+    @Override
+    public List<Hours> getHours() {
+        List<Hours> hours = new ArrayList<>();
+        for (Meal m : getMeals()) {
+            hours.add(m.getHours());
+        }
+        return hours;
     }
 }

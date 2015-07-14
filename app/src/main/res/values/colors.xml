@@ -9,8 +9,8 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#B6B6B6</color>
 
-    <color name="not_serving">#D32F2F</color>
-    <color name="serving">#388E3C</color>
+    <color name="closed">#D32F2F</color>
+    <color name="open">#388E3C</color>
     <color name="vegetarian">#388E3C</color>
 
     <color name="drawer_item_text_default">@color/primary_text</color>

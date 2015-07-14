@@ -43,6 +43,16 @@ public class LocationListAdapter<ListItem extends Location> extends BaseListAdap
             // set card title
             vh.title.setText(loc.getFullName());
 
+            // set card status
+            String status = loc.getCurrentStatus();
+            if (status != null && !loc.getCurrentStatus().equals("Closed")) {
+                vh.status.setText(R.string.open);
+                vh.status.setTextColor(vh.status.getResources().getColor(R.color.open));
+            } else {
+                vh.status.setText(R.string.closed);
+                vh.status.setTextColor(vh.status.getResources().getColor(R.color.closed));
+            }
+
             // set card image
             Picasso.with(vh.image.getContext())
                     .load(DiningServiceHelper.getFileUrl(loc.getTileImage()))
@@ -56,6 +66,9 @@ public class LocationListAdapter<ListItem extends Location> extends BaseListAdap
     public static class ViewHolder extends BaseListAdapter.ViewHolder {
         @InjectView(R.id.title)
         public TextView title;
+
+        @InjectView(R.id.status)
+        public TextView status;
 
         @InjectView(R.id.image)
         public ImageView image;
