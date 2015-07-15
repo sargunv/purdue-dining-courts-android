@@ -28,4 +28,5 @@
     <string name="no_app_error">No app available to handle that request.</string>
     <string name="retry">Retry</string>
     <string name="menu_map">Map</string>
+    <string name="menu_call">Call</string>
 </resources>

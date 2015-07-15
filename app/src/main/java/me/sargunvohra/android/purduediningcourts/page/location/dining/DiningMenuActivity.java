@@ -91,6 +91,9 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
             case R.id.menu_map:
                 launchMap();
                 break;
+            case R.id.menu_call:
+                callLocation();
+                break;
             case android.R.id.home:
                 finish();
                 break;
@@ -133,6 +136,17 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
         Uri geoLocation = Uri.parse(String.format("geo:0,0?q=%f,%f(%s)", lat, lon, name));
 
         Intent intent = new Intent(Intent.ACTION_VIEW).setData(geoLocation);
+        if (intent.resolveActivity(getPackageManager()) != null)
+            startActivity(intent);
+        else
+            Snackbar.make(mainLayout, R.string.no_app_error, Snackbar.LENGTH_SHORT).show();
+    }
+
+    private void callLocation() {
+        String number = location.getPhoneNumber().replaceAll("[^0-9]+", "");
+        Uri phoneNumber = Uri.parse(String.format("tel:%s", number));
+
+        Intent intent = new Intent(Intent.ACTION_DIAL).setData(phoneNumber);
         if (intent.resolveActivity(getPackageManager()) != null)
             startActivity(intent);
         else
