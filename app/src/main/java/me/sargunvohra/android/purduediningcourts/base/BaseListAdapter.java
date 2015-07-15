@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@AllArgsConstructor(suppressConstructorProperties = true)
+@AllArgsConstructor()
 public abstract class BaseListAdapter<ListItem> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Getter

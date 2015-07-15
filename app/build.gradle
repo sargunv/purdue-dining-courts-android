@@ -23,7 +23,7 @@ android {
     }
 }
 
-ext.mosbyVersion = '1.1.0'
+ext.mosbyVersion = '1.1.1'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -36,8 +36,8 @@ dependencies {
 
     // Square
     compile 'com.squareup.retrofit:retrofit:1.9.0'
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
-    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.squareup:otto:1.3.8'
     compile 'com.squareup.dagger:dagger:1.2.2'
@@ -57,8 +57,8 @@ dependencies {
     compile('com.mikepenz:aboutlibraries:5.0.6@aar') { transitive = true }
 
     // Project Lombok
-    provided "org.projectlombok:lombok:1.12.6"
-    apt "org.projectlombok:lombok:1.12.6"
+    provided "org.projectlombok:lombok:1.16.4"
+    apt "org.projectlombok:lombok:1.16.4"
 
     // FragmentArgs
     compile 'com.hannesdorfmann.fragmentargs:annotation:2.1.2'
