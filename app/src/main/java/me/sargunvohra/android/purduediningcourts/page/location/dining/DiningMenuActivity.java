@@ -1,11 +1,16 @@
 package me.sargunvohra.android.purduediningcourts.page.location.dining;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.hannesdorfmann.mosby.mvp.lce.MvpLceActivity;
 import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
@@ -32,6 +37,9 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
+
+    @InjectView(R.id.mainLayout)
+    View mainLayout;
 
     DiningMenuPagerAdapter adapter;
 
@@ -71,8 +79,18 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_location, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_map:
+                launchMap();
+                break;
             case android.R.id.home:
                 finish();
                 break;
@@ -106,5 +124,18 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
     @Override
     public void loadData(boolean pullToRefresh) {
         presenter.loadData(location, pullToRefresh);
+    }
+
+    private void launchMap() {
+        double lat = location.getLatitude();
+        double lon = location.getLongitude();
+        String name = Uri.encode(location.getFullName());
+        Uri geoLocation = Uri.parse(String.format("geo:0,0?q=%f,%f(%s)", lat, lon, name));
+
+        Intent intent = new Intent(Intent.ACTION_VIEW).setData(geoLocation);
+        if (intent.resolveActivity(getPackageManager()) != null)
+            startActivity(intent);
+        else
+            Snackbar.make(mainLayout, R.string.no_app_error, Snackbar.LENGTH_SHORT).show();
     }
 }

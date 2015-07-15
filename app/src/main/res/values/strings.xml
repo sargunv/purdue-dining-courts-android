@@ -25,5 +25,7 @@
     <string name="conversion_error">Encountered unexpected data; please try again.</string>
     <string name="unexpected_error">An unknown error occurred; please try again.</string>
     <string name="closed_error">Closed</string>
+    <string name="no_app_error">No app available to handle that request.</string>
     <string name="retry">Retry</string>
+    <string name="menu_map">Map</string>
 </resources>
