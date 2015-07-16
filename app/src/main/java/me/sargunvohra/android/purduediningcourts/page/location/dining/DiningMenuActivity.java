@@ -115,13 +115,6 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
         contentView.removeAllViews();
         adapter.notifyDataSetChanged();
         tabLayout.setupWithViewPager(contentView);
-        if (adapter.getCount() > 3) {
-            tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-            tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
-        } else {
-            tabLayout.setTabMode(TabLayout.MODE_FIXED);
-            tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        }
     }
 
     @Override
