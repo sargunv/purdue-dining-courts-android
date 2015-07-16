@@ -14,6 +14,9 @@
     <string name="aboutLibraries_description_special3_name">GitHub</string>
     <string name="aboutLibraries_description_special3_text">https://github.com/sargunster/purdue-dining-courts-android</string>
 
+    <!-- Third party library: AboutLibraries -->
+    <string name="library_AboutLibraries_libraryDescription">A library to offer you all the information you need of your libraries.</string>
+
     <!-- Third party library: Dagger -->
     <string name="library_Dagger_licenseId">apache_2_0</string>
 
@@ -52,7 +55,6 @@
     <string name="library_icepick_libraryName">Icepick</string>
     <string name="library_icepick_libraryDescription">An Android library that eliminates the boilerplate of saving and restoring instance state.</string>
     <string name="library_icepick_libraryWebsite">https://github.com/frankiesardo/icepick</string>
-    <string name="library_icepick_libraryVersion">3.0.2</string>
     <string name="library_icepick_isOpenSource">true</string>
     <string name="library_icepick_repositoryLink">https://github.com/frankiesardo/icepick</string>
     <string name="library_icepick_classPath">icepick.Icicle</string>
@@ -65,7 +67,6 @@
     <string name="library_lombok_libraryName">Project Lombok</string>
     <string name="library_lombok_libraryDescription">Project Lombok makes java a spicier language by adding \'handlers\' that know how to build and compile simple, boilerplate-free, not-quite-java code.</string>
     <string name="library_lombok_libraryWebsite">https://projectlombok.org/</string>
-    <string name="library_lombok_libraryVersion">1.16.4</string>
     <string name="library_lombok_isOpenSource">true</string>
     <string name="library_lombok_repositoryLink">https://github.com/rzwitserloot/lombok</string>
     <string name="library_lombok_classPath">lombok.Value</string>
@@ -78,11 +79,34 @@
     <string name="library_android_support_libraryName">Android Support Libraries</string>
     <string name="library_android_support_libraryDescription">The Android Support Library package is a set of code libraries that provide backward-compatible versions of Android framework APIs as well as features that are only available through the library APIs. </string>
     <string name="library_android_support_libraryWebsite">http://developer.android.com/tools/support-library/index.html</string>
-    <string name="library_android_support_libraryVersion">22.2.0</string>
     <string name="library_android_support_isOpenSource">true</string>
     <string name="library_android_support_repositoryLink">https://source.android.com/</string>
     <string name="library_android_support_classPath">android.support.v4.app.Fragment</string>
     <string name="library_android_support_licenseId">apache_2_0</string>
+
+    <!-- Third party library: ParcelablePlease -->
+    <string name="define_parcelableplease"/>
+    <string name="library_parcelableplease_author">Hannes Dorfmann</string>
+    <string name="library_parcelableplease_authorWebsite">http://hannesdorfmann.com/</string>
+    <string name="library_parcelableplease_libraryName">ParcelablePlease</string>
+    <string name="library_parcelableplease_libraryDescription">An AnnotationProcessor for generating Android Parcelable boilerplate code.</string>
+    <string name="library_parcelableplease_libraryWebsite">http://hannesdorfmann.com/android/ParcelablePlease/</string>
+    <string name="library_parcelableplease_isOpenSource">true</string>
+    <string name="library_parcelableplease_repositoryLink">https://github.com/sockeqwe/ParcelablePlease/</string>
+    <string name="library_parcelableplease_classPath">com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease</string>
+    <string name="library_parcelableplease_licenseId">apache_2_0</string>
+
+    <!-- Third party library: IntentBuilder -->
+    <string name="define_intentbuilder"/>
+    <string name="library_intentbuilder_author">Emil Sjölander</string>
+    <string name="library_intentbuilder_authorWebsite">https://github.com/emilsjolander</string>
+    <string name="library_intentbuilder_libraryName">IntentBuilder</string>
+    <string name="library_intentbuilder_libraryDescription">IntentBuilder is a type safe way of creating intents and populating them with extras.</string>
+    <string name="library_intentbuilder_libraryWebsite">https://github.com/emilsjolander/IntentBuilder/</string>
+    <string name="library_intentbuilder_isOpenSource">true</string>
+    <string name="library_intentbuilder_repositoryLink">https://github.com/emilsjolander/IntentBuilder/</string>
+    <string name="library_intentbuilder_classPath">com.hannesdorfmann.fragmentargs.annotation.Arg</string>
+    <string name="library_intentbuilder_licenseId">apache_2_0</string>
 
     <!-- Eclipse License v1.0 -->
     <string name="define_license_eclipse_1_0"/>

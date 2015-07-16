@@ -64,11 +64,11 @@ dependencies {
     compile 'com.hannesdorfmann.fragmentargs:annotation:2.1.2'
     apt 'com.hannesdorfmann.fragmentargs:processor:2.1.2'
 
-    // ParcelablePlease TODO add to about screen
+    // ParcelablePlease
     compile 'com.hannesdorfmann.parcelableplease:annotation:1.0.1'
     apt 'com.hannesdorfmann.parcelableplease:processor:1.0.1'
 
-    // IntentBuilder TODO add to about screen
+    // IntentBuilder
     compile 'se.emilsjolander:intentbuilder-api:0.13.0'
     apt 'se.emilsjolander:intentbuilder-compiler:0.13.0'
 
