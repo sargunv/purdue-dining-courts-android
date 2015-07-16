@@ -9,6 +9,8 @@ import android.view.View;
 
 import com.hannesdorfmann.fragmentargs.annotation.FragmentArgsInherited;
 import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
+import com.hannesdorfmann.mosby.mvp.viewstate.lce.LceViewState;
+import com.hannesdorfmann.mosby.mvp.viewstate.lce.data.CastedArrayListLceViewState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +66,16 @@ public class DiningLocationListFragment extends MainLceFragment<RecyclerView, Li
     public void onClick(DiningLocation location) {
         Context ctx = getActivity();
         startActivity(new DiningMenuActivityIntentBuilder(location).build(ctx));
+    }
+
+    @Override
+    public LceViewState<List<DiningLocation>, MvpLceView<List<DiningLocation>>> createViewState() {
+        return new CastedArrayListLceViewState<>();
+    }
+
+    @Override
+    public List<DiningLocation> getData() {
+        return adapter.getDataSet();
     }
 }
 

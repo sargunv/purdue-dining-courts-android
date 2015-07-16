@@ -18,6 +18,7 @@ import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
 import java.util.ArrayList;
 
 import butterknife.InjectView;
+import icepick.Icicle;
 import me.sargunvohra.android.purduediningcourts.LceAnimatorBugfix;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.model.dining.DayMenu;
@@ -44,6 +45,9 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
 
     DiningMenuPagerAdapter adapter;
 
+    @Icicle
+    DayMenu data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +56,12 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
         setTitle(location.getFormalName());
         setupActionBar();
         setupViewPager();
-        loadData(false);
+        if (data != null) {
+            setData(data);
+            showContent();
+        } else {
+            loadData(false);
+        }
     }
 
     @Override
@@ -116,6 +125,7 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
 
     @Override
     public void setData(DayMenu data) {
+        this.data = data;
         adapter.setMeals(data.getOpenMeals());
         tabLayout.removeAllTabs();
         contentView.removeAllViews();

@@ -8,6 +8,8 @@ import android.view.View;
 
 import com.hannesdorfmann.fragmentargs.annotation.Arg;
 import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
+import com.hannesdorfmann.mosby.mvp.viewstate.lce.LceViewState;
+import com.hannesdorfmann.mosby.mvp.viewstate.lce.data.CastedArrayListLceViewState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +67,16 @@ public class RetailLocationListFragment extends MainLceFragment<RecyclerView, Li
     @Override
     public void onClick(RetailLocation location) {
         Timber.d("Clicked %s", location);
+    }
+
+    @Override
+    public LceViewState<List<RetailLocation>, MvpLceView<List<RetailLocation>>> createViewState() {
+        return new CastedArrayListLceViewState<>();
+    }
+
+    @Override
+    public List<RetailLocation> getData() {
+        return adapter.getDataSet();
     }
 }
 
