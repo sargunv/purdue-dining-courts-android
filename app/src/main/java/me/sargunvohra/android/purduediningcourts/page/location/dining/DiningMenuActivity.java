@@ -18,6 +18,7 @@ import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
 import java.util.ArrayList;
 
 import butterknife.InjectView;
+import me.sargunvohra.android.purduediningcourts.LceAnimatorBugfix;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.model.dining.DayMenu;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
@@ -57,6 +58,11 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
     @Override
     public DiningMenuPresenter createPresenter() {
         return new DiningMenuPresenter();
+    }
+
+    @Override
+    protected void animateContentViewIn() {
+        LceAnimatorBugfix.showContent(loadingView, contentView, errorView);
     }
 
     private void setupActionBar() {

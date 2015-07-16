@@ -12,6 +12,7 @@ import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.sargunvohra.android.purduediningcourts.LceAnimatorBugfix;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.base.BaseListAdapter;
 import me.sargunvohra.android.purduediningcourts.base.MainLceFragment;
@@ -33,6 +34,11 @@ public class RetailLocationListFragment extends MainLceFragment<RecyclerView, Li
         contentView.setAdapter(adapter);
         contentView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         loadData(false);
+    }
+
+    @Override
+    protected void animateContentViewIn() {
+        LceAnimatorBugfix.showContent(loadingView, contentView, errorView);
     }
 
     @Override
