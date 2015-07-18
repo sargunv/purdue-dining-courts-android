@@ -6,11 +6,8 @@ import android.os.Parcelable;
 import com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Locale;
-import java.util.TimeZone;
 
 import lombok.Data;
 
@@ -46,15 +43,8 @@ public class Hours implements Parcelable {
     }
 
     public String toSimpleString() {
-        format.setTimeZone(TimeZone.getTimeZone("America/New_York"));
-        try {
-            Calendar start = Calendar.getInstance();
-            start.setTime(format.parse(getStartTime()));
-            Calendar end = Calendar.getInstance();
-            end.setTime(format.parse(getEndTime()));
-            return String.format("%1$tR-%2$tR", start, end);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
+        String[] start = getStartTime().split(":");
+        String[] end = getEndTime().split(":");
+        return String.format("%s:%s-%s:%s", start[0], start[1], end[0], end[1]);
     }
 }

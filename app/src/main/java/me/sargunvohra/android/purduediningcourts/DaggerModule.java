@@ -13,6 +13,7 @@ import dagger.Provides;
 import me.sargunvohra.android.purduediningcourts.page.location.dining.DiningLocationListPresenter;
 import me.sargunvohra.android.purduediningcourts.page.location.dining.DiningMenuActivity;
 import me.sargunvohra.android.purduediningcourts.page.location.dining.DiningMenuPresenter;
+import me.sargunvohra.android.purduediningcourts.page.location.retail.RetailInfoActivity;
 import me.sargunvohra.android.purduediningcourts.page.location.retail.RetailLocationListPresenter;
 import me.sargunvohra.android.purduediningcourts.service.DiningService;
 import me.sargunvohra.android.purduediningcourts.service.DiningServiceHelper;
@@ -24,6 +25,7 @@ import retrofit.converter.GsonConverter;
         injects = {
                 MainActivity.class,
                 DiningMenuActivity.class,
+                RetailInfoActivity.class,
                 DiningLocationListPresenter.class,
                 RetailLocationListPresenter.class,
                 DiningMenuPresenter.class,

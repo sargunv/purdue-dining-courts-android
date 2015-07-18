@@ -1,6 +1,7 @@
 package me.sargunvohra.android.purduediningcourts.page.location.retail;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -14,13 +15,11 @@ import com.hannesdorfmann.mosby.mvp.viewstate.lce.data.CastedArrayListLceViewSta
 import java.util.ArrayList;
 import java.util.List;
 
-import me.sargunvohra.android.purduediningcourts.LceAnimatorBugfix;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.base.BaseListAdapter;
 import me.sargunvohra.android.purduediningcourts.base.MainLceFragment;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocation;
 import me.sargunvohra.android.purduediningcourts.page.location.LocationListAdapter;
-import timber.log.Timber;
 
 public class RetailLocationListFragment extends MainLceFragment<RecyclerView, List<RetailLocation>, MvpLceView<List<RetailLocation>>, RetailLocationListPresenter> implements BaseListAdapter.OnClickListener<RetailLocation> {
 
@@ -36,11 +35,6 @@ public class RetailLocationListFragment extends MainLceFragment<RecyclerView, Li
         contentView.setAdapter(adapter);
         contentView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         loadData(false);
-    }
-
-    @Override
-    protected void animateContentViewIn() {
-        LceAnimatorBugfix.showContent(loadingView, contentView, errorView);
     }
 
     @Override
@@ -66,7 +60,8 @@ public class RetailLocationListFragment extends MainLceFragment<RecyclerView, Li
 
     @Override
     public void onClick(RetailLocation location) {
-        Timber.d("Clicked %s", location);
+        Context ctx = getActivity();
+        startActivity(new RetailInfoActivityIntentBuilder(location).build(ctx));
     }
 
     @Override

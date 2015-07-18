@@ -29,4 +29,6 @@
     <string name="retry">Retry</string>
     <string name="menu_map">Map</string>
     <string name="menu_call">Call</string>
+    <string name="view_menu">View Menu</string>
+    <string name="description">Description</string>
 </resources>

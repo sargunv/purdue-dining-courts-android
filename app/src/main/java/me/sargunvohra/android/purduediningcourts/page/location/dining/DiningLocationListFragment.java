@@ -15,7 +15,6 @@ import com.hannesdorfmann.mosby.mvp.viewstate.lce.data.CastedArrayListLceViewSta
 import java.util.ArrayList;
 import java.util.List;
 
-import me.sargunvohra.android.purduediningcourts.LceAnimatorBugfix;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.base.BaseListAdapter;
 import me.sargunvohra.android.purduediningcourts.base.MainLceFragment;
@@ -39,11 +38,6 @@ public class DiningLocationListFragment extends MainLceFragment<RecyclerView, Li
     @Override
     public DiningLocationListPresenter createPresenter() {
         return new DiningLocationListPresenter();
-    }
-
-    @Override
-    protected void animateContentViewIn() {
-        LceAnimatorBugfix.showContent(loadingView, contentView, errorView);
     }
 
     @Override

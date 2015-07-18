@@ -1,75 +1,74 @@
-package me.sargunvohra.android.purduediningcourts.page.location.dining;
+package me.sargunvohra.android.purduediningcourts.page.location.retail;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.hannesdorfmann.mosby.mvp.lce.MvpLceActivity;
-import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
-
-import java.util.ArrayList;
+import com.hannesdorfmann.mosby.mvp.MvpActivity;
+import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
+import com.hannesdorfmann.mosby.mvp.MvpPresenter;
+import com.hannesdorfmann.mosby.mvp.MvpView;
+import com.squareup.picasso.Picasso;
 
 import butterknife.InjectView;
-import icepick.Icicle;
 import me.sargunvohra.android.purduediningcourts.R;
-import me.sargunvohra.android.purduediningcourts.model.dining.DayMenu;
-import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
-import me.sargunvohra.android.purduediningcourts.model.dining.Meal;
+import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocation;
 import me.sargunvohra.android.purduediningcourts.service.DiningServiceHelper;
 import se.emilsjolander.intentbuilder.Extra;
 import se.emilsjolander.intentbuilder.IntentBuilder;
 
 @IntentBuilder
-public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLceView<DayMenu>, DiningMenuPresenter> {
+public class RetailInfoActivity extends MvpActivity<MvpView, MvpPresenter<MvpView>> {//MvpLceActivity<NestedScrollView, RetailLocation, MvpLceView<RetailLocation>, MvpBasePresenter<MvpLceView<RetailLocation>>> {
 
     @Extra
-    DiningLocation location;
-
-    @InjectView(R.id.tabLayout)
-    TabLayout tabLayout;
+    RetailLocation location;
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
 
+    @InjectView(R.id.collapsingToolbarLayout)
+    CollapsingToolbarLayout collapsingToolbarLayout;
+
+    @InjectView(R.id.toolbarImage)
+    ImageView toolbarImage;
+
     @InjectView(R.id.mainLayout)
     View mainLayout;
 
-    DiningMenuPagerAdapter adapter;
+    @InjectView(R.id.retailDescription)
+    TextView retailDescription;
 
-    @Icicle
-    DayMenu data;
+    @InjectView(R.id.retailLogo)
+    ImageView retailLogo;
+
+    @InjectView(R.id.retailMenuButton)
+    Button retailMenuButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutRes());
-        DiningMenuActivityIntentBuilder.inject(getIntent(), this);
+        RetailInfoActivityIntentBuilder.inject(getIntent(), this);
         setTitle(location.getFullName());
         setupActionBar();
-        setupViewPager();
-        if (data != null) {
-            setData(data);
-            showContent();
-        } else {
-            loadData(false);
-        }
-    }
-
-    @Override
-    public DiningMenuPresenter createPresenter() {
-        return new DiningMenuPresenter();
+        setupContent();
     }
 
     private void setupActionBar() {
         setSupportActionBar(toolbar);
+        collapsingToolbarLayout.setTitle(location.getFullName());
+
+        // setup back button
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -77,13 +76,34 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
         }
     }
 
-    private void setupViewPager() {
-        adapter = new DiningMenuPagerAdapter(getSupportFragmentManager(), new ArrayList<Meal>());
-        contentView.setAdapter(adapter);
+    private void setupContent() {
+        // description
+        retailDescription.setText(location.getDescription());
+
+        // header image
+        Picasso.with(toolbarImage.getContext())
+                .load(DiningServiceHelper.getFileUrl(location.getTileImage()))
+                .placeholder(R.drawable.placeholder)
+                .resize(1920, 1080)
+                .centerCrop()
+                .into(toolbarImage);
+
+        // logo image
+        Picasso.with(retailLogo.getContext())
+                .load(DiningServiceHelper.getFileUrl(location.getLogo()))
+                .into(retailLogo);
+
+        // menu button
+        retailMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(mainLayout, location.getMenuUrl(), Snackbar.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public int getLayoutRes() {
-        return R.layout.activity_dining_menu;
+        return R.layout.activity_retail_info;
     }
 
     @Override
@@ -111,26 +131,6 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
         return true;
     }
 
-    @Override
-    protected String getErrorMessage(Throwable throwable, boolean pullToRefresh) {
-        return DiningServiceHelper.getErrorMessage(this, throwable);
-    }
-
-    @Override
-    public void setData(DayMenu data) {
-        this.data = data;
-        adapter.setMeals(data.getOpenMeals());
-        tabLayout.removeAllTabs();
-        contentView.removeAllViews();
-        adapter.notifyDataSetChanged();
-        tabLayout.setupWithViewPager(contentView);
-    }
-
-    @Override
-    public void loadData(boolean pullToRefresh) {
-        presenter.loadData(location, pullToRefresh);
-    }
-
     private void launchMap() {
         double lat = location.getLatitude();
         double lon = location.getLongitude();
@@ -153,5 +153,21 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
             startActivity(intent);
         else
             Snackbar.make(mainLayout, R.string.no_app_error, Snackbar.LENGTH_SHORT).show();
+    }
+
+//    @Override
+//    protected String getErrorMessage(Throwable throwable, boolean b) {
+//        return "lol error";
+//    }
+
+//    @Override
+//    public void setData(RetailLocation data) {}
+
+//    @Override
+//    public void loadData(boolean pullToRefresh) {}
+
+    @Override
+    public MvpPresenter<MvpView> createPresenter() {
+        return new MvpBasePresenter<>();
     }
 }
