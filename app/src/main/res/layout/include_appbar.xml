@@ -14,9 +14,4 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_scrollFlags="scroll|enterAlways" />
 
-    <View
-        android:layout_width="match_parent"
-        android:background="@color/primary"
-        android:layout_height="1dp" />
-
 </android.support.design.widget.AppBarLayout>

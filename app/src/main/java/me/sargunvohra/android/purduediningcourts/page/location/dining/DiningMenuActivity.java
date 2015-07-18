@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 import butterknife.InjectView;
 import icepick.Icicle;
-import me.sargunvohra.android.purduediningcourts.LceAnimatorBugfix;
 import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.model.dining.DayMenu;
 import me.sargunvohra.android.purduediningcourts.model.dining.DiningLocation;
@@ -69,11 +68,6 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
         return new DiningMenuPresenter();
     }
 
-    @Override
-    protected void animateContentViewIn() {
-        LceAnimatorBugfix.showContent(loadingView, contentView, errorView);
-    }
-
     private void setupActionBar() {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -86,7 +80,6 @@ public class DiningMenuActivity extends MvpLceActivity<ViewPager, DayMenu, MvpLc
     private void setupViewPager() {
         adapter = new DiningMenuPagerAdapter(getSupportFragmentManager(), new ArrayList<Meal>());
         contentView.setAdapter(adapter);
-        tabLayout.setupWithViewPager(contentView);
     }
 
     public int getLayoutRes() {

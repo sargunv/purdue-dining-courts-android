@@ -20,10 +20,6 @@
     <!-- Third party library: Dagger -->
     <string name="library_Dagger_licenseId">apache_2_0</string>
 
-    <!-- Third party library: Otto -->
-    <string name="define_Otto" />
-    <string name="library_Otto_classPath">com.squareup.otto.Bus</string>
-
     <!-- Third party library: Mosby -->
     <string name="define_mosby"/>
     <string name="library_mosby_author">Hannes Dorfmann</string>

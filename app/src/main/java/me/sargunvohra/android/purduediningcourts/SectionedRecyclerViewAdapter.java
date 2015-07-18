@@ -1,4 +1,4 @@
-package me.sargunvohra.android.purduediningcourts.page.location.dining;
+package me.sargunvohra.android.purduediningcourts;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

@@ -4,7 +4,6 @@ import android.os.Handler;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.squareup.otto.Bus;
 
 import javax.inject.Singleton;
 
@@ -39,12 +38,6 @@ public class DaggerModule {
             graph = ObjectGraph.create(new DaggerModule());
         }
         return graph;
-    }
-
-    @Provides
-    @Singleton
-    Bus provideBus() {
-        return new Bus();
     }
 
     @Provides

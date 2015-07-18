@@ -17,8 +17,6 @@ import me.sargunvohra.android.purduediningcourts.R;
 import me.sargunvohra.android.purduediningcourts.service.DiningServiceHelper;
 
 public abstract class MainLceFragment<ContentView extends View, Model, MvpView extends MvpLceView<Model>, Presenter extends MvpPresenter<MvpView>> extends MvpLceViewStateFragment<ContentView, Model, MvpView, Presenter> {
-    protected static final String ARG_TITLE = "base_title";
-
     @Arg
     public String title = "No name";
 

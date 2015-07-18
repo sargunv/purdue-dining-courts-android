@@ -3,19 +3,11 @@ package me.sargunvohra.android.purduediningcourts.base;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.squareup.otto.Bus;
-
-import javax.inject.Inject;
-
 import butterknife.ButterKnife;
 import icepick.Icepick;
 import me.sargunvohra.android.purduediningcourts.DaggerModule;
-import timber.log.Timber;
 
 public abstract class BaseActivity extends AppCompatActivity {
-
-    @Inject
-    protected Bus bus;
 
     protected void onCreate(android.os.Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +20,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         // inject views
         ButterKnife.inject(this);
-
-        // setup logging
-        Timber.uprootAll();
-        Timber.plant(new Timber.DebugTree());
-
-        // register event bus
-        bus.register(this);
     }
 
     @Override

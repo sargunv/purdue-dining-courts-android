@@ -13,6 +13,7 @@ import java.util.List;
 
 import butterknife.InjectView;
 import me.sargunvohra.android.purduediningcourts.R;
+import me.sargunvohra.android.purduediningcourts.SectionedRecyclerViewAdapter;
 import me.sargunvohra.android.purduediningcourts.base.BaseFragment;
 import me.sargunvohra.android.purduediningcourts.base.BaseListAdapter;
 import me.sargunvohra.android.purduediningcourts.model.dining.Meal;
@@ -20,7 +21,7 @@ import me.sargunvohra.android.purduediningcourts.model.dining.Station;
 import me.sargunvohra.android.purduediningcourts.model.dining.item.Item;
 import timber.log.Timber;
 
-import static me.sargunvohra.android.purduediningcourts.page.location.dining.SectionedRecyclerViewAdapter.Section;
+import static me.sargunvohra.android.purduediningcourts.SectionedRecyclerViewAdapter.Section;
 
 public class DiningMenuPageFragment extends BaseFragment implements BaseListAdapter.OnClickListener<Item> {
 
