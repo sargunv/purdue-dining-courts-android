@@ -22,10 +22,12 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.InjectView;
 import me.sargunvohra.android.purduediningcourts.R;
+import me.sargunvohra.android.purduediningcourts.WebViewActivityIntentBuilder;
 import me.sargunvohra.android.purduediningcourts.model.retail.RetailLocation;
 import me.sargunvohra.android.purduediningcourts.service.DiningServiceHelper;
 import se.emilsjolander.intentbuilder.Extra;
 import se.emilsjolander.intentbuilder.IntentBuilder;
+import timber.log.Timber;
 
 @IntentBuilder
 public class RetailInfoActivity extends MvpActivity<MvpView, MvpPresenter<MvpView>> {//MvpLceActivity<NestedScrollView, RetailLocation, MvpLceView<RetailLocation>, MvpBasePresenter<MvpLceView<RetailLocation>>> {
@@ -94,12 +96,19 @@ public class RetailInfoActivity extends MvpActivity<MvpView, MvpPresenter<MvpVie
                 .into(retailLogo);
 
         // menu button
-        retailMenuButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(mainLayout, location.getMenuUrl(), Snackbar.LENGTH_SHORT).show();
-            }
-        });
+        if (location.getMenuUrl() == null) {
+            retailMenuButton.setVisibility(View.GONE);
+        } else {
+            retailMenuButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String url = "https://docs.google.com/gview?embedded=true&url=";
+                    url += Uri.encode(location.getMenuUrl());
+                    Timber.wtf(url);
+                    startActivity(new WebViewActivityIntentBuilder(url).build(view.getContext()));
+                }
+            });
+        }
     }
 
     public int getLayoutRes() {
@@ -154,17 +163,6 @@ public class RetailInfoActivity extends MvpActivity<MvpView, MvpPresenter<MvpVie
         else
             Snackbar.make(mainLayout, R.string.no_app_error, Snackbar.LENGTH_SHORT).show();
     }
-
-//    @Override
-//    protected String getErrorMessage(Throwable throwable, boolean b) {
-//        return "lol error";
-//    }
-
-//    @Override
-//    public void setData(RetailLocation data) {}
-
-//    @Override
-//    public void loadData(boolean pullToRefresh) {}
 
     @Override
     public MvpPresenter<MvpView> createPresenter() {

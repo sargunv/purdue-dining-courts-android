@@ -29,12 +29,14 @@
 
         <activity
             android:name=".page.location.retail.RetailInfoActivity"
-            android:label="hello world?"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.sargunvohra.android.purduediningcourts.MainActivity" />
         </activity>
+
+        <activity
+            android:name=".WebViewActivity" />
     </application>
 
 </manifest>
