@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Favorites">
+
+        <ListPreference
+            android:key="pref_favoriteDiningCourt"
+            android:title="Favorite Dining Court"
+            android:dialogTitle="Favorite Dining Court"
+            android:entries="@array/favoriteDiningCourtPrefs"
+            android:entryValues="@array/favoriteDiningCourtPrefs"
+            android:defaultValue="None"
+            android:summary="%s"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Dietary Restrictions">
+
+        <SwitchPreference
+            android:key="pref_isVegetarian"
+            android:title="Vegetarian"
+            android:defaultValue="false"
+            android:summaryOff="Vegetarian items will not be highlighted"
+            android:summaryOn="Vegetarian items will be highlighted" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

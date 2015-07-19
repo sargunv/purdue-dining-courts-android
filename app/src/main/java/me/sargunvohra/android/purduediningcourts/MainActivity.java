@@ -23,6 +23,7 @@ import me.sargunvohra.android.purduediningcourts.page.about.AboutFragmentBuilder
 import me.sargunvohra.android.purduediningcourts.page.location.dining.DiningLocationListFragmentBuilder;
 import me.sargunvohra.android.purduediningcourts.page.location.retail.RetailLocationListFragmentBuilder;
 import me.sargunvohra.android.purduediningcourts.page.placeholder.PlaceholderFragmentBuilder;
+import me.sargunvohra.android.purduediningcourts.page.setting.SettingFragmentBuilder;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -119,6 +120,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 break;
             case R.id.nav_item_markets:
                 newPage = new RetailLocationListFragmentBuilder("Markets", title).build();
+                break;
+            case R.id.nav_item_settings:
+                newPage = new SettingFragmentBuilder(title).build();
                 break;
             default: // TODO
                 newPage = new PlaceholderFragmentBuilder(title).build();

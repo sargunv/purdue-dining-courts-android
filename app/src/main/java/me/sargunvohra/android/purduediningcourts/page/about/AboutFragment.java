@@ -23,13 +23,13 @@ public class AboutFragment extends MainFragment<AboutView, AboutPresenter> imple
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.about_frame, buildAboutFragment())
+                .replace(R.id.frame, buildAboutFragment())
                 .commit();
     }
 
     @Override
     public int getLayoutRes() {
-        return R.layout.fragment_about;
+        return R.layout.fragment_frame;
     }
 
     private Fragment buildAboutFragment() {

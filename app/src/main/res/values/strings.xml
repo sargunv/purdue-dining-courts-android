@@ -31,4 +31,13 @@
     <string name="allergens">Common Allergens</string>
     <string name="unknownAllergens">No common allergens</string>
     <string name="nutrition">Nutrition Facts</string>
+    
+    <array name="favoriteDiningCourtPrefs">
+        <item>None</item>
+        <item>Earhart</item>
+        <item>Ford</item>
+        <item>Hillenbrand</item>
+        <item>Wiley</item>
+        <item>Windsor</item>
+    </array>
 </resources>

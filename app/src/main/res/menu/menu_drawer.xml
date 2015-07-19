@@ -26,10 +26,10 @@
             android:id="@+id/nav_item_markets"
             android:icon="@drawable/ic_store_black_24dp"
             android:title="@string/nav_markets"/>
-        <!--<item-->
-            <!--android:id="@+id/nav_item_settings"-->
-            <!--android:icon="@drawable/ic_settings_black_24dp"-->
-            <!--android:title="@string/nav_settings"/>-->
+        <item
+            android:id="@+id/nav_item_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/nav_settings"/>
         <item
             android:id="@+id/nav_item_about"
             android:icon="@drawable/ic_info_black_24dp"
