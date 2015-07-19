@@ -1,5 +1,8 @@
 package me.sargunvohra.android.purduediningcourts.page.location.dining;
 
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,8 +45,15 @@ public class DiningMenuListAdapter extends BaseListAdapter<Item> {
         super.onBindViewHolder(holder, position);
         if (holder instanceof ViewHolder) {
             ViewHolder vh = (ViewHolder) holder;
+            Resources res = vh.parentView.getContext().getResources();
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(vh.parentView.getContext());
             Item i = dataSet.get(position);
             vh.text.setText(i.getName());
+            if (i.getIsVegetarian() && prefs.getBoolean("pref_isVegetarian", false)) {
+                vh.parentView.setBackgroundColor(res.getColor(R.color.vegetarian_bg));
+            } else {
+                vh.parentView.setBackgroundColor(res.getColor(R.color.window_background));
+            }
         }
     }
 }

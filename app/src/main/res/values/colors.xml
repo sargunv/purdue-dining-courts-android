@@ -13,6 +13,7 @@
     <color name="closed">#D32F2F</color>
     <color name="open">#388E3C</color>
     <color name="vegetarian">#388E3C</color>
+    <color name="vegetarian_bg">#C8E6C9</color>
 
     <color name="drawer_item_text_default">@color/primary_text</color>
     <color name="drawer_item_text_checked">@color/primary</color>

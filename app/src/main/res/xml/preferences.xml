@@ -23,8 +23,8 @@
             android:key="pref_isVegetarian"
             android:title="Vegetarian"
             android:defaultValue="false"
-            android:summaryOff="Vegetarian items will not be highlighted"
-            android:summaryOn="Vegetarian items will be highlighted" />
+            android:summaryOff="Don't highlight vegetarian items"
+            android:summaryOn="Highlight vegetarian items" />
 
     </PreferenceCategory>
 
