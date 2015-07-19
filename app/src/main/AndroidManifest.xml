@@ -28,6 +28,14 @@
         </activity>
 
         <activity
+            android:name=".page.location.dining.DiningItemActivity"
+            android:parentActivityName=".page.location.dining.DiningMenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.sargunvohra.android.purduediningcourts.page.location.dining.DiningMenuActivity" />
+        </activity>
+
+        <activity
             android:name=".page.location.retail.RetailInfoActivity"
             android:parentActivityName=".MainActivity" >
             <meta-data

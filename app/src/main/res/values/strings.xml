@@ -1,13 +1,8 @@
 <resources>
-    <!-- App -->
     <string name="app_name">Purdue Menu</string>
     <string name="app_tagline">Dining court menus and more</string>
-
-    <!-- Misc -->
     <string name="open">Open</string>
     <string name="closed">Closed</string>
-
-    <!-- Navigation -->
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
     <string name="nav_today">Today</string>
@@ -18,8 +13,6 @@
     <string name="nav_markets">Markets</string>
     <string name="nav_settings">Settings</string>
     <string name="nav_about">About</string>
-
-    <!-- Connection -->
     <string name="network_error">Could not reach the network; please try again.</string>
     <string name="http_error">Could not reach Purdue HFS; please try again.</string>
     <string name="conversion_error">Encountered unexpected data; please try again.</string>
@@ -31,4 +24,11 @@
     <string name="menu_call">Call</string>
     <string name="view_menu">View Menu</string>
     <string name="description">Description</string>
+    <string name="veg">Vegetarian item</string>
+    <string name="nonveg">Non-vegetarian item</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="noinfo">No information available</string>
+    <string name="allergens">Common Allergens</string>
+    <string name="unknownAllergens">No common allergens</string>
+    <string name="nutrition">Nutrition Facts</string>
 </resources>

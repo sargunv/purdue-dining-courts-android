@@ -10,7 +10,7 @@ import lombok.Data;
 
 @ParcelablePlease
 @Data
-public class NutritionFact implements Parcelable {
+public class NutritionFact implements Parcelable, Comparable<NutritionFact> {
 
     String Name;
     Integer Ordinal;
@@ -43,5 +43,10 @@ public class NutritionFact implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         NutritionFactParcelablePlease.writeToParcel(this, dest, flags);
+    }
+
+    @Override
+    public int compareTo(NutritionFact other) {
+        return getOrdinal().compareTo(other.getOrdinal());
     }
 }

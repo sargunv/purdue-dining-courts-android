@@ -19,7 +19,6 @@ import me.sargunvohra.android.purduediningcourts.base.BaseListAdapter;
 import me.sargunvohra.android.purduediningcourts.model.dining.Meal;
 import me.sargunvohra.android.purduediningcourts.model.dining.Station;
 import me.sargunvohra.android.purduediningcourts.model.dining.item.Item;
-import timber.log.Timber;
 
 import static me.sargunvohra.android.purduediningcourts.SectionedRecyclerViewAdapter.Section;
 
@@ -69,6 +68,6 @@ public class DiningMenuPageFragment extends BaseFragment implements BaseListAdap
 
     @Override
     public void onClick(Item item) {
-        Timber.d("Clicked %s", item.getName());
+        startActivity(new DiningItemActivityIntentBuilder(item.getID()).build(getActivity()));
     }
 }

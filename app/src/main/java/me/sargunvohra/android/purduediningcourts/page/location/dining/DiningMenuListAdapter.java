@@ -42,7 +42,8 @@ public class DiningMenuListAdapter extends BaseListAdapter<Item> {
         super.onBindViewHolder(holder, position);
         if (holder instanceof ViewHolder) {
             ViewHolder vh = (ViewHolder) holder;
-            vh.text.setText(dataSet.get(position).getName());
+            Item i = dataSet.get(position);
+            vh.text.setText(i.getName());
         }
     }
 }
