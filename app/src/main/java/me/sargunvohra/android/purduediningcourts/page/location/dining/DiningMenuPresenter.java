@@ -15,7 +15,6 @@ import me.sargunvohra.android.purduediningcourts.service.DiningService;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-import timber.log.Timber;
 
 public class DiningMenuPresenter extends MvpBasePresenter<MvpLceView<DayMenu>> {
 
@@ -31,7 +30,6 @@ public class DiningMenuPresenter extends MvpBasePresenter<MvpLceView<DayMenu>> {
             getView().showLoading(pullToRefresh);
 
         String date = String.format("%1$tm-%1$td-%1$tY", Calendar.getInstance());
-        Timber.d(date);
 
         service.getDiningMenu(location.getName(), date, new Callback<DayMenu>() {
             @Override

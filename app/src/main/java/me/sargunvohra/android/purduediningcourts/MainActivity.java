@@ -24,6 +24,7 @@ import me.sargunvohra.android.purduediningcourts.page.location.dining.DiningLoca
 import me.sargunvohra.android.purduediningcourts.page.location.retail.RetailLocationListFragmentBuilder;
 import me.sargunvohra.android.purduediningcourts.page.placeholder.PlaceholderFragmentBuilder;
 import me.sargunvohra.android.purduediningcourts.page.setting.SettingFragmentBuilder;
+import me.sargunvohra.android.purduediningcourts.page.today.TodayFragmentBuilder;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -106,8 +107,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         final Fragment newPage;
         String title = menuItem.getTitle().toString();
         switch (menuItem.getItemId()) {
-            case R.id.nav_item_about:
-                newPage = new AboutFragmentBuilder(title).build();
+            case R.id.nav_item_today:
+                newPage = new TodayFragmentBuilder(title).build();
                 break;
             case R.id.nav_item_dining_courts:
                 newPage = new DiningLocationListFragmentBuilder(title).build();
@@ -124,7 +125,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             case R.id.nav_item_settings:
                 newPage = new SettingFragmentBuilder(title).build();
                 break;
-            default: // TODO
+            case R.id.nav_item_about:
+                newPage = new AboutFragmentBuilder(title).build();
+                break;
+            default:
                 newPage = new PlaceholderFragmentBuilder(title).build();
                 Snackbar.make(contentFrame, "Operation not yet supported", Snackbar.LENGTH_SHORT).show();
         }

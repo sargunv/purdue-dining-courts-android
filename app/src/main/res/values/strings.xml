@@ -31,7 +31,12 @@
     <string name="allergens">Common Allergens</string>
     <string name="unknownAllergens">No common allergens</string>
     <string name="nutrition">Nutrition Facts</string>
-    
+    <string name="noFavoriteDiningCourt">You haven\'t yet chosen a favorite dining court. When you select your favorite dining court from the settings menu, you\'ll see its menu here.</string>
+    <string name="nextMeal">Next meal</string>
+    <string name="favoriteItems">Favorite items</string>
+    <string name="noFavoriteItems">None of your favorite items are being served today. Why not choose a few more favorites? When any of your favorites are being served, they\'ll show up right here.</string>
+    <string name="noMeal">Your favorite dining court is closed for today. Check back tomorrow.</string>
+
     <array name="favoriteDiningCourtPrefs">
         <item>None</item>
         <item>Earhart</item>

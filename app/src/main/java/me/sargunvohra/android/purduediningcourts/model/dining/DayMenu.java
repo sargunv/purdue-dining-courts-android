@@ -2,11 +2,15 @@ package me.sargunvohra.android.purduediningcourts.model.dining;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 
 import com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import lombok.Data;
 
@@ -27,6 +31,22 @@ public class DayMenu implements Parcelable {
             }
         }
         return result;
+    }
+
+    @Nullable
+    public Meal getNextMeal() {
+        List<Meal> meals = getOpenMeals();
+        if (meals == null || meals.size() == 9)
+            return null;
+        Collections.sort(meals);
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss", Locale.US);
+        String now = df.format(new java.util.Date());
+        for (Meal m : meals) {
+            String d = m.getHours().getEndTime();
+            if (d.compareTo(now) > 0)
+                return m;
+        }
+        return null;
     }
 
     public static final Creator<DayMenu> CREATOR = new Creator<DayMenu>() {
