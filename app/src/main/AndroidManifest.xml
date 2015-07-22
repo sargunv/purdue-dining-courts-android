@@ -23,7 +23,7 @@
             android:value="true" />
         <meta-data
             android:name="com.sec.android.intent.category.MULTIWINDOW_LAUNCHER"
-            android:value="true" />"
+            android:value="true" />
 
         <activity
             android:name=".MainActivity"
