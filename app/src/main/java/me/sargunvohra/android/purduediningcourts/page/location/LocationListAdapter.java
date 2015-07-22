@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -55,11 +55,11 @@ public class LocationListAdapter<ListItem extends Location> extends BaseListAdap
             }
 
             // set card image
-            Picasso.with(vh.image.getContext())
+            Glide.with(vh.image.getContext())
                     .load(DiningServiceHelper.getFileUrl(loc.getTileImage()))
-                    .placeholder(R.drawable.placeholder)
-                    .resize(500, 400)
                     .centerCrop()
+                    .placeholder(R.drawable.placeholder)
+                    .crossFade()
                     .into(vh.image);
         }
     }

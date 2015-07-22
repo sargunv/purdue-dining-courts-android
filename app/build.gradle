@@ -33,12 +33,12 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:22.2.1'
     compile 'com.android.support:cardview-v7:22.2.1'
     compile 'com.android.support:design:22.2.1'
+    compile 'com.android.support:support-v4:22.2.1'
 
     // Square
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
     compile 'com.squareup.okhttp:okhttp:2.4.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.squareup.dagger:dagger:1.2.2'
     apt 'com.squareup.dagger:dagger-compiler:1.2.2'
 
@@ -51,6 +51,9 @@ dependencies {
     //compile "com.hannesdorfmann.mosby:rx:$mosbyVersion"
     compile "com.hannesdorfmann.mosby:viewstate:$mosbyVersion"
     compile "com.hannesdorfmann.mosby:viewstate-dagger1:$mosbyVersion"
+
+    // Glide
+    compile 'com.github.bumptech.glide:glide:3.6.1'
 
     // Mike Penz
     compile('com.mikepenz:aboutlibraries:5.0.6@aar') { transitive = true }

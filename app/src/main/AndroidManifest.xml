@@ -24,6 +24,8 @@
         <meta-data
             android:name="com.sec.android.intent.category.MULTIWINDOW_LAUNCHER"
             android:value="true" />
+        <meta-data android:name="me.sargunvohra.android.purduediningcourts.GlideConfiguration"
+            android:value="GlideModule"/>
 
         <activity
             android:name=".MainActivity"

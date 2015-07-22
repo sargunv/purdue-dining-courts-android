@@ -14,11 +14,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.hannesdorfmann.mosby.mvp.MvpActivity;
 import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
 import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 import com.hannesdorfmann.mosby.mvp.MvpView;
-import com.squareup.picasso.Picasso;
 
 import butterknife.InjectView;
 import me.sargunvohra.android.purduediningcourts.R;
@@ -83,15 +83,14 @@ public class RetailInfoActivity extends MvpActivity<MvpView, MvpPresenter<MvpVie
         retailDescription.setText(location.getDescription());
 
         // header image
-        Picasso.with(toolbarImage.getContext())
+        Glide.with(toolbarImage.getContext())
                 .load(DiningServiceHelper.getFileUrl(location.getTileImage()))
                 .placeholder(R.drawable.placeholder)
-                .resize(1920, 1080)
                 .centerCrop()
                 .into(toolbarImage);
 
         // logo image
-        Picasso.with(retailLogo.getContext())
+        Glide.with(retailLogo.getContext())
                 .load(DiningServiceHelper.getFileUrl(location.getLogo()))
                 .into(retailLogo);
 
