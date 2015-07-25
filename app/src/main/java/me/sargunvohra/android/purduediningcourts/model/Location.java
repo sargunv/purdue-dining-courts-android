@@ -18,7 +18,7 @@ public interface Location extends Parcelable {
 
     String getTileImage();
 
-    String getTimings();
+    String getTimings(boolean twentyFourHourFormat);
 
     @Nullable
     Day getToday();

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.NestedScrollView;
 import android.text.Html;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.TextView;
 
@@ -72,7 +73,7 @@ public class TodayFragment extends MainLceFragment<NestedScrollView, TodayInfo, 
 
     private String mealToHtml(Meal meal) {
         StringBuilder str = new StringBuilder();
-        str.append("<p><em>").append(meal.getHours().toSimpleString()).append("</em></p>");
+        str.append("<p><em>").append(meal.getHours().toSimpleString(DateFormat.is24HourFormat(getActivity()))).append("</em></p>");
         if (meal.getStations() != null) {
             for (Station s : meal.getStations()) {
                 str.append("<h5>").append(s.getName()).append("</h5>");

@@ -63,7 +63,7 @@ public class RetailLocation implements Location, Parcelable {
     }
 
     @Override
-    public String getTimings() {
+    public String getTimings(boolean twentyFourHourFormat) {
         RetailDay day = getToday();
 
         if (day == null)
@@ -77,7 +77,7 @@ public class RetailLocation implements Location, Parcelable {
                 if (!first)
                     str.append("<br/>");
                 first = false;
-                str.append(String.format("<i>%s</i>", h.toSimpleString()));
+                str.append(String.format("<i>%s</i>", h.toSimpleString(twentyFourHourFormat)));
             }
         }
         String result = str.toString();

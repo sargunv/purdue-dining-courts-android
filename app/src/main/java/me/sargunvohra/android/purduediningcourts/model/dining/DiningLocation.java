@@ -54,7 +54,7 @@ public class DiningLocation implements Location, Parcelable {
     }
 
     @Override
-    public String getTimings() {
+    public String getTimings(boolean twentyFourHourFormat) {
         DiningDay day = getToday();
 
         if (day == null)
@@ -71,7 +71,7 @@ public class DiningLocation implements Location, Parcelable {
                 if (!first)
                     str.append("<br/>");
                 first = false;
-                str.append(String.format("%s<br/><i>%s</i>", m.getName(), h.toSimpleString()));
+                str.append(String.format("%s<br/><i>%s</i>", m.getName(), h.toSimpleString(twentyFourHourFormat)));
             }
         }
         String result = str.toString();
