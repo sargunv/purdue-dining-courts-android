@@ -36,6 +36,9 @@
     <string name="favoriteItems">Favorite items</string>
     <string name="noFavoriteItems">None of your favorite items are being served today. Why not choose a few more favorites? When any of your favorites are being served, they\'ll show up right here.</string>
     <string name="noMeal">Your favorite dining court is closed for today. Check back tomorrow.</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="favorite_add">%s added to favorites</string>
+    <string name="favorite_remove">%s removed from favorites</string>
 
     <array name="favoriteDiningCourtPrefs">
         <item>None</item>

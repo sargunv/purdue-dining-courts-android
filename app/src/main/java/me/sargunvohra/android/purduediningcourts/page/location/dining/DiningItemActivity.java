@@ -1,9 +1,11 @@
 package me.sargunvohra.android.purduediningcourts.page.location.dining;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -21,6 +23,7 @@ import me.sargunvohra.android.purduediningcourts.model.dining.item.Allergen;
 import me.sargunvohra.android.purduediningcourts.model.dining.item.Item;
 import me.sargunvohra.android.purduediningcourts.model.dining.item.NutritionFact;
 import me.sargunvohra.android.purduediningcourts.service.DiningServiceHelper;
+import me.sargunvohra.android.purduediningcourts.service.StorageHelper;
 import se.emilsjolander.intentbuilder.Extra;
 import se.emilsjolander.intentbuilder.IntentBuilder;
 
@@ -54,10 +57,13 @@ public class DiningItemActivity extends MvpLceActivity<ViewPager, Item, MvpLceVi
     @Icicle
     Item data;
 
+    StorageHelper storage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutRes());
+        storage = new StorageHelper(this);
         setTitle("");
         DiningItemActivityIntentBuilder.inject(getIntent(), this);
         setupActionBar();
@@ -90,6 +96,18 @@ public class DiningItemActivity extends MvpLceActivity<ViewPager, Item, MvpLceVi
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_favorite:
+                if (data != null) {
+                    if (storage.isFavorite(data.getID()))
+                        storage.unsetFavorite(data);
+                    else
+                        storage.setFavorite(data);
+                    updateFavoriteIcon(item);
+                    String message = getString(item.isChecked() ? R.string.favorite_add : R.string.favorite_remove);
+                    message = String.format(message, data.getName());
+                    Snackbar.make(contentView, message, Snackbar.LENGTH_SHORT).show();
+                }
+                break;
             case android.R.id.home:
                 finish();
                 break;
@@ -97,6 +115,28 @@ public class DiningItemActivity extends MvpLceActivity<ViewPager, Item, MvpLceVi
                 return super.onOptionsItemSelected(item);
         }
         return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_item, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        updateFavoriteIcon(menu.findItem(R.id.menu_favorite));
+        return true;
+    }
+
+    private void updateFavoriteIcon(MenuItem item) {
+        boolean favorite = storage.isFavorite(itemId);
+        item.setChecked(favorite);
+        if (favorite)
+            item.setIcon(R.drawable.ic_star_white_24dp);
+        else
+            item.setIcon(R.drawable.ic_star_border_white_24dp);
     }
 
     @Override
