@@ -25,12 +25,25 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // testing
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.1'
+
+    // kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // android
+    compile "com.android.support:support-v4:$support_version"
+    compile "com.android.support:appcompat-v7:$support_version"
+    compile "com.android.support:recyclerview-v7:$support_version"
+    compile "com.android.support:design:$support_version"
+    compile "com.android.support:customtabs:$support_version"
+    compile "com.android.support:percent:$support_version"
+    compile "com.android.support:support-annotations:$support_version"
 }
 buildscript {
     ext.kotlin_version = '1.0.1-2'
+    ext.support_version = '23.2.1'
     repositories {
         mavenCentral()
     }
