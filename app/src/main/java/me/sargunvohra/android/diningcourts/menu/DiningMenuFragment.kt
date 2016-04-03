@@ -60,18 +60,7 @@ class DiningMenuFragment : BaseSupportFragment(), DiningMenuContract.View {
     }
 
     override fun showContent(content: DiningMenu) {
-        val r = DiningMenuRenderer()
-        val b = RendererBuilder(r)
-        val c = ListAdapteeCollection<DiningMenu.Item>()
-        c.addAll(
-                content.meals.flatMap {
-                    it.stations.flatMap {
-                        it.items
-                    }
-                }
-        )
-        val a = RVRendererAdapter(b, c)
-        contentList.swapAdapter(a, false)
+        contentList.swapAdapter(RVRendererAdapter(RendererBuilder(DiningMenuRenderer()), ListAdapteeCollection(content.toListItems())), false)
         contentList.visibility = View.VISIBLE
     }
 
@@ -86,5 +75,26 @@ class DiningMenuFragment : BaseSupportFragment(), DiningMenuContract.View {
 
     override fun hideError() {
         errorView.visibility = View.GONE
+    }
+
+    private fun DiningMenu.toListItems(): List<DiningMenuListItem> {
+        return listOf(
+                DiningMenuListItem.LocationHeader(location),
+                DiningMenuListItem.MenuDate(date)
+        ) + meals.flatMap { meal ->
+            listOf(
+                    DiningMenuListItem.MealHeader(meal.name)
+            ) + if (meal.hours == null) {
+                listOf(DiningMenuListItem.Closed())
+            } else {
+                meal.stations.flatMap { station ->
+                    listOf(
+                            DiningMenuListItem.StationHeader(station.name)
+                    ) + station.items.map { item ->
+                        DiningMenuListItem.Item(item.name, item.isVegetarian)
+                    }
+                }
+            }
+        }
     }
 }

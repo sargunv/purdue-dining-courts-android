@@ -5,12 +5,11 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.karumi.rosie.renderer.RosieRenderer
-import me.sargunvohra.android.diningcourts.data.menu.DiningMenu
 import org.jetbrains.anko.UI
 import org.jetbrains.anko.linearLayout
 import org.jetbrains.anko.textView
 
-class DiningMenuRenderer(): RosieRenderer<DiningMenu.Item>() {
+class DiningMenuRenderer(): RosieRenderer<DiningMenuListItem>() {
 
     lateinit var text: TextView
 
@@ -22,6 +21,16 @@ class DiningMenuRenderer(): RosieRenderer<DiningMenu.Item>() {
     }.view
 
     override fun render() {
-        text.text = content.name
+        text.text = with(content) {
+            when (this) {
+                is DiningMenuListItem.LocationHeader -> name
+                is DiningMenuListItem.Divider -> "DIVIDER"
+                is DiningMenuListItem.MenuDate -> date
+                is DiningMenuListItem.MealHeader -> "-$name"
+                is DiningMenuListItem.Closed -> "CLOSED"
+                is DiningMenuListItem.StationHeader -> "--$name"
+                is DiningMenuListItem.Item -> "---$name"
+            }
+        }
     }
 }
