@@ -40,10 +40,45 @@ dependencies {
     compile "com.android.support:customtabs:$support_version"
     compile "com.android.support:percent:$support_version"
     compile "com.android.support:support-annotations:$support_version"
+
+    // anko
+    compile "org.jetbrains.anko:anko-sdk15:$anko_version"
+    compile "org.jetbrains.anko:anko-support-v4:$anko_version"
+    compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+
+    // kovenant
+    compile "nl.komponents.kovenant:kovenant:$kovenant_version"
+    compile "nl.komponents.kovenant:kovenant-android:$kovenant_version"
+    compile "nl.komponents.kovenant:kovenant-functional:$kovenant_version"
+
+    // fragmentargs
+    compile "com.hannesdorfmann.fragmentargs:annotation:$fragmentargs_version"
+    kapt "com.hannesdorfmann.fragmentargs:processor:$fragmentargs_version"
+
+    // rosie
+    compile "com.karumi.rosie:rosie:$rosie_version"
+
+    // dagger
+    kapt "com.squareup.dagger:dagger-compiler:$dagger_version"
+
+    // glide
+    compile "com.github.bumptech.glide:glide:$glide_version"
+
+    // ktunits
+    compile "me.sargunvohra.lib:KtUnits:$ktunits_version"
 }
 buildscript {
-    ext.kotlin_version = '1.0.1-2'
-    ext.support_version = '23.2.1'
+    ext {
+        kotlin_version = '1.0.1-2'
+        support_version = '23.2.1'
+        anko_version = '0.8.3'
+        kovenant_version = '3.2.2'
+        fragmentargs_version = '3.0.2'
+        rosie_version = '2.0.0'
+        dagger_version = '1.2.2'
+        glide_version = '3.7.0'
+        ktunits_version = '1.1.0'
+    }
     repositories {
         mavenCentral()
     }
