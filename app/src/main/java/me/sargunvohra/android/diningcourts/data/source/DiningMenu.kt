@@ -14,7 +14,7 @@ data class DiningMenu(
         val meals: List<Meal>,
         @Json(name = "Notes")
         val notes: String?
-): Identifiable<DiningMenu.Key> {
+) : Identifiable<DiningMenu.Key> {
 
     data class Item(
             @Json(name = "ID")

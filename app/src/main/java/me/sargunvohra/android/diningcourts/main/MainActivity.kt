@@ -5,7 +5,7 @@ import me.sargunvohra.android.diningcourts.R
 import me.sargunvohra.android.diningcourts.base.BaseActivity
 import me.sargunvohra.android.diningcourts.config.dagger.MainModule
 
-class MainActivity : BaseActivity(){
+class MainActivity : BaseActivity() {
 
     override fun getLayoutId() = R.layout.activity_main
 
