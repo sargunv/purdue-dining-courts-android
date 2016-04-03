@@ -1,17 +1,8 @@
-package me.sargunvohra.android.diningcourts.service
+package me.sargunvohra.android.diningcourts.data.service
 
-import me.sargunvohra.android.diningcourts.json.DiningMenu
 import okhttp3.OkHttpClient
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Path
-
-interface DiningCourtService {
-    @GET("locations/{name}/{date}/")
-    fun getLocation(@Path("name") name: String, @Path("date") date: String): Call<DiningMenu>
-}
 
 object DiningCourtServiceImpl : DiningCourtService by (Retrofit.Builder().apply {
     baseUrl("https://api.hfs.purdue.edu/menus/v2/")
