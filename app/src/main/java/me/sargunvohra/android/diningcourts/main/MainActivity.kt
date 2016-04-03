@@ -14,6 +14,7 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setSupportActionBar(toolbar)
         viewPager.adapter = MainPagerAdapter(supportFragmentManager)
         tabLayout.setupWithViewPager(viewPager)
     }
