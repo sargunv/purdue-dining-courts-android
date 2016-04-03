@@ -1,11 +1,11 @@
 package me.sargunvohra.android.diningcourts.base
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import com.hannesdorfmann.fragmentargs.FragmentArgs
-import com.karumi.rosie.view.RosieFragment
 import org.jetbrains.anko.AnkoLogger
 
-abstract class BaseFragment : RosieFragment(), AnkoLogger {
+abstract class BaseSupportFragment : Fragment(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         FragmentArgs.inject(this)
