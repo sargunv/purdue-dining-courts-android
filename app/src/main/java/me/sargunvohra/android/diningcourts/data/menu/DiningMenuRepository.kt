@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.data.source
+package me.sargunvohra.android.diningcourts.data.menu
 
 import com.karumi.rosie.repository.RosieRepository
 import com.karumi.rosie.repository.datasource.CacheDataSource

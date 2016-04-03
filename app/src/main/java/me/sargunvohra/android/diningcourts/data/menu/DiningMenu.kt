@@ -1,9 +1,9 @@
-package me.sargunvohra.android.diningcourts.data.source
+package me.sargunvohra.android.diningcourts.data.menu
 
 import com.karumi.rosie.repository.datasource.Identifiable
 import com.squareup.moshi.Json
-import me.sargunvohra.android.diningcourts.data.obj.Allergen
-import me.sargunvohra.android.diningcourts.data.obj.TimeRange
+import me.sargunvohra.android.diningcourts.data.core.Allergen
+import me.sargunvohra.android.diningcourts.data.core.TimeRange
 
 data class DiningMenu(
         @Json(name = "Location")

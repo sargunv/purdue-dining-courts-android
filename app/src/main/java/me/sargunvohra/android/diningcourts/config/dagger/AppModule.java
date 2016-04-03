@@ -9,8 +9,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import me.sargunvohra.android.diningcourts.data.source.DiningMenu;
-import me.sargunvohra.android.diningcourts.data.source.DiningMenuDataSource;
+import me.sargunvohra.android.diningcourts.data.menu.DiningMenu;
+import me.sargunvohra.android.diningcourts.data.menu.DiningMenuDataSource;
 import me.sargunvohra.android.diningcourts.main.MainApp;
 import me.sargunvohra.lib.ktunits.TimeKt;
 

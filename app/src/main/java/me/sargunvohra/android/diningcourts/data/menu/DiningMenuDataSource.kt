@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.data.source
+package me.sargunvohra.android.diningcourts.data.menu
 
 import com.karumi.rosie.repository.datasource.ReadableDataSource
 import me.sargunvohra.android.diningcourts.data.service.DiningCourtServiceImpl
