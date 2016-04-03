@@ -24,7 +24,6 @@ class DiningMenuRenderer() : RosieRenderer<DiningMenuListItem>() {
         text.text = with(content) {
             when (this) {
                 is DiningMenuListItem.LocationHeader -> name
-                is DiningMenuListItem.Divider -> "DIVIDER"
                 is DiningMenuListItem.MenuDate -> date
                 is DiningMenuListItem.MealHeader -> "-$name"
                 is DiningMenuListItem.Closed -> "CLOSED"
