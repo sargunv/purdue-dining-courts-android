@@ -59,7 +59,7 @@ class DiningMenuFragment : BaseFragment(), DiningMenuContract.View {
     }
 
     override fun showContent(content: DiningMenu) {
-        contentList.swapAdapter(RVRendererAdapter(RendererBuilder(DiningMenuRenderer()), ListAdapteeCollection(content.toListItems())), false)
+        contentList.swapAdapter(RVRendererAdapter(DiningMenuRendererBuilder(), ListAdapteeCollection(content.toListItems())), false)
         contentList.visibility = View.VISIBLE
     }
 
