@@ -9,5 +9,5 @@ interface DiningMenuContract {
         fun requestContent(key: DiningMenu.Key)
     }
 
-    interface View: LceView<DiningMenu>
+    interface View : LceView<DiningMenu>
 }

@@ -9,7 +9,7 @@ import org.jetbrains.anko.UI
 import org.jetbrains.anko.linearLayout
 import org.jetbrains.anko.textView
 
-class DiningMenuRenderer(): RosieRenderer<DiningMenuListItem>() {
+class DiningMenuRenderer() : RosieRenderer<DiningMenuListItem>() {
 
     lateinit var text: TextView
 

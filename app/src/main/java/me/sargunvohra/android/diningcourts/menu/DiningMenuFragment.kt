@@ -11,18 +11,17 @@ import com.pedrogomez.renderers.RVRendererAdapter
 import com.pedrogomez.renderers.RendererBuilder
 import kotlinx.android.synthetic.main.fragment_lce_list.*
 import me.sargunvohra.android.diningcourts.R
-import me.sargunvohra.android.diningcourts.base.BaseSupportFragment
+import me.sargunvohra.android.diningcourts.base.BaseFragment
 import me.sargunvohra.android.diningcourts.data.menu.DiningMenu
 import me.sargunvohra.android.diningcourts.extension.setEmptyAdapter
 import org.jetbrains.anko.error
-import org.jetbrains.anko.info
 import org.jetbrains.anko.onClick
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
 @FragmentWithArgs
-class DiningMenuFragment : BaseSupportFragment(), DiningMenuContract.View {
+class DiningMenuFragment : BaseFragment(), DiningMenuContract.View {
 
     @Arg
     lateinit var location: String
