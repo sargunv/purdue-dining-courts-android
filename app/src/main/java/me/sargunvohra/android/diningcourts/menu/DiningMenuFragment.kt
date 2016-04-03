@@ -8,7 +8,6 @@ import com.hannesdorfmann.fragmentargs.annotation.FragmentWithArgs
 import com.karumi.rosie.view.Presenter
 import com.pedrogomez.renderers.ListAdapteeCollection
 import com.pedrogomez.renderers.RVRendererAdapter
-import com.pedrogomez.renderers.RendererBuilder
 import kotlinx.android.synthetic.main.fragment_lce_list.*
 import me.sargunvohra.android.diningcourts.R
 import me.sargunvohra.android.diningcourts.base.BaseFragment
@@ -80,20 +79,24 @@ class DiningMenuFragment : BaseFragment(), DiningMenuContract.View {
         return listOf(
                 DiningMenuListItem.LocationHeader(location),
                 DiningMenuListItem.MenuDate(date)
-        ) + meals.flatMap { meal ->
-            listOf(
-                    DiningMenuListItem.MealHeader(meal.name)
-            ) + if (meal.hours == null) {
-                listOf(DiningMenuListItem.Closed())
-            } else {
-                meal.stations.flatMap { station ->
-                    listOf(
-                            DiningMenuListItem.StationHeader(station.name)
-                    ) + station.items.map { item ->
-                        DiningMenuListItem.Item(item.name, item.isVegetarian)
-                    }
-                }
-            }
+        ) + meals.flatMap { it.toListItems() }
+    }
+
+    private fun DiningMenu.Meal.toListItems(): List<DiningMenuListItem> {
+        return listOf(
+                DiningMenuListItem.MealHeader(name)
+        ) + if (hours == null) {
+            listOf(DiningMenuListItem.Closed())
+        } else {
+            stations.flatMap { it.toListItems() }
         }
+    }
+
+    private fun DiningMenu.Station.toListItems(): List<DiningMenuListItem> {
+        return listOf(DiningMenuListItem.StationHeader(name)) + items.flatMap { it.toListItems() }
+    }
+
+    private fun DiningMenu.Item.toListItems(): List<DiningMenuListItem.Item> {
+        return listOf(DiningMenuListItem.Item(name, isVegetarian))
     }
 }
