@@ -66,6 +66,10 @@ dependencies {
 
     // ktunits
     compile "me.sargunvohra.lib:KtUnits:$ktunits_version"
+
+    // retrofit
+    compile "com.squareup.retrofit2:retrofit:$retrofit_version"
+    compile "com.squareup.retrofit2:converter-moshi:$retrofit_version"
 }
 buildscript {
     ext {
@@ -78,6 +82,7 @@ buildscript {
         dagger_version = '1.2.2'
         glide_version = '3.7.0'
         ktunits_version = '1.1.0'
+        retrofit_version = '2.0.1'
     }
     repositories {
         mavenCentral()
