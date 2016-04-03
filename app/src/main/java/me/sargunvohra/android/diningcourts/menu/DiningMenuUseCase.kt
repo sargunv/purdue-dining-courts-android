@@ -8,5 +8,7 @@ import javax.inject.Inject
 class DiningMenuUseCase @Inject constructor(
         private val repository: DiningMenuRepository
 ) {
-    fun getDiningMenu(key: DiningMenu.Key) = task { repository.getByKey(key) }
+    fun getDiningMenu(key: DiningMenu.Key) = task {
+        repository.getByKey(key)
+    }
 }
