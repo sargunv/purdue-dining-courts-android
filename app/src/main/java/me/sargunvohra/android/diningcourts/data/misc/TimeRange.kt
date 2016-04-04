@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.data.core
+package me.sargunvohra.android.diningcourts.data.misc
 
 import com.squareup.moshi.Json
 
