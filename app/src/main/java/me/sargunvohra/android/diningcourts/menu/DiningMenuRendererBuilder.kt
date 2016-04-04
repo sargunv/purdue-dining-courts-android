@@ -8,7 +8,8 @@ import android.widget.TextView
 import com.karumi.rosie.renderer.RosieRenderer
 import com.pedrogomez.renderers.RendererBuilder
 import me.sargunvohra.android.diningcourts.R
-import org.jetbrains.anko.*
+import org.jetbrains.anko.find
+import org.jetbrains.anko.textColor
 
 class DiningMenuRendererBuilder : RendererBuilder<DiningMenuListItem>() {
 
@@ -24,7 +25,7 @@ class DiningMenuRendererBuilder : RendererBuilder<DiningMenuListItem>() {
         )
     }
 
-    override fun getPrototypeClass(content: DiningMenuListItem) = when(content) {
+    override fun getPrototypeClass(content: DiningMenuListItem) = when (content) {
         is DiningMenuListItem.LocationHeader -> LocationHeader::class
         is DiningMenuListItem.MenuDate -> MenuDate::class
         is DiningMenuListItem.MealHeader -> MealHeader::class
