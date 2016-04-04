@@ -58,7 +58,7 @@ class DiningMenuFragment : BaseFragment(), DiningMenuContract.View {
     }
 
     override fun showContent(content: DiningMenu) {
-        contentList.swapAdapter(RVRendererAdapter(DiningMenuRendererBuilder(), ListAdapteeCollection(content.toListItems())), false)
+        contentList.swapAdapter(RVRendererAdapter(DiningMenuRendererBuilder(), ListAdapteeCollection(menuToListItems(content))), false)
         contentList.visibility = View.VISIBLE
     }
 
@@ -74,29 +74,31 @@ class DiningMenuFragment : BaseFragment(), DiningMenuContract.View {
     override fun hideError() {
         errorView.visibility = View.GONE
     }
+}
 
-    private fun DiningMenu.toListItems(): List<DiningMenuListItem> {
-        return listOf(
-                DiningMenuListItem.LocationHeader(location),
-                DiningMenuListItem.MenuDate(date)
-        ) + meals.flatMap { it.toListItems() }
-    }
+private fun menuToListItems(diningMenu: DiningMenu): List<DiningMenuListItem> {
+    return listOf(
+            DiningMenuListItem.LocationHeader(diningMenu.location),
+            DiningMenuListItem.MenuDate(diningMenu.date)
+    ) + diningMenu.meals.flatMap(::mealToListItems)
+}
 
-    private fun DiningMenu.Meal.toListItems(): List<DiningMenuListItem> {
-        return listOf(
-                DiningMenuListItem.MealHeader(name)
-        ) + if (hours == null) {
-            listOf(DiningMenuListItem.Closed())
-        } else {
-            stations.flatMap { it.toListItems() }
-        }
-    }
+private fun mealToListItems(meal: DiningMenu.Meal): List<DiningMenuListItem> {
+    return listOf(DiningMenuListItem.MealHeader(meal.name)) + mealContentToListItems(meal)
+}
 
-    private fun DiningMenu.Station.toListItems(): List<DiningMenuListItem> {
-        return listOf(DiningMenuListItem.StationHeader(name)) + items.flatMap { it.toListItems() }
+private fun mealContentToListItems(meal: DiningMenu.Meal): List<DiningMenuListItem> {
+    return if (meal.hours == null) {
+        listOf(DiningMenuListItem.Closed())
+    } else {
+        meal.stations.flatMap(::stationToListItems)
     }
+}
 
-    private fun DiningMenu.Item.toListItems(): List<DiningMenuListItem.Item> {
-        return listOf(DiningMenuListItem.Item(name, isVegetarian))
-    }
+private fun stationToListItems(station: DiningMenu.Station): List<DiningMenuListItem> {
+    return listOf(DiningMenuListItem.StationHeader(station.name)) + station.items.map(::itemToListItem)
+}
+
+private fun itemToListItem(item: DiningMenu.Item): DiningMenuListItem.Item {
+    return DiningMenuListItem.Item(item.name, item.isVegetarian)
 }
