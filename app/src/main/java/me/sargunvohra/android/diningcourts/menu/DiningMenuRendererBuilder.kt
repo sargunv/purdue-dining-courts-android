@@ -1,9 +1,6 @@
 package me.sargunvohra.android.diningcourts.menu
 
-import android.content.Context
-import android.graphics.Typeface
 import android.support.v4.content.ContextCompat
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,14 +12,15 @@ import org.jetbrains.anko.*
 
 class DiningMenuRendererBuilder : RendererBuilder<DiningMenuListItem>() {
 
-        init {
+    init {
         prototypes = listOf(
                 LocationHeader(),
                 MenuDate(),
                 MealHeader(),
                 Closed(),
                 StationHeader(),
-                Item()
+                Item(),
+                Divider()
         )
     }
 
@@ -33,133 +31,82 @@ class DiningMenuRendererBuilder : RendererBuilder<DiningMenuListItem>() {
         is DiningMenuListItem.Closed -> Closed::class
         is DiningMenuListItem.StationHeader -> StationHeader::class
         is DiningMenuListItem.Item -> Item::class
+        is DiningMenuListItem.Divider -> Divider::class
     }.java
 
     private class LocationHeader : RosieRenderer<DiningMenuListItem>() {
 
-        lateinit var textView: TextView;
-
         override fun inflate(inflater: LayoutInflater, parent: ViewGroup): View {
-            return simpleRow(
-                    parent.context,
-                    size = 24f,
-                    font = Typeface.DEFAULT_BOLD
-            ).apply { textView = second }.first
+            return inflater.inflate(R.layout.list_item_h1, parent, false)
         }
 
         override fun render() {
-            textView.text = (content as DiningMenuListItem.LocationHeader).name + " Dining Court"
+            rootView.find<TextView>(R.id.textView).text = (content as DiningMenuListItem.LocationHeader).name + " Dining Court"
         }
     }
 
     private class MenuDate : RosieRenderer<DiningMenuListItem>() {
 
-        lateinit var textView: TextView;
-
         override fun inflate(inflater: LayoutInflater, parent: ViewGroup): View {
-            return simpleRow(
-                    parent.context,
-                    size = 13f,
-                    color = R.color.secondary_text,
-                    font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC)
-            ).apply { textView = second }.first
+            return inflater.inflate(R.layout.list_item_compact, parent, false)
         }
 
         override fun render() {
-            textView.text = (content as DiningMenuListItem.MenuDate).date
+            rootView.find<TextView>(R.id.textView).text = (content as DiningMenuListItem.MenuDate).date
         }
     }
 
     private class MealHeader : RosieRenderer<DiningMenuListItem>() {
 
-        lateinit var textView: TextView;
-
         override fun inflate(inflater: LayoutInflater, parent: ViewGroup): View {
-            return simpleRow(
-                    parent.context,
-                    size = 20f,
-                    font = Typeface.DEFAULT_BOLD
-            ).apply { textView = second }.first
+            return inflater.inflate(R.layout.list_item_h2, parent, false)
         }
 
         override fun render() {
-            textView.text = (content as DiningMenuListItem.MealHeader).name
+            rootView.find<TextView>(R.id.textView).text = (content as DiningMenuListItem.MealHeader).name
         }
     }
 
     private class Closed : RosieRenderer<DiningMenuListItem>() {
 
-        lateinit var textView: TextView;
-
         override fun inflate(inflater: LayoutInflater, parent: ViewGroup): View {
-            return simpleRow(
-                    parent.context,
-                    size = 16f,
-                    color = R.color.closed,
-                    font = Typeface.DEFAULT_BOLD
-            ).apply {
-                textView = second;
-                textView.text = "Closed"
-            }.first
+            return inflater.inflate(R.layout.list_item_h3, parent, false)
+        }
+
+        override fun render() {
+            rootView.find<TextView>(R.id.textView).apply {
+                text = "Closed"
+                textColor = ContextCompat.getColor(context, R.color.closed)
+            }
         }
     }
 
     private class StationHeader : RosieRenderer<DiningMenuListItem>() {
 
-        lateinit var textView: TextView;
-
         override fun inflate(inflater: LayoutInflater, parent: ViewGroup): View {
-            return simpleRow(
-                    parent.context,
-                    size = 16f,
-                    font = Typeface.DEFAULT_BOLD
-            ).apply { textView = second }.first
+            return inflater.inflate(R.layout.list_item_h3, parent, false)
         }
 
         override fun render() {
-            textView.text = (content as DiningMenuListItem.StationHeader).name
+            rootView.find<TextView>(R.id.textView).text = (content as DiningMenuListItem.StationHeader).name
         }
     }
 
     private class Item : RosieRenderer<DiningMenuListItem>() {
 
-        lateinit var textView: TextView;
-
         override fun inflate(inflater: LayoutInflater, parent: ViewGroup): View {
-            return simpleRow(
-                    parent.context
-            ).apply { textView = second }.first
+            return inflater.inflate(R.layout.list_item_compact, parent, false)
         }
 
         override fun render() {
-            textView.text = (content as DiningMenuListItem.Item).name
+            rootView.find<TextView>(R.id.textView).text = (content as DiningMenuListItem.Item).name
         }
     }
-}
 
-private fun simpleRow(
-        context: Context,
-        size: Float = 13f,
-        height: Float = 40f,
-        font: Typeface = Typeface.DEFAULT,
-        color: Int = R.color.primary_text
-): Pair<View, TextView> {
-    var textView: TextView? = null
-    val rootView = context.UI {
-        linearLayout {
-            lparams {
-                width = matchParent
-                this.height = dip(height)
-            }
-            leftPadding = dip(16)
-            rightPadding = dip(16)
-            textView = textView {
-                textSize = size
-                typeface = font
-                verticalGravity = Gravity.CENTER_VERTICAL
-                textColor = ContextCompat.getColor(context, color)
-            }
+    private class Divider : RosieRenderer<DiningMenuListItem>() {
+
+        override fun inflate(inflater: LayoutInflater, parent: ViewGroup): View {
+            return inflater.inflate(R.layout.list_item_divider, parent, false)
         }
-    }.view
-    return rootView to textView!!
+    }
 }

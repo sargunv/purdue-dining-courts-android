@@ -13,4 +13,6 @@ sealed class DiningMenuListItem {
     class StationHeader(val name: String) : DiningMenuListItem()
 
     class Item(val name: String, val isVeg: Boolean) : DiningMenuListItem()
+
+    class Divider: DiningMenuListItem()
 }

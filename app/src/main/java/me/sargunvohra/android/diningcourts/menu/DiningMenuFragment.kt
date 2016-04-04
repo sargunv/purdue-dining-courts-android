@@ -84,7 +84,10 @@ private fun menuToListItems(diningMenu: DiningMenu): List<DiningMenuListItem> {
 }
 
 private fun mealToListItems(meal: DiningMenu.Meal): List<DiningMenuListItem> {
-    return listOf(DiningMenuListItem.MealHeader(meal.name)) + mealContentToListItems(meal)
+    return listOf(
+            DiningMenuListItem.Divider(),
+            DiningMenuListItem.MealHeader(meal.name)
+    ) + mealContentToListItems(meal)
 }
 
 private fun mealContentToListItems(meal: DiningMenu.Meal): List<DiningMenuListItem> {
