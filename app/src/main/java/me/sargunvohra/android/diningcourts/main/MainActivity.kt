@@ -5,6 +5,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import me.sargunvohra.android.diningcourts.R
 import me.sargunvohra.android.diningcourts.base.BaseActivity
 import me.sargunvohra.android.diningcourts.config.dagger.MainModule
+import java.util.*
 
 class MainActivity : BaseActivity() {
 
@@ -15,7 +16,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSupportActionBar(toolbar)
-        viewPager.adapter = MainPagerAdapter(supportFragmentManager)
+        viewPager.adapter = MainPagerAdapter(supportFragmentManager, Date())
         tabLayout.setupWithViewPager(viewPager)
     }
 }
