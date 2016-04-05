@@ -25,13 +25,16 @@ class DiningMenuFragment : BaseFragment(), DiningMenuContract.View {
     @Arg
     lateinit var location: String
 
+    @Arg
+    lateinit var date: Date
+
     @Inject @Presenter
     lateinit var presenter: DiningMenuPresenter
 
     override fun getLayoutId() = R.layout.fragment_lce_list
 
     private fun reloadContent() {
-        val today = SimpleDateFormat("MM-dd-yyyy").format(Date())
+        val today = SimpleDateFormat("MM-dd-yyyy").format(date)
         presenter.requestContent(DiningMenu.Key(location, today))
     }
 
@@ -58,7 +61,10 @@ class DiningMenuFragment : BaseFragment(), DiningMenuContract.View {
     }
 
     override fun showContent(content: DiningMenu) {
-        contentList.swapAdapter(RVRendererAdapter(DiningMenuRendererBuilder(), ListAdapteeCollection(DiningMenuListItem.fromMenu(content))), false)
+        val rendererBuilder = DiningMenuRendererBuilder()
+        val collection = ListAdapteeCollection(DiningMenuListItem.fromMenu(content))
+        val adapter = RVRendererAdapter(rendererBuilder, collection)
+        contentList.swapAdapter(adapter, false)
         contentList.visibility = View.VISIBLE
     }
 
