@@ -1,12 +1,14 @@
 package me.sargunvohra.android.diningcourts.menu
 
 import me.sargunvohra.android.diningcourts.data.menu.DiningMenu
+import java.text.SimpleDateFormat
+import java.util.*
 
 sealed class DiningMenuListItem {
 
     class LocationHeader(val name: String) : DiningMenuListItem()
 
-    class MenuDate(val date: String) : DiningMenuListItem()
+    class MenuDate(val date: Date) : DiningMenuListItem()
 
     class MealHeader(val name: String) : DiningMenuListItem()
 

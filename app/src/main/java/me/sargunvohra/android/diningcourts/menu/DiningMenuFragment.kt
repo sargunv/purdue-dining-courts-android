@@ -34,8 +34,7 @@ class DiningMenuFragment : BaseFragment(), DiningMenuContract.View {
     override fun getLayoutId() = R.layout.fragment_lce_list
 
     private fun reloadContent() {
-        val today = SimpleDateFormat("MM-dd-yyyy").format(date)
-        presenter.requestContent(DiningMenu.Key(location, today))
+        presenter.requestContent(DiningMenu.Key(location, date))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

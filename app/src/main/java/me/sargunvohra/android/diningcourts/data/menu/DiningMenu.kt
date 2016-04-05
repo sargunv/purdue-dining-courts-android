@@ -4,12 +4,13 @@ import com.karumi.rosie.repository.datasource.Identifiable
 import com.squareup.moshi.Json
 import me.sargunvohra.android.diningcourts.data.misc.Allergen
 import me.sargunvohra.android.diningcourts.data.misc.TimeRange
+import java.util.*
 
 data class DiningMenu(
         @Json(name = "Location")
         val location: String,
         @Json(name = "Date")
-        val date: String,
+        val date: Date,
         @Json(name = "Meals")
         val meals: List<Meal>,
         @Json(name = "Notes")
@@ -49,7 +50,7 @@ data class DiningMenu(
 
     data class Key(
             val location: String,
-            val date: String
+            val date: Date
     )
 
     override fun getKey() = Key(location, date)

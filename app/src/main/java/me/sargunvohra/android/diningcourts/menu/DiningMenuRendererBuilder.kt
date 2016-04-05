@@ -53,7 +53,7 @@ class DiningMenuRendererBuilder : RendererBuilder<DiningMenuListItem>() {
         }
 
         override fun render() {
-            rootView.find<TextView>(R.id.textView).text = (content as DiningMenuListItem.MenuDate).date
+            rootView.find<TextView>(R.id.textView).text = (content as DiningMenuListItem.MenuDate).date.toString()
         }
     }
 
