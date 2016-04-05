@@ -10,6 +10,7 @@ import com.pedrogomez.renderers.RendererBuilder
 import me.sargunvohra.android.diningcourts.R
 import org.jetbrains.anko.find
 import org.jetbrains.anko.textColor
+import java.text.SimpleDateFormat
 
 class DiningMenuRendererBuilder : RendererBuilder<DiningMenuListItem>() {
 
@@ -48,12 +49,15 @@ class DiningMenuRendererBuilder : RendererBuilder<DiningMenuListItem>() {
 
     private class MenuDate : RosieRenderer<DiningMenuListItem>() {
 
+        val formatter = SimpleDateFormat("EEEE, d MMMM yyyy")
+
         override fun inflate(inflater: LayoutInflater, parent: ViewGroup): View {
             return inflater.inflate(R.layout.list_item_compact, parent, false)
         }
 
         override fun render() {
-            rootView.find<TextView>(R.id.textView).text = (content as DiningMenuListItem.MenuDate).date.toString()
+            val dateStr = formatter.format((content as DiningMenuListItem.MenuDate).date)
+            rootView.find<TextView>(R.id.textView).text = dateStr
         }
     }
 
