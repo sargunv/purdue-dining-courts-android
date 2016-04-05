@@ -9,6 +9,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import me.sargunvohra.android.diningcourts.data.item.MenuItem;
+import me.sargunvohra.android.diningcourts.data.item.MenuItemDataSource;
 import me.sargunvohra.android.diningcourts.data.menu.DiningMenu;
 import me.sargunvohra.android.diningcourts.data.menu.DiningMenuDataSource;
 import me.sargunvohra.android.diningcourts.main.MainApp;
@@ -29,6 +31,18 @@ public class AppModule {
     @Provides
     @Singleton
     CacheDataSource<DiningMenu.Key, DiningMenu> provideDiningMenuCacheDataSource() {
+        return new InMemoryCacheDataSource<>(new TimeProvider(), TimeKt.getDays(1).getToMilliseconds());
+    }
+
+    @Provides
+    @Singleton
+    ReadableDataSource<String, MenuItem> provideMenuItemDataSource() {
+        return new MenuItemDataSource();
+    }
+
+    @Provides
+    @Singleton
+    CacheDataSource<String, MenuItem> provideMenuItemCacheDataSource() {
         return new InMemoryCacheDataSource<>(new TimeProvider(), TimeKt.getDays(1).getToMilliseconds());
     }
 }
