@@ -14,7 +14,7 @@ import org.jetbrains.anko.textColor
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SingleDateView(
+class ViewSingleDate(
         context: Context,
         attributes: AttributeSet
 ) : LinearLayout(context, attributes) {
@@ -25,12 +25,12 @@ class SingleDateView(
 
     init {
         LayoutInflater.from(context).inflate(R.layout.view_single_date, this)
-        context.theme.obtainStyledAttributes(attributes, R.styleable.SingleDateView, 0, 0).let {
+        context.theme.obtainStyledAttributes(attributes, R.styleable.ViewSingleDate, 0, 0).let {
             try {
-                it.getString(R.styleable.SingleDateView_date).let {
+                it.getString(R.styleable.ViewSingleDate_date).let {
                     setDate(if (it == null) Date() else dateInputFormat.parse(it))
                 }
-                setMode(it.getInteger(R.styleable.SingleDateView_mode, Mode.UNSELECTED))
+                setMode(it.getInteger(R.styleable.ViewSingleDate_mode, Mode.UNSELECTED))
             } finally {
                 it.recycle()
             }
