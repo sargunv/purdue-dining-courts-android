@@ -18,6 +18,6 @@ data class MenuItem(
         val name: String,
         @Json(name = "Nutrition")
         val nutrition: List<NutritionFact>
-): Identifiable<String> {
-        override fun getKey() = id
+) : Identifiable<String> {
+    override fun getKey() = id
 }

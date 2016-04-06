@@ -15,7 +15,6 @@ import me.sargunvohra.android.diningcourts.data.menu.DiningMenu
 import me.sargunvohra.android.diningcourts.extension.setEmptyAdapter
 import org.jetbrains.anko.error
 import org.jetbrains.anko.onClick
-import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
