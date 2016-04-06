@@ -19,7 +19,7 @@
         android:layout_gravity="center"
         android:textSize="12sp"
         android:textColor="@color/white"
-        tools:text="Mon"/>
+        tools:text="Day"/>
 
     <TextView
         android:id="@+id/dayOfMonth"
@@ -28,6 +28,6 @@
         android:layout_gravity="center"
         android:textSize="20sp"
         android:textColor="@color/white"
-        tools:text="10"/>
+        tools:text="00"/>
 
 </LinearLayout>
