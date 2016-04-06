@@ -37,10 +37,11 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
+        android:src="@drawable/icon_date"
         app:layout_anchor="@id/viewPager"
         app:layout_anchorGravity="bottom|end"/>
 
@@ -50,15 +51,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:tb_color="@color/accent"
-        app:tb_container_gravity="center"
+        app:tb_container_gravity="start"
         app:tb_anim_duration="400"
         app:tb_fab_type="normal"
         app:layout_behavior=".main.FabToolbarScrollBehavior">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello world!"/>
 
     </com.bowyer.app.fabtoolbar.FabToolbar>
 

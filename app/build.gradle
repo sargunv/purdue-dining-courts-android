@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "me.sargunvohra.android.diningcourts"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 30000
         versionName "3.0.0"
@@ -74,7 +74,9 @@ dependencies {
 
     //fab toolbar
     compile "com.bowyer.app:fab-toolbar:$fabtoolbar_version"
-    compile "com.github.ozodrukh:CircularReveal:1.1.1"
+
+    // circular reveal
+    compile "com.github.ozodrukh:CircularReveal:$circularreveal_version"
 }
 
 kapt {
@@ -94,6 +96,7 @@ buildscript {
         ktunits_version = '1.1.0'
         retrofit_version = '2.0.1'
         fabtoolbar_version = '1.1.0@aar'
+        circularreveal_version = '1.1.1'
     }
     repositories {
         mavenCentral()
