@@ -56,30 +56,10 @@
         app:tb_fab_type="normal"
         app:layout_behavior=".main.FabToolbarScrollBehavior">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <me.sargunvohra.android.diningcourts.main.datepicker.ViewSingleDate
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:date="04-03-2016"
-                app:mode="unselected"/>
-
-            <me.sargunvohra.android.diningcourts.main.datepicker.ViewSingleDate
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:date="04-04-2016"
-                app:mode="selected"/>
-
-            <me.sargunvohra.android.diningcourts.main.datepicker.ViewSingleDate
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:date="04-05-2016"
-                app:mode="unselected_today"/>
-
-        </LinearLayout>
+        <me.sargunvohra.android.diningcourts.main.datepicker.ViewDatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </com.bowyer.app.fabtoolbar.FabToolbar>
 

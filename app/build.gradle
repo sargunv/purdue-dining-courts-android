@@ -62,9 +62,6 @@ dependencies {
     // dagger
     kapt "com.squareup.dagger:dagger-compiler:$dagger_version"
 
-    // glide
-    compile "com.github.bumptech.glide:glide:$glide_version"
-
     // ktunits
     compile "me.sargunvohra.lib:KtUnits:$ktunits_version"
 
@@ -77,6 +74,9 @@ dependencies {
 
     // circular reveal
     compile "com.github.ozodrukh:CircularReveal:$circularreveal_version"
+
+    // khronos
+    compile "com.github.hotchemi:khronos:$khronos_version"
 }
 
 kapt {
@@ -92,11 +92,11 @@ buildscript {
         fragmentargs_version = '3.0.2'
         rosie_version = '2.1.0'
         dagger_version = '1.2.2'
-        glide_version = '3.7.0'
         ktunits_version = '1.1.0'
         retrofit_version = '2.0.1'
         fabtoolbar_version = '1.1.0@aar'
         circularreveal_version = '1.1.1'
+        khronos_version = '0.1.0'
     }
     repositories {
         mavenCentral()

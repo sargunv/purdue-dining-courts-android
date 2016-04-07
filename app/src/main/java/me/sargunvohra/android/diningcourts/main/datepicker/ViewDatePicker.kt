@@ -4,18 +4,41 @@ import android.content.Context
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
+import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import com.karumi.rosie.renderer.RosieRenderer
+import com.pedrogomez.renderers.ListAdapteeCollection
+import com.pedrogomez.renderers.RVRendererAdapter
+import com.pedrogomez.renderers.RendererBuilder
+import me.sargunvohra.android.diningcourts.extension.days
 import me.sargunvohra.android.diningcourts.extension.setEmptyAdapter
-import org.jetbrains.anko.matchParent
+import me.sargunvohra.android.diningcourts.extension.singleDateView
+import org.jetbrains.anko.UI
+import java.util.*
 
 class ViewDatePicker(
         context: Context,
-        attributes: AttributeSet
+        attributes: AttributeSet? = null
 ) : RecyclerView(context, attributes) {
 
     init {
-        layoutParams = ViewGroup.LayoutParams(matchParent, matchParent)
         layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         setEmptyAdapter()
+    }
+
+    fun applyDateRange(range: ClosedRange<Date>) {
+        val rb = RendererBuilder(object : RosieRenderer<Date>() {
+
+            lateinit var dateView: ViewSingleDate
+
+            override fun inflate(inflater: LayoutInflater, parent: ViewGroup): View = parent.context.UI {
+                dateView = singleDateView()
+            }.view
+
+            override fun render() = dateView.applyDate(content)
+        })
+        val adapter = RVRendererAdapter(rb, ListAdapteeCollection(range.days))
+        swapAdapter(adapter, false)
     }
 }

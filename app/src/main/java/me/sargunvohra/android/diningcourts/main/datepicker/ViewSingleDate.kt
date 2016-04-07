@@ -16,7 +16,7 @@ import java.util.*
 
 class ViewSingleDate(
         context: Context,
-        attributes: AttributeSet
+        attributes: AttributeSet? = null
 ) : LinearLayout(context, attributes) {
 
     private val dayNameFormat = SimpleDateFormat("EEE")
@@ -25,24 +25,26 @@ class ViewSingleDate(
 
     init {
         LayoutInflater.from(context).inflate(R.layout.view_single_date, this)
-        context.theme.obtainStyledAttributes(attributes, R.styleable.ViewSingleDate, 0, 0).let {
-            try {
-                it.getString(R.styleable.ViewSingleDate_date).let {
-                    setDate(if (it == null) Date() else dateInputFormat.parse(it))
+        if (attributes != null) {
+            context.theme.obtainStyledAttributes(attributes, R.styleable.ViewSingleDate, 0, 0).let {
+                try {
+                    it.getString(R.styleable.ViewSingleDate_date).let {
+                        applyDate(if (it == null) Date() else dateInputFormat.parse(it))
+                    }
+                    applyMode(it.getInteger(R.styleable.ViewSingleDate_mode, Mode.UNSELECTED))
+                } finally {
+                    it.recycle()
                 }
-                setMode(it.getInteger(R.styleable.ViewSingleDate_mode, Mode.UNSELECTED))
-            } finally {
-                it.recycle()
             }
         }
     }
 
-    fun setDate(date: Date) {
+    fun applyDate(date: Date) {
         dayOfWeek.text = dayNameFormat.format(date)
         dayOfMonth.text = dayNumFormat.format(date)
     }
 
-    fun setMode(mode: Int) {
+    fun applyMode(mode: Int) {
         when (mode) {
             Mode.UNSELECTED -> {
                 dayLayout.backgroundColor = ContextCompat.getColor(context, R.color.accent)

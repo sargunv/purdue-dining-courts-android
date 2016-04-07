@@ -2,6 +2,8 @@ package me.sargunvohra.android.diningcourts.main
 
 import android.os.Bundle
 import android.support.v4.view.ViewPager
+import khronos.week
+import khronos.weeks
 import kotlinx.android.synthetic.main.activity_main.*
 import me.sargunvohra.android.diningcourts.R
 import me.sargunvohra.android.diningcourts.base.BaseActivity
@@ -35,5 +37,9 @@ class MainActivity : BaseActivity() {
         viewPager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
             override fun onPageSelected(position: Int) = fabToolbar.slideInFab()
         })
+
+        // setup date picker
+        datePicker.applyDateRange(1.week.ago..2.weeks.since)
+        datePicker.scrollToPosition(7)
     }
 }
