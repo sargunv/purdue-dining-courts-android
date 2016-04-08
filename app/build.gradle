@@ -53,7 +53,7 @@ dependencies {
     compile "com.bowyer.app:fab-toolbar:$fabtoolbar_version"
     compile "com.github.ozodrukh:CircularReveal:$circularreveal_version"
     compile "com.github.hotchemi:khronos:$khronos_version"
-    compile "com.mikepenz:aboutlibraries:$aboutlibraries_version"
+    compile ("com.mikepenz:aboutlibraries:$aboutlibraries_version") { transitive = true }
 }
 
 kapt {
