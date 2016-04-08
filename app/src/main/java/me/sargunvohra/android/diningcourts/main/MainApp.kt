@@ -1,7 +1,7 @@
 package me.sargunvohra.android.diningcourts.main
 
 import com.karumi.rosie.application.RosieApplication
-import me.sargunvohra.android.diningcourts.config.dagger.AppModule
+import me.sargunvohra.android.diningcourts.dagger.AppModule
 import nl.komponents.kovenant.android.androidUiDispatcher
 import nl.komponents.kovenant.ui.KovenantUi
 

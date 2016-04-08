@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.config.dagger;
+package me.sargunvohra.android.diningcourts.dagger;
 
 import com.karumi.rosie.repository.datasource.CacheDataSource;
 import com.karumi.rosie.repository.datasource.InMemoryCacheDataSource;

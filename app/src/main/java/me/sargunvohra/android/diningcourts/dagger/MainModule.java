@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.config.dagger;
+package me.sargunvohra.android.diningcourts.dagger;
 
 import dagger.Module;
 import me.sargunvohra.android.diningcourts.main.MainActivity;

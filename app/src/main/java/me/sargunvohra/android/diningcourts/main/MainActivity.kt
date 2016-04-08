@@ -7,7 +7,7 @@ import khronos.weeks
 import kotlinx.android.synthetic.main.activity_main.*
 import me.sargunvohra.android.diningcourts.R
 import me.sargunvohra.android.diningcourts.base.BaseActivity
-import me.sargunvohra.android.diningcourts.config.dagger.MainModule
+import me.sargunvohra.android.diningcourts.dagger.MainModule
 import org.jetbrains.anko.onClick
 import java.util.*
 
