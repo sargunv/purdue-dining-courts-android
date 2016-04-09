@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="aboutLibraries_description_showIcon">true</string>
+    <string name="aboutLibraries_description_showVersion">true</string>
+    <string name="aboutLibraries_description_name">@string/app_name</string>
+    <string name="aboutLibraries_description_text">Alternative menu app for the dining courts at Purdue University.</string>
+
+    <string name="aboutLibraries_description_special1_name">Play Store</string>
+    <string name="aboutLibraries_description_special1_text">https://play.google.com/store/apps/details?id=me.sargunvohra.android.purduediningcourts</string>
+    <string name="aboutLibraries_description_special2_name">Support</string>
+    <string name="aboutLibraries_description_special2_text">https://github.com/sargunster/purdue-dining-courts-android/issues</string>
+    <string name="aboutLibraries_description_special3_name">Contribute</string>
+    <string name="aboutLibraries_description_special3_text">https://github.com/sargunster/purdue-dining-courts-android</string>
+
+    <string name="define_kotlin"/>
+    <string name="library_kotlin_author">Jetbrains</string>
+    <string name="library_kotlin_authorWebsite">https://www.jetbrains.com/</string>
+    <string name="library_kotlin_libraryName">Kotlin</string>
+    <string name="library_kotlin_libraryDescription">Statically typed programming language for the JVM, Android and the browser.</string>
+    <string name="library_kotlin_libraryWebsite">https://kotlinlang.org/</string>
+
+    <string name="define_anko"/>
+    <string name="library_anko_author">Kotlin</string>
+    <string name="library_anko_authorWebsite">https://github.com/Kotlin/</string>
+    <string name="library_anko_libraryName">Anko</string>
+    <string name="library_anko_libraryDescription">Anko is a library which makes Android application development faster and easier. </string>
+    <string name="library_anko_libraryWebsite">https://github.com/Kotlin/anko</string>
+
+    <string name="define_kovenant"/>
+    <string name="library_kovenant_author">Mark Platvoet</string>
+    <string name="library_kovenant_authorWebsite">http://mplatvoet.nl/</string>
+    <string name="library_kovenant_libraryName">Kovenant</string>
+    <string name="library_kovenant_libraryDescription">The easy asynchronous library for Kotlin. With extensions for Android, RxJava, JavaFX and much more.</string>
+    <string name="library_kovenant_libraryWebsite">https://github.com/mplatvoet/kovenant</string>
+
+    <string name="define_fragmentargs"/>
+    <string name="library_fragmentargs_author">Hannes Dorfmann</string>
+    <string name="library_fragmentargs_authorWebsite">http://hannesdorfmann.com/</string>
+    <string name="library_fragmentargs_libraryName">FragmentArgs</string>
+    <string name="library_fragmentargs_libraryDescription">Annotation Processor to create arguments for android fragments without using reflection.</string>
+    <string name="library_fragmentargs_libraryWebsite">http://hannesdorfmann.com/android/fragmentargs</string>
+
+    <string name="define_rosie"/>
+    <string name="library_rosie_author">Karumi</string>
+    <string name="library_rosie_authorWebsite">http://www.karumi.com/</string>
+    <string name="library_rosie_libraryName">Rosie</string>
+    <string name="library_rosie_libraryDescription">Rosie is an Android framework to create applications following the principles of Clean Architecture.</string>
+    <string name="library_rosie_libraryWebsite">https://github.com/Karumi/Rosie</string>
+
+    <string name="define_ktunits"/>
+    <string name="library_ktunits_author">Sargun Vohra</string>
+    <string name="library_ktunits_authorWebsite">http://sargunvohra.me/</string>
+    <string name="library_ktunits_libraryName">KtUnits</string>
+    <string name="library_ktunits_libraryDescription">Simple unit conversion library for Kotlin.</string>
+    <string name="library_ktunits_libraryWebsite">https://github.com/sargunster/ktunits</string>
+
+    <string name="define_fabtoolbar"/>
+    <string name="library_fabtoolbar_author">bowyer-app</string>
+    <string name="library_fabtoolbar_authorWebsite">http://kyudo-bowyer.com/</string>
+    <string name="library_fabtoolbar_libraryName">FAB Toolbar</string>
+    <string name="library_fabtoolbar_libraryDescription">Provides the Floating Action Button Toolbar as specified in the Material Design Guide in a simple library.</string>
+    <string name="library_fabtoolbar_libraryWebsite">https://github.com/bowyer-app/fab-toolbar</string>
+
+    <string name="define_khronos"/>
+    <string name="library_khronos_author">Shintaro Katafuchi</string>
+    <string name="library_khronos_authorWebsite">http://hotchemi.github.io/</string>
+    <string name="library_khronos_libraryName">Khronos</string>
+    <string name="library_khronos_libraryDescription">An intuitive Date extensions in Kotlin.</string>
+    <string name="library_khronos_libraryWebsite">http://hotchemi.github.io/khronos</string>
+
+    <string name="define_renderers"/>
+    <string name="library_renderers_author">pedrovgs</string>
+    <string name="library_renderers_authorWebsite">https://github.com/pedrovgs</string>
+    <string name="library_renderers_libraryName">Renderers</string>
+    <string name="library_renderers_libraryDescription">Renderers is an easy way to work with android ListView/RecyclerView and Adapter classes.</string>
+    <string name="library_renderers_libraryWebsite">https://github.com/pedrovgs/Renderers</string>
+
+</resources>

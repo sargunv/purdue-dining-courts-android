@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.view.Menu
 import android.view.MenuItem
+import com.mikepenz.aboutlibraries.Libs
+import com.mikepenz.aboutlibraries.LibsBuilder
 import khronos.week
 import khronos.weeks
 import kotlinx.android.synthetic.main.activity_main.*
 import me.sargunvohra.android.diningcourts.R
+import me.sargunvohra.android.diningcourts.about.AboutLibsListener
 import me.sargunvohra.android.diningcourts.base.BaseActivity
 import me.sargunvohra.android.diningcourts.dagger.MainModule
 import org.jetbrains.anko.onClick
@@ -53,6 +56,16 @@ class MainActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_about -> {
+                LibsBuilder().apply {
+                    activityStyle = Libs.ActivityStyle.LIGHT_DARK_TOOLBAR
+                    activityTheme = R.style.AppTheme
+                    autoDetect = false
+                    withListener(AboutLibsListener())
+                    withLibraries(
+                            "dagger",
+                            "retrofit"
+                    )
+                }.start(this)
                 true
             }
             else -> super.onOptionsItemSelected(item)
