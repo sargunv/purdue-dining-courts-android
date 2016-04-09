@@ -2,6 +2,8 @@ package me.sargunvohra.android.diningcourts.main
 
 import android.os.Bundle
 import android.support.v4.view.ViewPager
+import android.view.Menu
+import android.view.MenuItem
 import khronos.week
 import khronos.weeks
 import kotlinx.android.synthetic.main.activity_main.*
@@ -41,5 +43,19 @@ class MainActivity : BaseActivity() {
         // setup date picker
         datePicker.applyDateRange(1.week.ago..2.weeks.since)
         datePicker.scrollToPosition(7)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.toolbar, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_about -> {
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
