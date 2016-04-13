@@ -39,8 +39,8 @@ class AboutLibsListener() : LibsConfiguration.LibsListener {
 
     override fun onLibraryContentLongClicked(v: View, lib: Library) = launch(v, lib.libraryWebsite)
 
-    override fun onLibraryBottomClicked(v: View, lib: Library) = false
+    override fun onLibraryBottomClicked(v: View, lib: Library) = launch(v, lib.license.licenseWebsite)
 
-    override fun onLibraryBottomLongClicked(v: View, lib: Library) = false
+    override fun onLibraryBottomLongClicked(v: View, lib: Library) = launch(v, lib.license.licenseWebsite)
 
 }
