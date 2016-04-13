@@ -1,5 +1,8 @@
 package me.sargunvohra.android.diningcourts.extension
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.view.ViewManager
@@ -28,3 +31,13 @@ inline fun ViewManager.singleDateView(init: ViewSingleDate.() -> Unit) = ankoVie
 
 fun ViewManager.datePickerView() = datePickerView {}
 inline fun ViewManager.datePickerView(init: ViewDatePicker.() -> Unit) = ankoView({ ViewDatePicker(it) }, init)
+
+val Context.activity: Activity get() {
+    var ctx = this
+    while (ctx is ContextWrapper) {
+        if (ctx is Activity)
+            return ctx
+        ctx = ctx.baseContext
+    }
+    throw IllegalStateException()
+}
