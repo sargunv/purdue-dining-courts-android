@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.main
+package me.sargunvohra.android.diningcourts.feature.main
 
 import android.os.Bundle
 import android.support.v4.view.ViewPager
@@ -10,7 +10,7 @@ import khronos.week
 import khronos.weeks
 import kotlinx.android.synthetic.main.activity_main.*
 import me.sargunvohra.android.diningcourts.R
-import me.sargunvohra.android.diningcourts.about.AboutLibsListener
+import me.sargunvohra.android.diningcourts.feature.about.AboutLibsListener
 import me.sargunvohra.android.diningcourts.base.BaseActivity
 import me.sargunvohra.android.diningcourts.dagger.MainModule
 import org.jetbrains.anko.onClick

@@ -6,7 +6,7 @@
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.MainActivity">
+    tools:context=".feature.main.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -55,9 +55,9 @@
         app:tb_container_gravity="start"
         app:tb_anim_duration="400"
         app:tb_fab_type="normal"
-        app:layout_behavior=".main.FabToolbarScrollBehavior">
+        app:layout_behavior=".component.FabToolbarScrollBehavior">
 
-        <me.sargunvohra.android.diningcourts.main.datepicker.ViewDatePicker
+        <me.sargunvohra.android.diningcourts.component.datepicker.ViewDatePicker
             android:id="@+id/datePicker"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

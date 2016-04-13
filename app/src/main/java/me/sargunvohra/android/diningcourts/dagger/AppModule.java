@@ -13,7 +13,7 @@ import me.sargunvohra.android.diningcourts.data.item.MenuItem;
 import me.sargunvohra.android.diningcourts.data.item.MenuItemDataSource;
 import me.sargunvohra.android.diningcourts.data.menu.DiningMenu;
 import me.sargunvohra.android.diningcourts.data.menu.DiningMenuDataSource;
-import me.sargunvohra.android.diningcourts.main.MainApp;
+import me.sargunvohra.android.diningcourts.MainApp;
 import me.sargunvohra.lib.ktunits.TimeKt;
 
 @Module(

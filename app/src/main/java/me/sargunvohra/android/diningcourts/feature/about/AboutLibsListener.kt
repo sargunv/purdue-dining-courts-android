@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.about
+package me.sargunvohra.android.diningcourts.feature.about
 
 import android.content.Intent
 import android.net.Uri

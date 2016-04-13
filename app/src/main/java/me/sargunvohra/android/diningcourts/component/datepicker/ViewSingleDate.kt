@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.main.datepicker
+package me.sargunvohra.android.diningcourts.component.datepicker
 
 import android.content.Context
 import android.graphics.Typeface

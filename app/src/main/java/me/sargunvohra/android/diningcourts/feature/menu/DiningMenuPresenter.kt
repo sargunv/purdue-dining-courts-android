@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.menu
+package me.sargunvohra.android.diningcourts.feature.menu
 
 import com.karumi.rosie.domain.usecase.UseCaseHandler
 import com.karumi.rosie.view.loading.RosiePresenterWithLoading

@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.main
+package me.sargunvohra.android.diningcourts
 
 import com.karumi.rosie.application.RosieApplication
 import me.sargunvohra.android.diningcourts.dagger.AppModule

@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.menu
+package me.sargunvohra.android.diningcourts.feature.menu
 
 import me.sargunvohra.android.diningcourts.data.menu.DiningMenu
 import java.util.*

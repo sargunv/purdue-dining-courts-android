@@ -1,8 +1,8 @@
 package me.sargunvohra.android.diningcourts.dagger;
 
 import dagger.Module;
-import me.sargunvohra.android.diningcourts.main.MainActivity;
-import me.sargunvohra.android.diningcourts.menu.DiningMenuFragment;
+import me.sargunvohra.android.diningcourts.feature.main.MainActivity;
+import me.sargunvohra.android.diningcourts.feature.menu.DiningMenuFragment;
 
 @Module(
         library = true,

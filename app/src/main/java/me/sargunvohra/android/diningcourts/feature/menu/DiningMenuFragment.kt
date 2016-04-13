@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.menu
+package me.sargunvohra.android.diningcourts.feature.menu
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager

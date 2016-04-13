@@ -6,8 +6,8 @@ import android.view.ViewManager
 import khronos.beginningOfDay
 import khronos.day
 import khronos.plus
-import me.sargunvohra.android.diningcourts.main.datepicker.ViewDatePicker
-import me.sargunvohra.android.diningcourts.main.datepicker.ViewSingleDate
+import me.sargunvohra.android.diningcourts.component.datepicker.ViewDatePicker
+import me.sargunvohra.android.diningcourts.component.datepicker.ViewSingleDate
 import org.jetbrains.anko.custom.ankoView
 import java.util.*
 

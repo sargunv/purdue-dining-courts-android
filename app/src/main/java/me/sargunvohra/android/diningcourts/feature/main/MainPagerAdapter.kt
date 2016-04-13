@@ -1,9 +1,9 @@
-package me.sargunvohra.android.diningcourts.main
+package me.sargunvohra.android.diningcourts.feature.main
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import me.sargunvohra.android.diningcourts.menu.DiningMenuFragmentBuilder
+import me.sargunvohra.android.diningcourts.feature.menu.DiningMenuFragmentBuilder
 import java.util.*
 
 class MainPagerAdapter(fm: FragmentManager, private val date: Date) : FragmentPagerAdapter(fm) {

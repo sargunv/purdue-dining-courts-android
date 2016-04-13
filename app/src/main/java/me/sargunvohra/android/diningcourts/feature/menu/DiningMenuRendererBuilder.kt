@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.menu
+package me.sargunvohra.android.diningcourts.feature.menu
 
 import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
