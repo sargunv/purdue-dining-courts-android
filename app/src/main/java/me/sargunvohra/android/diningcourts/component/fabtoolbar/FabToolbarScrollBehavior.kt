@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.component
+package me.sargunvohra.android.diningcourts.component.fabtoolbar
 
 import android.content.Context
 import android.support.design.widget.CoordinatorLayout

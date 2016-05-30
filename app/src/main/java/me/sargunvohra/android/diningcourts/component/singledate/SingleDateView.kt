@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.component.datepicker
+package me.sargunvohra.android.diningcourts.component.singledate
 
 import android.content.Context
 import android.graphics.Typeface
@@ -14,7 +14,7 @@ import org.jetbrains.anko.textColor
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ViewSingleDate(
+class SingleDateView(
         context: Context,
         attributes: AttributeSet? = null
 ) : LinearLayout(context, attributes) {
@@ -26,16 +26,21 @@ class ViewSingleDate(
     init {
         LayoutInflater.from(context).inflate(R.layout.view_single_date, this)
         if (attributes != null) {
-            context.theme.obtainStyledAttributes(attributes, R.styleable.ViewSingleDate, 0, 0).let {
+            context.theme.obtainStyledAttributes(attributes, R.styleable.SingleDateView, 0, 0).let {
                 try {
-                    it.getString(R.styleable.ViewSingleDate_date).let {
+                    it.getString(R.styleable.SingleDateView_date).let {
                         applyDate(if (it == null) Date() else dateInputFormat.parse(it))
                     }
-                    applyMode(it.getInteger(R.styleable.ViewSingleDate_mode, Mode.UNSELECTED))
+
+                    val modeInt = it.getInteger(R.styleable.SingleDateView_mode, Mode.UNSELECTED.ordinal)
+                    applyMode(Mode.values()[modeInt])
                 } finally {
                     it.recycle()
                 }
             }
+        } else {
+            applyDate(Date())
+            applyMode(Mode.UNSELECTED)
         }
     }
 
@@ -44,7 +49,7 @@ class ViewSingleDate(
         dayOfMonth.text = dayNumFormat.format(date)
     }
 
-    fun applyMode(mode: Int) {
+    fun applyMode(mode: Mode) {
         when (mode) {
             Mode.UNSELECTED -> {
                 dayLayout.backgroundColor = ContextCompat.getColor(context, R.color.accent)
@@ -66,16 +71,14 @@ class ViewSingleDate(
                 dayLayout.backgroundColor = ContextCompat.getColor(context, R.color.accent_light)
                 listOf(dayOfMonth, dayOfWeek).forEach {
                     it.textColor = ContextCompat.getColor(context, R.color.primary_text)
-                    it.typeface = Typeface.DEFAULT
+                    it.typeface = Typeface.DEFAULT_BOLD
                     it.gravity = Gravity.CENTER_HORIZONTAL
                 }
             }
         }
     }
 
-    companion object Mode {
-        val UNSELECTED = 0
-        val UNSELECTED_TODAY = 1
-        val SELECTED = 2
+    enum class Mode {
+        UNSELECTED, UNSELECTED_TODAY, SELECTED
     }
 }

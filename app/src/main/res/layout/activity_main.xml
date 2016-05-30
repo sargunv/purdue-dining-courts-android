@@ -55,9 +55,9 @@
         app:tb_container_gravity="start"
         app:tb_anim_duration="400"
         app:tb_fab_type="normal"
-        app:layout_behavior=".component.FabToolbarScrollBehavior">
+        app:layout_behavior=".component.fabtoolbar.FabToolbarScrollBehavior">
 
-        <me.sargunvohra.android.diningcourts.component.datepicker.ViewDatePicker
+        <me.sargunvohra.android.diningcourts.component.datepicker.DatePickerView
             android:id="@+id/datePicker"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

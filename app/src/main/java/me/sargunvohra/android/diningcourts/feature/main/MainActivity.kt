@@ -13,6 +13,7 @@ import me.sargunvohra.android.diningcourts.R
 import me.sargunvohra.android.diningcourts.feature.about.AboutLibsListener
 import me.sargunvohra.android.diningcourts.base.BaseActivity
 import me.sargunvohra.android.diningcourts.dagger.MainModule
+import org.jetbrains.anko.info
 import org.jetbrains.anko.onClick
 import java.util.*
 
@@ -46,6 +47,10 @@ class MainActivity : BaseActivity() {
         // setup date picker
         datePicker.applyDateRange(1.week.ago..2.weeks.since)
         datePicker.scrollToPosition(7)
+        datePicker.selectItem(7)
+        datePicker.addItemClickListener {
+            datePicker.selectItem(it.index)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
