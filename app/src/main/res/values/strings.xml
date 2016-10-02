@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">Dining Courts</string>
-    <string name="error_connection">Can\'t load results</string>
-    <string name="retry">Try again</string>
-    <string name="about">About</string>
 </resources>
