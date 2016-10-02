@@ -14,8 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="?attr/popupTheme"
-            app:layout_scrollFlags="scroll|enterAlways"/>
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="?attr/popupTheme"/>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -36,6 +36,10 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="bottom"
+        app:bb_activeTabColor="#ffffff"
+        app:bb_inActiveTabColor="#ffffff"
+        app:bb_activeTabAlpha="1"
+        app:bb_inActiveTabAlpha=".7"
         app:bb_behavior="shy"
         app:bb_tabXmlResource="@xml/bottombar_tabs" />
 
