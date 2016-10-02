@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_dining"
+        icon="@drawable/ic_tab_dining"
+        title="Dining Courts"/>
+    <tab
+        id="@+id/tab_restaurants"
+        icon="@drawable/ic_tab_restaurants"
+        title="Restaurants"/>
+    <tab
+        id="@+id/tab_settings"
+        icon="@drawable/ic_tab_settings"
+        title="Settings"/>
+</tabs>
