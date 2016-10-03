@@ -4,15 +4,15 @@
         id="@+id/tab_dining"
         icon="@drawable/ic_tab_dining"
         barColorWhenSelected="@color/primary_dining"
-        title="Dining Courts"/>
+        title="@string/tab_dining"/>
     <tab
         id="@+id/tab_restaurants"
         icon="@drawable/ic_tab_restaurants"
         barColorWhenSelected="@color/primary_restaurants"
-        title="Restaurants"/>
+        title="@string/tab_restaurants"/>
     <tab
         id="@+id/tab_settings"
         icon="@drawable/ic_tab_settings"
         barColorWhenSelected="@color/primary_settings"
-        title="Settings"/>
+        title="@string/tab_settings"/>
 </tabs>

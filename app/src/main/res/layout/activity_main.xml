@@ -12,8 +12,9 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
+            android:fitsSystemWindows="true"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="?attr/popupTheme"/>
 
@@ -40,7 +41,7 @@
         app:bb_inActiveTabColor="#ffffff"
         app:bb_activeTabAlpha="1"
         app:bb_inActiveTabAlpha=".7"
-        app:bb_behavior="shy"
+        app:bb_behavior="shy|shifting"
         app:bb_tabXmlResource="@xml/bottombar_tabs" />
 
 </android.support.design.widget.CoordinatorLayout>
