@@ -39,4 +39,7 @@ dependencies {
     provided 'javax.annotation:jsr250-api:1.0'
 
     compile 'com.roughike:bottom-bar:2.0.2'
+
+    compile 'com.hannesdorfmann.fragmentargs:annotation:3.0.2'
+    apt 'com.hannesdorfmann.fragmentargs:processor:3.0.2'
 }

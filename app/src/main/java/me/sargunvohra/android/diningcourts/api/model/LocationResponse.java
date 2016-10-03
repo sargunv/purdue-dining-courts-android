@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.api;
+package me.sargunvohra.android.diningcourts.api.model;
 
 import com.google.gson.annotations.SerializedName;
 

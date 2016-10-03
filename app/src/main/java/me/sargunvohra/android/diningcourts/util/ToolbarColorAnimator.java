@@ -1,4 +1,4 @@
-package me.sargunvohra.android.diningcourts.main;
+package me.sargunvohra.android.diningcourts.util;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
